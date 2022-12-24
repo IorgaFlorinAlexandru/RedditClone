@@ -1,0 +1,7 @@
+﻿<Properties StartupConfiguration="{E1C55B68-41E1-427C-8BEE-6CD4E29C9143}|https" GitUserInfo="UsingGIT">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Application FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Infrastructure FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Domain FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Firefox.app" FirstBuild="True" />
+</Properties>
