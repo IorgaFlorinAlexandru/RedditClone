@@ -1,7 +1,47 @@
 ﻿<Properties StartupConfiguration="{E1C55B68-41E1-427C-8BEE-6CD4E29C9143}|https" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Application FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Infrastructure FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Domain FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Firefox.app" FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Api/Controllers/ApiControllerBase.cs">
+    <Files>
+      <File FileName="Api/Controllers/ApiControllerBase.cs" Line="19" Column="111" />
+      <File FileName="Api/Controllers/PostController.cs" Line="10" Column="2" />
+      <File FileName="Application/Posts/Commands/CreatePost/CreatePostCommand.cs" Line="37" Column="28" />
+      <File FileName="Application/Posts/Commands/CreatePost/CreatePostCommandValidator.cs" Line="12" Column="17" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RedditClone" expanded="True">
+            <Node name="Api" expanded="True">
+              <Node name="Controllers" expanded="True" />
+            </Node>
+            <Node name="Application" expanded="True">
+              <Node name="Common" expanded="True">
+                <Node name="Behaviours" expanded="True" />
+              </Node>
+              <Node name="Posts" expanded="True">
+                <Node name="Commands" expanded="True">
+                  <Node name="CreatePost" expanded="True">
+                    <Node name="CreatePostCommand.cs" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Domain" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Entities" expanded="True" />
+            </Node>
+            <Node name="Infrastructure" expanded="True">
+              <Node name="Persistence" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Firefox.app" />
 </Properties>
