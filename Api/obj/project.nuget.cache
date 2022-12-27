@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sy3pcdj/HxH0BjEzkMgQ105Jzs4m6slFz+d0C5KPNh6hMvSXx3M/WyKzLEksrGYbhAC6RGUFa4MmLt3TGAGyfw==",
+  "dgSpecHash": "2tbanwn0UMVeYE5xhaOcvMW8SA+acq9s8/L+LAKriOBQH2ATurv8cbzT+cZAi3SKAvSFqJXoMdv1OXWRWdWNug==",
   "success": true,
   "projectFilePath": "/Users/alexandru/Desktop/Projects/RedditClone/Api/Api.csproj",
   "expectedPackageFiles": [
@@ -57,6 +57,9 @@
     "/Users/alexandru/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
     "/Users/alexandru/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/alexandru/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/alexandru/.nuget/packages/nlog/5.1.0/nlog.5.1.0.nupkg.sha512",
+    "/Users/alexandru/.nuget/packages/nlog.config/4.7.15/nlog.config.4.7.15.nupkg.sha512",
+    "/Users/alexandru/.nuget/packages/nlog.schema/4.7.15/nlog.schema.4.7.15.nupkg.sha512",
     "/Users/alexandru/.nuget/packages/npgsql/7.0.1/npgsql.7.0.1.nupkg.sha512",
     "/Users/alexandru/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.1/npgsql.entityframeworkcore.postgresql.7.0.1.nupkg.sha512",
     "/Users/alexandru/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

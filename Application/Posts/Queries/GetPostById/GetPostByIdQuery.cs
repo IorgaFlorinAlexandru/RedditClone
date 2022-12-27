@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Posts.Queries.GetPostById
 {
-    public record GetPostByIdQuery : IRequest<Post>
+    public record GetPostByIdQuery : IRequest<PostDTO>
 	{
 		public int Id { get; set; }
 	}
 
-    public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, Post>
+    public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, PostDTO>
     {
         private readonly IApplicationDbContext _context;
 
@@ -20,15 +20,15 @@ namespace Application.Posts.Queries.GetPostById
             _context = context;
         }
 
-        public async Task<Post> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
+        public async Task<PostDTO> Handle(GetPostByIdQuery request, CancellationToken cancellationToken)
         {
             var post = await _context.Posts.FirstOrDefaultAsync(p => p.Id == request.Id);
 
             if (post == null) throw new NotFoundException(nameof(Post), request.Id.ToString());
 
-            //TODO IF TRASHED THROW EXCEPTION
+            if (post.isTrashed) throw new NotFoundException(nameof(Post), request.Id.ToString()); //TODO MAYBE MAKE CUSTOM EXCEPTION
 
-            return post;
+            return new PostDTO(post);
         }
     }
 }

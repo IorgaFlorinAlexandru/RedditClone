@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Common.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +18,10 @@ namespace Api.Controllers
         private ISender _mediator = null!;
 
         protected ISender Mediator => _mediator ??= HttpContext.RequestServices.GetRequiredService<ISender>();
+
+        private ILoggingService _logger = null!;
+
+        protected ILoggingService Logger => _logger ??= HttpContext.RequestServices.GetRequiredService<ILoggingService>();
     }
 }
 

@@ -77,3 +77,5 @@
 /Users/alexandru/Desktop/Projects/RedditClone/Api/bin/Debug/net7.0/Application.pdb
 /Users/alexandru/Desktop/Projects/RedditClone/Api/bin/Debug/net7.0/Infrastructure.pdb
 /Users/alexandru/Desktop/Projects/RedditClone/Api/bin/Debug/net7.0/Domain.pdb
+/Users/alexandru/Desktop/Projects/RedditClone/Api/bin/Debug/net7.0/NLog.dll
+/Users/alexandru/Desktop/Projects/RedditClone/Api/bin/Debug/net7.0/NLog.config

@@ -1,4 +1,7 @@
 ﻿using System;
+using Api.Services;
+using Application.Common.Interfaces;
+
 namespace Api.Configurations
 {
 	public static class ConfigureServices
@@ -14,6 +17,8 @@ namespace Api.Configurations
                         .AllowAnyHeader()
                         .AllowCredentials());
             });
+
+            services.AddTransient<ILoggingService,NlogService>();
 
             return services;
 		}

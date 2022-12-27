@@ -16,6 +16,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="MediatR" Version="11.1.0" />
+    <PackageReference Include="NLog" Version="5.1.0" />
+    <PackageReference Include="NLog.Config" Version="4.7.15" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,11 +26,15 @@
     <None Remove="Hubs\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="MediatR" />
+    <None Remove="Services\" />
+    <None Remove="NLog" />
+    <None Remove="NLog.Config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configurations\" />
     <Folder Include="Controllers\" />
     <Folder Include="Hubs\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj">

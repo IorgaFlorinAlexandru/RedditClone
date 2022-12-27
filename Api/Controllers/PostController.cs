@@ -12,8 +12,6 @@ using Application.Posts.Queries.GetPostById;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Api.Controllers
 {
     public class PostController : ApiControllerBase
@@ -30,13 +28,14 @@ namespace Api.Controllers
             }
             catch(Exception e)
             {
+                Logger.LogError(e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> Get(int id)
+        public async Task<ActionResult<PostDTO>> Get(int id)
         {
             try
             {
@@ -46,10 +45,12 @@ namespace Api.Controllers
             }
             catch(NotFoundException e)
             {
+                Logger.LogInfo(e.Message);
                 return NotFound(e.Message);
             }
             catch(Exception e)
             {
+                Logger.LogError($"Crashed when trying to get a post with Id: {id}\n",e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
         }
@@ -66,10 +67,12 @@ namespace Api.Controllers
             }
             catch(ValidationException e)
             {
+                Logger.LogInfo(e.Message);
                 return BadRequest(new RequestResponse(e.Message, e.Errors));
             }
             catch (Exception e)
             {
+                Logger.LogError(e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
         }
@@ -88,14 +91,17 @@ namespace Api.Controllers
             }
             catch(ValidationException e)
             {
+                Logger.LogInfo(e.Message);
                 return BadRequest(new RequestResponse(e.Message, e.Errors));
             }
             catch(NotFoundException e)
             {
+                Logger.LogInfo(e.Message);
                 return NotFound(e.Message);
             }
             catch(Exception e)
             {
+                Logger.LogError(e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
         }
@@ -112,10 +118,12 @@ namespace Api.Controllers
             }
             catch(NotFoundException e)
             {
+                Logger.LogInfo(e.Message);
                 return NotFound(e.Message);
             }
             catch(Exception e)
             {
+                Logger.LogError(e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
         }
@@ -132,10 +140,12 @@ namespace Api.Controllers
             }
             catch (NotFoundException e)
             {
+                Logger.LogInfo(e.Message);
                 return NotFound(e.Message);
             }
             catch (Exception e)
             {
+                Logger.LogError(e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
         }
