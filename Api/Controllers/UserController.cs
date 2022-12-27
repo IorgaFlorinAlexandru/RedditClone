@@ -27,11 +27,12 @@ namespace Api.Controllers
             }
             catch (UnsuccessfulRequestException e)
             {
+                Logger.LogInfo(e.Message);
                 return StatusCode(400, e.Message);
             }
             catch (Exception e)
             {
-                //LOG THE DETAILS OF THE EXCEPTION
+                Logger.LogError(e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
         }
@@ -48,15 +49,17 @@ namespace Api.Controllers
             }
             catch (UserNotFoundException e)
             {
+                Logger.LogInfo(e.ERROR_MESSAGE,e);
                 return StatusCode(400, e.ERROR_MESSAGE);
             }
             catch (WrongPasswordException e)
             {
+                Logger.LogInfo(e.Message);
                 return StatusCode(400, e.Message);
             }
             catch (Exception e)
             {
-                //LOG THE DETAILS OF THE EXCEPTION
+                Logger.LogError(e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
         }
