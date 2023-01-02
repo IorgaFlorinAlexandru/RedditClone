@@ -22,11 +22,7 @@
 
     <section class="auth">
         <div *ngIf="!isAuthenticated" class="auth-buttons">
-            <button class="bg-[#edeff1] text-black w-28 rounded-full
-                hover:bg-gray-300 mr-4 h-8 font-bold text-sm">Get App</button>
-            <button class="bg-[#ff4500] w-28 rounded-full
-                hover:bg-orange-500 h-8 font-bold text-sm mr-4">Log In</button>
-            <button>Another one</button>
+            <app-auth-menu></app-auth-menu>
         </div>
         <div *ngIf="isAuthenticated" class="auth-profile">
             <h2>b</h2>

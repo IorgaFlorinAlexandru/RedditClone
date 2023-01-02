@@ -38,6 +38,7 @@
     <None Remove="Posts\Commands\EditPost\" />
     <None Remove="Posts\Commands\DeletePost\" />
     <None Remove="Posts\Commands\VotePost\" />
+    <None Remove="Posts\Queries\GetSortedPosts\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
@@ -66,6 +67,7 @@
     <Folder Include="Posts\Commands\EditPost\" />
     <Folder Include="Posts\Commands\DeletePost\" />
     <Folder Include="Posts\Commands\VotePost\" />
+    <Folder Include="Posts\Queries\GetSortedPosts\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="11.1.0" />

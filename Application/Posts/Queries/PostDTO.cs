@@ -8,6 +8,7 @@ namespace Application.Posts.Queries
 		public int Id { get; set; }
 		public string Title { get; set; } = string.Empty;
 		public string OptionalText { get; set; } = string.Empty;
+		public int Upvotes { get; set; }
 
 		public DateTime PostedAt { get; set; }
 		public bool HasBeenEdited { get; set; } = false;
@@ -16,7 +17,8 @@ namespace Application.Posts.Queries
 		{
 			Id = post.Id;
 			Title = post.Title;
-			OptionalText = OptionalText;
+			OptionalText = post.OptionalText;
+			Upvotes = post.Upvotes;
 
 			PostedAt = post.PostedAt;
 			if (post.ModifiedAt != null) HasBeenEdited = true;

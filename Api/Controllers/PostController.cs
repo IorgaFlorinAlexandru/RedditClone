@@ -10,6 +10,7 @@ using Application.Posts.Commands.EditPost;
 using Application.Posts.Commands.VotePost;
 using Application.Posts.Queries;
 using Application.Posts.Queries.GetPostById;
+using Application.Posts.Queries.GetSortedPosts;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,13 +26,19 @@ namespace Api.Controllers
             {
                 var posts = await Mediator.Send(new GetAllPostsQuery());
 
-                return posts;
+                return Ok(posts);
             }
             catch(Exception e)
             {
                 Logger.LogError(e);
                 return StatusCode(500, SERVER_ERROR_MESSAGE);
             }
+        }
+
+        [HttpGet("getPosts")]
+        public async Task<ActionResult<PostDTO[]>> GetPosts()
+        {
+            return Ok(await Mediator.Send(new GetSortedPostsQuery()));
         }
 
         // GET api/values/5
