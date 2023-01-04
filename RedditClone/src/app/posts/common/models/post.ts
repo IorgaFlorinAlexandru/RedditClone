@@ -5,4 +5,5 @@ export class Post{
     public upvotes : number = 0;
     public postedAt : string = "";
     public hasBeenEdited : boolean = false;
+    public comments : number = 0;
 }

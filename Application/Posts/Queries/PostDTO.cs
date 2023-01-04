@@ -9,6 +9,7 @@ namespace Application.Posts.Queries
 		public string Title { get; set; } = string.Empty;
 		public string OptionalText { get; set; } = string.Empty;
 		public int Upvotes { get; set; }
+		public int Comments { get; set; } = 0;
 
 		public DateTime PostedAt { get; set; }
 		public bool HasBeenEdited { get; set; } = false;
