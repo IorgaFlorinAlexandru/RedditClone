@@ -3,7 +3,7 @@ import { Post } from '../../common/models/post';
 import { PostService } from '../../services/post.service';
 
 @Component({
-  selector: 'app-post-list',
+  selector: 'PostList',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })

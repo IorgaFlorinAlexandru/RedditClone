@@ -20,3 +20,4 @@ Infrastructure/obj/Debug/net7.0/Infrastructure.dll
 Infrastructure/obj/Debug/net7.0/Infrastructure.pdb
 .vs/RedditClone/xs/project-cache/Api-Debug.json
 .vs/RedditClone/xs/UserPrefs.xml
+Api/bin/Debug/net7.0/Api.dll

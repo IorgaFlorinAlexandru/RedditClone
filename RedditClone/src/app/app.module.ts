@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostsModule } from './posts/posts.module';
 
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { SubredditsModule } from './subreddits/subreddits.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     NavbarComponent,
-    PostsModule //TODO REMOVE
+    SubredditsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
