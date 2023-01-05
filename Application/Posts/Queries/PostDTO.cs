@@ -11,6 +11,9 @@ namespace Application.Posts.Queries
 		public int Upvotes { get; set; }
 		public int Comments { get; set; } = 0;
 
+		public string OriginalPoster { get; set; } = string.Empty;
+		public string PosterId { get; set; } = string.Empty;
+
 		public DateTime PostedAt { get; set; }
 		public bool HasBeenEdited { get; set; } = false;
 
@@ -20,6 +23,8 @@ namespace Application.Posts.Queries
 			Title = post.Title;
 			OptionalText = post.OptionalText;
 			Upvotes = post.Upvotes;
+
+			OriginalPoster = "deleted";
 
 			PostedAt = post.PostedAt;
 			if (post.ModifiedAt != null) HasBeenEdited = true;

@@ -6,4 +6,7 @@ export class Post{
     public postedAt : string = "";
     public hasBeenEdited : boolean = false;
     public comments : number = 0;
+
+    public originalPoster : string = "";
+    public posterId : string = ""; 
 }
