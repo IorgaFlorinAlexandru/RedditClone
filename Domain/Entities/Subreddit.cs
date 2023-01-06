@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Domain.Entities
 {
-	public class Subreddit
+	public sealed class Subreddit
 	{
 		public int Id { get; set; }
 		public string Name { get; set; } = string.Empty;

@@ -7,6 +7,8 @@ namespace Application.Common.Interfaces
     {
         DbSet<Post> Posts { get; }
 
+        DbSet<Subreddit> Subreddits { get; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

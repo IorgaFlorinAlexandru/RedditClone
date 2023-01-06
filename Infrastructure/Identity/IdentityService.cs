@@ -54,6 +54,10 @@ namespace Infrastructure.Identity
 
         public string CreateBearerToken(string userId)
         {
+            var key = _configuration.GetValue<string>("JWTConfig:secret");
+
+            if (key == null) throw new Exception("No JWT Key in appsettings.json.");
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
@@ -61,7 +65,7 @@ namespace Infrastructure.Identity
                     new Claim("UserID",userId)
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JWTConfig:secret"))), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)), SecurityAlgorithms.HmacSha256Signature)
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             var securityToken = tokenHandler.CreateToken(tokenDescriptor);
