@@ -1,17 +1,17 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{E1C55B68-41E1-427C-8BEE-6CD4E29C9143}|https">
-  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Api/Program.cs">
+  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/Entities/Subreddit.cs">
     <Files>
-      <File FileName="Domain/Entities/Post.cs" />
-      <File FileName="Application/Posts/Commands/VotePost/VotePostCommand.cs" />
-      <File FileName="Application/Common/Exceptions/UnsuccessfulRequestException.cs" />
-      <File FileName="Application/Posts/Queries/GetSortedPosts/GetSortedPostsQuery.cs" />
-      <File FileName="Api/Controllers/PostController.cs" />
-      <File FileName="Application/Posts/Queries/PostDTO.cs" />
-      <File FileName="Api/Configurations/ConfigureServices.cs" />
-      <File FileName="Api/Program.cs" Line="28" Column="27" />
-      <File FileName="Infrastructure/ConfigureInfrastructure.cs" />
+      <File FileName="Application/Posts/Queries/PostDTO.cs" Line="27" Column="31" />
+      <File FileName="Application/Posts/Queries/GetSortedPosts/GetSortedPostsQuery.cs" Line="1" Column="1" />
+      <File FileName="Api/Controllers/CommentsController.cs" Line="12" Column="1" />
+      <File FileName="Api/Controllers/SubredditsController.cs" Line="4" Column="55" />
+      <File FileName="Domain/Entities/Subreddit.cs" Line="9" Column="58" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,14 +19,9 @@
           <Node name="RedditClone" expanded="True">
             <Node name="Api" expanded="True">
               <Node name="Configurations" expanded="True" />
+              <Node name="Controllers" expanded="True" />
             </Node>
-            <Node name="Application" expanded="True">
-              <Node name="Posts" expanded="True">
-                <Node name="Queries" expanded="True">
-                  <Node name="GetSortedPosts" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
+            <Node name="Application" expanded="True" />
             <Node name="Domain" expanded="True">
               <Node name="Entities" expanded="True" />
             </Node>
@@ -37,8 +32,4 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

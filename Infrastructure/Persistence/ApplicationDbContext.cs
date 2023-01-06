@@ -21,6 +21,8 @@ namespace Infrastructure.Persistence
 
         public DbSet<Post> Posts => Set<Post>();
 
+        public DbSet<Subreddit> Subreddits => Set<Subreddit>();
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
