@@ -25,6 +25,14 @@ namespace Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //builder.Entity<Subreddit>()
+            //    .HasMany(s => s.Posts);
+
+            builder.Entity<Post>()
+                .HasOne(p => p.Subreddit)
+                .WithMany(s => s.SubredditPosts)
+                .HasForeignKey(p => p.SubredditId);
+
             base.OnModelCreating(builder);
         }
 

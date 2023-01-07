@@ -18,6 +18,9 @@ namespace Domain.Entities
 		public bool isTrashed { get; set; } = false;
 
 		public DateTime? DeletedAt { get; set; } = null;
+
+		public int SubredditId { get; set; }
+		public Subreddit Subreddit { get; set; } = null!;
 	}
 }
 

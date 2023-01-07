@@ -10,6 +10,9 @@ namespace Application.Posts.Commands.CreatePost
 			RuleFor(p => p.Title)
 				.MaximumLength(300)
 				.NotEmpty();
+
+			RuleFor(p => p.SubredditId)
+				.GreaterThan(0);
 		}
 	}
 }

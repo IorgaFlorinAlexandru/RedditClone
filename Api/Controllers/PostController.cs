@@ -7,7 +7,6 @@ using Application.Common.Models;
 using Application.Posts.Commands.CreatePost;
 using Application.Posts.Commands.DeletePost;
 using Application.Posts.Commands.EditPost;
-using Application.Posts.Commands.VotePost;
 using Application.Posts.Queries;
 using Application.Posts.Queries.GetPostById;
 using Application.Posts.Queries.GetSortedPosts;
@@ -24,21 +23,25 @@ namespace Api.Controllers
         {
             try
             {
-                var posts = await Mediator.Send(new GetAllPostsQuery());
-
-                return Ok(posts);
+                return Ok(await Mediator.Send(new GetAllPostsQuery()));
             }
             catch(Exception e)
             {
-                Logger.LogError(e);
-                return StatusCode(500, SERVER_ERROR_MESSAGE);
+                return HandleException(e);
             }
         }
 
         [HttpGet("getPosts")]
         public async Task<ActionResult<PostDTO[]>> GetPosts()
         {
-            return Ok(await Mediator.Send(new GetSortedPostsQuery()));
+            try
+            {
+                return Ok(await Mediator.Send(new GetSortedPostsQuery()));
+            }
+            catch(Exception e)
+            {
+                return HandleException(e);
+            }
         }
 
         // GET api/values/5
@@ -51,15 +54,9 @@ namespace Api.Controllers
 
                 return Ok(post);
             }
-            catch(NotFoundException e)
-            {
-                Logger.LogInfo(e.Message);
-                return NotFound(e.Message);
-            }
             catch(Exception e)
             {
-                Logger.LogError($"Crashed when trying to get a post with Id: {id}\n",e);
-                return StatusCode(500, SERVER_ERROR_MESSAGE);
+                return HandleException(e);
             }
         }
 
@@ -73,15 +70,9 @@ namespace Api.Controllers
 
                 return StatusCode(201, new RequestResponse(true, $"A new post has been created.", id));
             }
-            catch(ValidationException e)
-            {
-                Logger.LogInfo(e.Message);
-                return BadRequest(new RequestResponse(e.Message, e.Errors));
-            }
             catch (Exception e)
             {
-                Logger.LogError(e);
-                return StatusCode(500, SERVER_ERROR_MESSAGE);
+                return HandleException(e);
             }
         }
 
@@ -97,24 +88,14 @@ namespace Api.Controllers
 
                 return Ok(new RequestResponse(true, "The post has been successfully modified",id));
             }
-            catch(ValidationException e)
-            {
-                Logger.LogInfo(e.Message);
-                return BadRequest(new RequestResponse(e.Message, e.Errors));
-            }
-            catch(NotFoundException e)
-            {
-                Logger.LogInfo(e.Message);
-                return NotFound(e.Message);
-            }
             catch(Exception e)
             {
-                Logger.LogError(e);
-                return StatusCode(500, SERVER_ERROR_MESSAGE);
+                return HandleException(e);
             }
         }
 
         // DELETE api/values/5
+        //TODO Create command for remove post
         [HttpDelete("{id}")]
         public async Task<ActionResult<RequestResponse>> Delete(int id)
         {
@@ -124,61 +105,13 @@ namespace Api.Controllers
 
                 return Ok(new RequestResponse(true, "The post has been deleted."));
             }
-            catch(NotFoundException e)
-            {
-                Logger.LogInfo(e.Message);
-                return NotFound(e.Message);
-            }
             catch(Exception e)
             {
-                Logger.LogError(e);
-                return StatusCode(500, SERVER_ERROR_MESSAGE);
+                return HandleException(e);
             }
         }
 
-        //TODO Create command for remove post
-        [HttpDelete("remove/{id}")]
-        public async Task<ActionResult<RequestResponse>> Remove(int id)
-        {
-            try
-            {
-                await Mediator.Send(new DeletePostCommand { Id = id });
 
-                return Ok(new RequestResponse(true, "The post has been deleted."));
-            }
-            catch (NotFoundException e)
-            {
-                Logger.LogInfo(e.Message);
-                return NotFound(e.Message);
-            }
-            catch (Exception e)
-            {
-                Logger.LogError(e);
-                return StatusCode(500, SERVER_ERROR_MESSAGE);
-            }
-        }
-
-        [HttpPost("vote")]
-        public async Task<ActionResult<RequestResponse>> VotePost([FromBody] VotePostCommand command)
-        {
-            try
-            {
-                await Mediator.Send(command);
-
-                return Ok();
-            }
-            catch(ValidationException e)
-            {
-                Logger.LogInfo(e.Message);
-                return BadRequest(new RequestResponse("", e.Errors));
-            }
-            catch(Exception e)
-            {
-                Logger.LogError(e);
-                return StatusCode(500, SERVER_ERROR_MESSAGE);
-            }
-
-        }
     }
 }
 

@@ -12,14 +12,7 @@ export class PostService {
 
   constructor(private httpService: HttpService) { }
 
-  getPosts() : Observable<Post[]>{
-    return this.httpService.makeHttpCall(HttpEndpoints.GetPosts,HttpMethods.GET).pipe(
-      map(
-        (response) => {
-          console.log(response);
-          return response;
-        }
-      )
-    );
+  getPosts() : Observable<Post[]> {
+    return this.httpService.makeHttpCall(HttpEndpoints.GetPosts,HttpMethods.GET);
   }
 }

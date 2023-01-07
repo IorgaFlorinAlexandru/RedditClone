@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Application.Common.Exceptions;
 using Application.Common.Interfaces;
+using Application.Common.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +25,23 @@ namespace Api.Controllers
         private ILoggingService _logger = null!;
 
         protected ILoggingService Logger => _logger ??= HttpContext.RequestServices.GetRequiredService<ILoggingService>();
+
+        protected ActionResult HandleException(Exception e)
+        {
+            switch (e)
+            {
+                case ValidationException:
+                    Logger.LogInfo(e.Message);
+                    var ex = e as ValidationException;
+                    return BadRequest(new RequestResponse(ex!.Message,ex.Errors));
+                case NotFoundException:
+                    Logger.LogInfo(e.Message);
+                    return BadRequest(e.Message);
+                default:
+                    Logger.LogError(e);
+                    return StatusCode((int)HttpStatusCode.InternalServerError, SERVER_ERROR_MESSAGE);
+            }
+        }
     }
 }
 

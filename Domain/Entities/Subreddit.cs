@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Domain.Entities
 {
-	public sealed class Subreddit
+	public class Subreddit
 	{
 		public int Id { get; set; }
 		public string Name { get; set; } = string.Empty;
@@ -9,6 +9,8 @@ namespace Domain.Entities
 		public string Description { get; set; } = string.Empty;
 
 		public DateTime CreatedAt { get; set; }
+
+		public ICollection<Post> SubredditPosts { get; set; }
 	}
 }
 
