@@ -13,8 +13,6 @@ namespace Domain.Entities
 
 		public DateTime? ModifiedAt { get; set; } = null;
 
-		public int Upvotes { get; set; } = 0;
-
 		public bool isTrashed { get; set; } = false;
 
 		public DateTime? DeletedAt { get; set; } = null;

@@ -17,17 +17,20 @@ namespace Application.Posts.Queries
 		public DateTime PostedAt { get; set; }
 		public bool HasBeenEdited { get; set; } = false;
 
+		public int SubredditId { get; set; } //TODO REPLACE WITH OBJECT FOR SUBREDDIT INFO DTO
+
 		public PostDTO(Post post)
 		{
 			Id = post.Id;
 			Title = post.Title;
 			OptionalText = post.OptionalText;
-			Upvotes = post.Upvotes;
 
 			OriginalPoster = "deleted";
 
 			PostedAt = post.PostedAt;
 			if (post.ModifiedAt != null) HasBeenEdited = true;
+
+			SubredditId = post.SubredditId;
 		}
     }
 }

@@ -1,35 +1,42 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{E1C55B68-41E1-427C-8BEE-6CD4E29C9143}|https">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Firefox.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/Entities/Subreddit.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Application/Posts/Queries/PostDTO.cs">
     <Files>
-      <File FileName="Application/Posts/Queries/PostDTO.cs" Line="27" Column="31" />
-      <File FileName="Application/Posts/Queries/GetSortedPosts/GetSortedPostsQuery.cs" Line="1" Column="1" />
-      <File FileName="Api/Controllers/CommentsController.cs" Line="12" Column="1" />
-      <File FileName="Api/Controllers/SubredditsController.cs" Line="4" Column="55" />
-      <File FileName="Domain/Entities/Subreddit.cs" Line="9" Column="58" />
+      <File FileName="Application/Posts/Queries/PostDTO.cs" Line="20" Column="89" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RedditClone" expanded="True">
             <Node name="Api" expanded="True">
-              <Node name="Configurations" expanded="True" />
               <Node name="Controllers" expanded="True" />
             </Node>
-            <Node name="Application" expanded="True" />
+            <Node name="Application" expanded="True">
+              <Node name="Posts" expanded="True">
+                <Node name="Commands" expanded="True">
+                  <Node name="CreatePost" expanded="True" />
+                  <Node name="EditPost" expanded="True" />
+                </Node>
+                <Node name="Queries" expanded="True">
+                  <Node name="PostDTO.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
             <Node name="Domain" expanded="True">
               <Node name="Entities" expanded="True" />
             </Node>
-            <Node name="Infrastructure" expanded="True" />
+            <Node name="Infrastructure" expanded="True">
+              <Node name="Persistence" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Api PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

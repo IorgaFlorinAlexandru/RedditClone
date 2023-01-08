@@ -8,7 +8,6 @@ namespace Application.Posts.Commands.EditPost
 {
     public record EditPostCommand : IRequest
 	{
-		[JsonIgnore]
 		public int Id { get; set; }
 
 		public string Title { get; set; } = string.Empty;
