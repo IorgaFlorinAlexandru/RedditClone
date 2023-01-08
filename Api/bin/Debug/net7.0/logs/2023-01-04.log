@@ -1,0 +1,25 @@
+------------------
+ 2023-01-04 13:14:29.6978 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Api.Controllers.PostController.Put(Int32 id, EditPostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 94 
+------------------
+------------------
+ 2023-01-04 13:15:38.8112 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Api.Controllers.PostController.Put(Int32 id, EditPostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 94 
+------------------
+------------------
+ 2023-01-04 13:16:18.9921 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Api.Controllers.PostController.Put(Int32 id, EditPostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 94 
+------------------
+------------------
+ 2023-01-04 13:16:34.5208 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Api.Controllers.PostController.Put(Int32 id, EditPostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 94 
+------------------
+------------------
+ 2023-01-04 13:16:52.2739 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Api.Controllers.PostController.Put(Int32 id, EditPostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 94 
+------------------
