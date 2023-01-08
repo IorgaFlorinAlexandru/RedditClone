@@ -1,14 +1,16 @@
-﻿using System;
-using Application.Common.Exceptions;
+﻿using Application.Common.Exceptions;
 using Application.Common.Interfaces;
+using Domain.Common;
 using Domain.Entities;
 using MediatR;
 
 namespace Application.Posts.Commands.CreatePost
 {
-	public record CreatePostCommand : IRequest<int>
+    public record CreatePostCommand : IRequest<int>
 	{
-        public int SubredditId { get; set; }
+        public int CommunityId { get; set; }
+
+        public int CommunityType { get; set; }
 
 		public string Title { get; set; } = string.Empty;
 
@@ -26,16 +28,31 @@ namespace Application.Posts.Commands.CreatePost
 
         public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
-            var subreddit = _context.Subreddits.FirstOrDefault(s => s.Id == request.SubredditId);
+            Community? community;
 
-            if (subreddit == null) throw new NotFoundException(nameof(subreddit),request.SubredditId.ToString());
+            switch (request.CommunityType)
+            {
+                case 1:
+                    community = _context.Subreddits.FirstOrDefault(s => s.Id == request.CommunityId);
+                    break;
+                case 2:
+                    //community = _context.Subreddits.FirstOrDefault(s => s.Id == request.CommunityId);
+                    throw new NotImplementedException();
+                    //break;
+                default:
+                    throw new Exception();
+
+            }
+
+
+            if (community == null) throw new NotFoundException(nameof(community),request.CommunityId.ToString());
 
             var post = new Post
             {
                 Title = request.Title,
                 OptionalText = request.OptionalText,
                 PostedAt = DateTime.UtcNow,
-                Subreddit = subreddit
+                Community = community
             };
 
             _context.Posts.Add(post);

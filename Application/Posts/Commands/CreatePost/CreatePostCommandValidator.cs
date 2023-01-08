@@ -11,8 +11,8 @@ namespace Application.Posts.Commands.CreatePost
 				.MaximumLength(300)
 				.NotEmpty();
 
-			RuleFor(p => p.SubredditId)
-				.GreaterThan(0);
+			RuleFor(p => p.CommunityId)
+				.NotEmpty();
 		}
 	}
 }

@@ -17,7 +17,7 @@ namespace Application.Posts.Queries
 		public DateTime PostedAt { get; set; }
 		public bool HasBeenEdited { get; set; } = false;
 
-		public int SubredditId { get; set; } //TODO REPLACE WITH OBJECT FOR SUBREDDIT INFO DTO
+		public int CommunityId { get; set; } //TODO REPLACE WITH OBJECT FOR COMMUNITY INFO DTO
 
 		public PostDTO(Post post)
 		{
@@ -30,7 +30,7 @@ namespace Application.Posts.Queries
 			PostedAt = post.PostedAt;
 			if (post.ModifiedAt != null) HasBeenEdited = true;
 
-			SubredditId = post.SubredditId;
+			CommunityId = post.CommunityId;
 		}
     }
 }

@@ -31,9 +31,9 @@ namespace Infrastructure.Persistence
             //    .HasForeignKey(p => p.SubredditId);
 
             builder.Entity<Post>()
-                .HasOne(p => p.Subreddit)
-                .WithMany(s => s.SubredditPosts)
-                .HasForeignKey(p => p.SubredditId);
+                .HasOne(p => p.Community)
+                .WithMany(s => s.CommunityPosts)
+                .HasForeignKey(p => p.CommunityId);
 
             base.OnModelCreating(builder);
         }

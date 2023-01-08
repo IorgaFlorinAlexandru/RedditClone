@@ -1,11 +1,11 @@
 ﻿using System;
+using Domain.Common;
+
 namespace Domain.Entities
 {
-	public class Profile
+	public class Profile : Community
 	{
-		public Profile()
-		{
-		}
-	}
+		public string UserId { get; set; } = string.Empty;
+    }
 }
 

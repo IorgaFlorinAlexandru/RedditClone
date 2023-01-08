@@ -68,7 +68,7 @@ namespace Api.Controllers
             {
                 var id = await Mediator.Send(command);
 
-                return StatusCode(201, new RequestResponse(true, $"A new post has been created.", id));
+                return StatusCode(201, new RequestResponse(true, $"A new post has been created."));
             }
             catch (Exception e)
             {
@@ -86,7 +86,7 @@ namespace Api.Controllers
 
                 await Mediator.Send(command);
 
-                return Ok(new RequestResponse(true, "The post has been successfully modified",id));
+                return Ok(new RequestResponse(true, "The post has been successfully modified"));
             }
             catch(Exception e)
             {

@@ -1,0 +1,17 @@
+------------------
+ 2023-01-08 18:24:17.1293 ERROR System.NotImplementedException: The method or operation is not implemented. 
+ System.NotImplementedException: The method or operation is not implemented.
+   at Application.Posts.Commands.CreatePost.CreatePostCommandHandler.Handle(CreatePostCommand request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Commands/CreatePost/CreatePostCommand.cs:line 40
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Post(CreatePostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 69 
+------------------
+------------------
+ 2023-01-08 18:24:25.4330 INFO Entity community with ID 2 was not found. 
+  
+------------------
