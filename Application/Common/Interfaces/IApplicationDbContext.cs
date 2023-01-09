@@ -9,6 +9,8 @@ namespace Application.Common.Interfaces
 
         DbSet<Subreddit> Subreddits { get; }
 
+        DbSet<Comment> Comments { get; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

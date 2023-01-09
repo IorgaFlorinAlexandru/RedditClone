@@ -39,6 +39,11 @@
     <None Remove="Posts\Commands\DeletePost\" />
     <None Remove="Posts\Commands\VotePost\" />
     <None Remove="Posts\Queries\GetSortedPosts\" />
+    <None Remove="Comments\Queries\GetCommentsByPost\" />
+    <None Remove="Comments\Queries\GetCommentById\" />
+    <None Remove="Comments\Commands\CreateComment\" />
+    <None Remove="Comments\Commands\EditComment\" />
+    <None Remove="Comments\Commands\DeleteComment\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
@@ -68,6 +73,11 @@
     <Folder Include="Posts\Commands\DeletePost\" />
     <Folder Include="Posts\Commands\VotePost\" />
     <Folder Include="Posts\Queries\GetSortedPosts\" />
+    <Folder Include="Comments\Queries\GetCommentsByPost\" />
+    <Folder Include="Comments\Queries\GetCommentById\" />
+    <Folder Include="Comments\Commands\CreateComment\" />
+    <Folder Include="Comments\Commands\EditComment\" />
+    <Folder Include="Comments\Commands\DeleteComment\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="11.1.0" />

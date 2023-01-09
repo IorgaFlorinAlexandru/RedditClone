@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System.Text;
+using Application.Common.Interfaces;
 using Infrastructure.Identity;
-using System.Text;
 using Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -8,11 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Application.Common.Interfaces;
 
 namespace Infrastructure
 {
-	public static class ConfigureInfrastructure
+    public static class ConfigureInfrastructure
 	{
 		public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
 		{

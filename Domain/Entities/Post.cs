@@ -22,6 +22,9 @@ namespace Domain.Entities
 
 		public int CommunityId { get; set; }
 		public Community Community { get; set; } = null!;
-	}
+
+        public virtual ICollection<Comment> Comments { get; set; }
+
+    }
 }
 

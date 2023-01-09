@@ -23,6 +23,8 @@ namespace Infrastructure.Persistence
 
         public DbSet<Subreddit> Subreddits => Set<Subreddit>();
 
+        public DbSet<Comment> Comments => Set<Comment>();
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             //builder.Entity<Subreddit>()
@@ -34,6 +36,11 @@ namespace Infrastructure.Persistence
                 .HasOne(p => p.Community)
                 .WithMany(s => s.CommunityPosts)
                 .HasForeignKey(p => p.CommunityId);
+
+            builder.Entity<Comment>()
+                .HasOne(c => c.Post)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(c => c.PostId);
 
             base.OnModelCreating(builder);
         }

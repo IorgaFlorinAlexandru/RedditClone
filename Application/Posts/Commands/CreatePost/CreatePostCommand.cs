@@ -36,14 +36,12 @@ namespace Application.Posts.Commands.CreatePost
                     community = _context.Subreddits.FirstOrDefault(s => s.Id == request.CommunityId);
                     break;
                 case 2:
-                    //community = _context.Subreddits.FirstOrDefault(s => s.Id == request.CommunityId);
-                    throw new NotImplementedException();
-                    //break;
+                    throw new NotImplementedException(); //FEEDS
+                case 3:
+                    throw new NotImplementedException(); //Profile
                 default:
                     throw new Exception();
-
             }
-
 
             if (community == null) throw new NotFoundException(nameof(community),request.CommunityId.ToString());
 
