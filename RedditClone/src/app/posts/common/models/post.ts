@@ -9,4 +9,5 @@ export class Post{
 
     public originalPoster : string = "";
     public posterId : string = ""; 
+    public communityId : number = 0;
 }

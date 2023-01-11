@@ -2,26 +2,22 @@
 using Application.Common.Exceptions;
 using Application.Common.Interfaces;
 using Application.Common.Models;
+using Application.Users.Commands;
+using Application.Users.Commands.CreateUser;
+using Application.Users.Commands.LogInUser;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
 	public class UserController : ApiControllerBase
 	{
-        private readonly IIdentityService _identityService;
-
-        public UserController(IIdentityService identityService)
-        {
-            _identityService = identityService;
-        }
-
         [HttpPost]
         [Route("Register")]
-        public async Task<ActionResult<string>> Register([FromBody] UserRegisterDTO data)
+        public async Task<ActionResult<string>> Register([FromBody] CreateUserCommand command)
         {
             try
             {
-                var userId = await _identityService.RegisterUser(data);
+                var userId = await Mediator.Send(command);
 
                 return Created(string.Empty, userId); // What is uri used for
             }
@@ -39,11 +35,11 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public async Task<ActionResult<string>> Login([FromBody] UserLoginDTO data)
+        public async Task<ActionResult<string>> Login([FromBody] LoginUserCommand command)
         {
             try
             {
-                var token = await _identityService.LoginUser(data);
+                var token = await Mediator.Send(command);
 
                 return Ok(new { token });
             }

@@ -15,4 +15,12 @@ export class PostService {
   getPosts() : Observable<Post[]> {
     return this.httpService.makeHttpCall(HttpEndpoints.GetPosts,HttpMethods.GET);
   }
+
+  createPost() : Observable<number>{
+    return this.httpService.makeHttpCall(HttpEndpoints.GetPosts,HttpMethods.GET);
+  }
+
+  getPostsBySubreddit(subredditId: number) : Observable<Post[]> {
+    return this.httpService.makeHttpCall(HttpEndpoints.GetPostsBySubreddit,HttpMethods.GET,subredditId);
+  }
 }

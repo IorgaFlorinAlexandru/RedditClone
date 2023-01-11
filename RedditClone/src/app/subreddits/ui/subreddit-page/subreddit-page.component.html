@@ -1,8 +1,8 @@
-<SubredditHeader ></SubredditHeader>
+<SubredditHeader [subreddit]="subreddit"></SubredditHeader>
 <div class="flex justify-center mt-4">
-    <PostList></PostList>
+    <PostList [data]="data | async"></PostList>
     <div class="flex flex-col ml-6">
-        <AboutSubreddit></AboutSubreddit>
+        <AboutSubreddit [subreddit]="subreddit"></AboutSubreddit>
         <SubredditRules></SubredditRules>
         <SubredditModerators></SubredditModerators>
     </div>

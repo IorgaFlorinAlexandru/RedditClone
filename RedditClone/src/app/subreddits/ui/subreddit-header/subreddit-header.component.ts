@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Subreddit } from '../../common/models/subreddit';
 
 @Component({
   selector: 'SubredditHeader',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./subreddit-header.component.css']
 })
 export class SubredditHeaderComponent {
-
+  @Input() subreddit! : Subreddit;
 }

@@ -29,15 +29,15 @@ namespace Application.Posts.Commands.CreatePost
         public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
             Community? community;
+            CommunityType communityType;
 
             switch (request.CommunityType)
             {
                 case 1:
                     community = _context.Subreddits.FirstOrDefault(s => s.Id == request.CommunityId);
+                    communityType = CommunityType.Subreddit;
                     break;
                 case 2:
-                    throw new NotImplementedException(); //FEEDS
-                case 3:
                     throw new NotImplementedException(); //Profile
                 default:
                     throw new Exception();
@@ -50,7 +50,8 @@ namespace Application.Posts.Commands.CreatePost
                 Title = request.Title,
                 OptionalText = request.OptionalText,
                 PostedAt = DateTime.UtcNow,
-                Community = community
+                Community = community,
+                CommunityType = communityType
             };
 
             _context.Posts.Add(post);

@@ -9,6 +9,7 @@ using Application.Posts.Commands.DeletePost;
 using Application.Posts.Commands.EditPost;
 using Application.Posts.Queries;
 using Application.Posts.Queries.GetPostById;
+using Application.Posts.Queries.GetPostsBySubreddit;
 using Application.Posts.Queries.GetSortedPosts;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,19 @@ namespace Api.Controllers
             try
             {
                 return Ok(await Mediator.Send(new GetAllPostsQuery()));
+            }
+            catch(Exception e)
+            {
+                return HandleException(e);
+            }
+        }
+
+        [HttpGet("getPostsBySubreddit/{id}")]
+        public async Task<ActionResult<PostDTO[]>> GetSubredditPosts(int id)
+        {
+            try
+            {
+                return Ok(await Mediator.Send(new GetPostsBySubredditQuery { SubredditId = id }));
             }
             catch(Exception e)
             {

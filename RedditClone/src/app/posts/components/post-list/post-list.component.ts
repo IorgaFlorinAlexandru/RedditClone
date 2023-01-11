@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Post } from '../../common/models/post';
+import { PostListData } from '../../common/models/postListData';
 import { PostService } from '../../services/post.service';
 
 @Component({
@@ -10,15 +11,20 @@ import { PostService } from '../../services/post.service';
 export class PostListComponent {
  
   posts : Post[] = [];
+  @Input() set data(value : PostListData | null){
+    if(value == null) return;
 
-  constructor(private postService: PostService){
-    this.postService.getPosts().subscribe(
+    this.postService.getPostsBySubreddit(value.communityId).subscribe(
       {
         next: (response) => this.posts = response,
         error: (error) => console.log(error),
         complete: () => console.log("Got posts!")
       }
     );
+    
+  };
+
+  constructor(private postService: PostService){
   }
 
 

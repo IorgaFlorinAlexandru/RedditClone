@@ -8,6 +8,7 @@ import { CreateSubredditComponent } from './components/create-subreddit/create-s
 import { AboutSubredditComponent } from './ui/about-subreddit/about-subreddit.component';
 import { SubredditRulesComponent } from './ui/subreddit-rules/subreddit-rules.component';
 import { SubredditModeratorsComponent } from './ui/subreddit-moderators/subreddit-moderators.component';
+import { SubredditDescriptionComponent } from './components/subreddit-description/subreddit-description.component';
 
 
 
@@ -19,7 +20,8 @@ import { SubredditModeratorsComponent } from './ui/subreddit-moderators/subreddi
     CreateSubredditComponent,
     AboutSubredditComponent,
     SubredditRulesComponent,
-    SubredditModeratorsComponent
+    SubredditModeratorsComponent,
+    SubredditDescriptionComponent
   ],
   imports: [
     CommonModule,

@@ -86,6 +86,9 @@ namespace Infrastructure.Migrations
                     b.Property<int>("CommunityId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("CommunityType")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("timestamp with time zone");
 
