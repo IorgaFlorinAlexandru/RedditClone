@@ -26,7 +26,8 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     HttpClientModule
   ],
   exports : [
-    PostListComponent
+    PostListComponent,
+    CreatePostComponent
   ]
 })
 export class PostsModule { }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-create-post',
+  selector: 'CreatePost',
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.css']
 })
