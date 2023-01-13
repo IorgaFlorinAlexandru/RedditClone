@@ -9,6 +9,9 @@ import { PostUpvoteButtonsComponent } from './components/post-upvote-buttons/pos
 import { PostButtonsComponent } from './components/post-buttons/post-buttons.component';
 import { PostPageComponent } from './ui/post-page/post-page.component';
 import { CreatePostComponent } from './components/create-post/create-post.component';
+import { TextFormComponent } from './components/text-form/text-form.component';
+import { MediaFormComponent } from './components/media-form/media-form.component';
+import { LinkFormComponent } from './components/link-form/link-form.component';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
     PostUpvoteButtonsComponent,
     PostButtonsComponent,
     PostPageComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    TextFormComponent,
+    MediaFormComponent,
+    LinkFormComponent
   ],
   imports: [
     CommonModule,

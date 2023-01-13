@@ -21,7 +21,7 @@ import { SubredditDescriptionComponent } from './components/subreddit-descriptio
     AboutSubredditComponent,
     SubredditRulesComponent,
     SubredditModeratorsComponent,
-    SubredditDescriptionComponent
+    SubredditDescriptionComponent,
   ],
   imports: [
     CommonModule,

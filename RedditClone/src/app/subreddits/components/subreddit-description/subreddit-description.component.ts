@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-subreddit-description',
+  selector: 'subreddit-description',
   templateUrl: './subreddit-description.component.html',
   styleUrls: ['./subreddit-description.component.css']
 })
