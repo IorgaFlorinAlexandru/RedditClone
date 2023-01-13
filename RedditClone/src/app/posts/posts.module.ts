@@ -12,6 +12,7 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
 import { TextFormComponent } from './components/text-form/text-form.component';
 import { MediaFormComponent } from './components/media-form/media-form.component';
 import { LinkFormComponent } from './components/link-form/link-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +30,9 @@ import { LinkFormComponent } from './components/link-form/link-form.component';
   imports: [
     CommonModule,
     PostsRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports : [
     PostListComponent,

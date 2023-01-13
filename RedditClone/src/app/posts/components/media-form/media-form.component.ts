@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-media-form',
+  selector: 'media-form',
   templateUrl: './media-form.component.html',
   styleUrls: ['./media-form.component.css']
 })

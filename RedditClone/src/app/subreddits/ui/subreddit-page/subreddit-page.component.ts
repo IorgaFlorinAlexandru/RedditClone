@@ -22,6 +22,10 @@ export class SubredditPageComponent {
     });
   }
 
+  ngOnDestroy(){
+    
+  }
+
   subreddit : Subreddit = new Subreddit;
   data : Promise<PostListData> | null = null;
 }

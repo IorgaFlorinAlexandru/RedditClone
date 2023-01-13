@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TextFormModel } from '../../common/models/text-form';
 
 @Component({
   selector: 'text-form',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./text-form.component.css']
 })
 export class TextFormComponent {
+
+  textPostForm : TextFormModel = new TextFormModel();
+
 
 }

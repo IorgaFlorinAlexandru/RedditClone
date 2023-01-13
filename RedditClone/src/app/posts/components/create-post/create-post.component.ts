@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class CreatePostComponent {
 
+
+  formActiveBools : boolean[] = [true,false,false]
+
+  // - Changes the visible form in comp
+  //   - Sets all bools to false with "fill" method
+  //    - Then only one value for the wanted form is changed to true
+  changeForm(value : number){
+    this.formActiveBools.fill(false);
+
+    this.formActiveBools[value] = true;
+  }
 }
