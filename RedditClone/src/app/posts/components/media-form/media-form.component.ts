@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MediaFormModel } from '../../common/models/form-models/media-form';
 
 @Component({
   selector: 'media-form',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class MediaFormComponent {
 
+  mediaFormData = new MediaFormModel();
 }

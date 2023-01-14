@@ -1,1 +1,16 @@
-<p>media-form works!</p>
+<form >
+    <label class="relative block">
+        <input class="bg-[#1a1a1b] rounded h-9 pl-4 border-[#343536]
+        focus:border-gray-300 border focus:outline-none text-[#D7DADC]
+        placeholder:text-sm placeholder:text-[#7e8082] w-full" placeholder="Title"
+        [(ngModel)]="mediaFormData.Title" name="title">
+        <span class="text-xs text-[#7e8082] absolute font-bold
+            right-3 bottom-2.5">{{mediaFormData.Title.length}}/300</span>
+    </label>
+    <label class="relative block mt-2">
+        <textarea class="bg-[#1a1a1b] rounded h-32 pl-4 pt-4 border-[#343536]
+        focus:border-gray-300 border focus:outline-none text-[#D7DADC]
+        placeholder:text-sm placeholder:text-[#7e8082] w-full" placeholder="Media"
+        [(ngModel)]="mediaFormData.Media" name="optionalText"></textarea>
+    </label>
+</form>

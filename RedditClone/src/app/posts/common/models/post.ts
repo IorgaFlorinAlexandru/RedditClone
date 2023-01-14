@@ -1,13 +1,13 @@
-export class Post{
-    public id : number = 0;
-    public title : string = "";
-    public optionalText : string = "";
-    public upvotes : number = 0;
-    public postedAt : string = "";
-    public hasBeenEdited : boolean = false;
-    public comments : number = 0;
+export interface Post{
+     id : number;
+     title : string;
+     optionalText : string ;
+     upvotes : number;
+     postedAt : string ;
+     hasBeenEdited : boolean ;
+     comments : number;
 
-    public originalPoster : string = "";
-    public posterId : string = ""; 
-    public communityId : number = 0;
+     originalPoster : string ;
+     posterId : string ;
+     communityId : number ;
 }

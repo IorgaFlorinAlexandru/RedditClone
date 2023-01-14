@@ -1,5 +1,6 @@
 ﻿using System;
 using Domain.Entities;
+using Domain.Entities.PostEntities;
 
 namespace Application.Posts.Queries
 {
@@ -7,9 +8,10 @@ namespace Application.Posts.Queries
 	{
 		public int Id { get; set; }
 		public string Title { get; set; } = string.Empty;
-		public string OptionalText { get; set; } = string.Empty;
 		public int Upvotes { get; set; }
 		public int Comments { get; set; } = 0;
+
+		public PostContent Content { get; set; }
 
 		public string OriginalPoster { get; set; } = string.Empty;
 		public string PosterId { get; set; } = string.Empty;
@@ -23,7 +25,6 @@ namespace Application.Posts.Queries
 		{
 			Id = post.Id;
 			Title = post.Title;
-			OptionalText = post.OptionalText;
 
 			OriginalPoster = "deleted";
 
@@ -32,6 +33,20 @@ namespace Application.Posts.Queries
 
 			CommunityId = post.CommunityId;
 		}
+
+		public PostDTO(Post post,PostContent content)
+		{
+            Id = post.Id;
+            Title = post.Title;
+			Content = content;
+
+            OriginalPoster = "deleted";
+
+            PostedAt = post.PostedAt;
+            if (post.ModifiedAt != null) HasBeenEdited = true;
+
+            CommunityId = post.CommunityId;
+        }
     }
 }
 

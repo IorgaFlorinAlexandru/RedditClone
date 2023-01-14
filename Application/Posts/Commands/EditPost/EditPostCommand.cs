@@ -31,7 +31,6 @@ namespace Application.Posts.Commands.EditPost
             if (post == null) throw new NotFoundException(nameof(Post), request.Id.ToString());
 
             post.Title = request.Title;
-            post.OptionalText = request.OptionalText;
             post.ModifiedAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync(cancellationToken);

@@ -1,0 +1,52 @@
+------------------
+ 2023-01-14 19:36:04.4898 ERROR System.Exception: Exception of type 'System.Exception' was thrown. 
+ System.Exception: Exception of type 'System.Exception' was thrown.
+   at Application.Posts.Commands.CreatePost.CreatePostCommandHandler.Handle(CreatePostCommand request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Commands/CreatePost/CreatePostCommand.cs:line 43
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Post(CreatePostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 83 
+------------------
+------------------
+ 2023-01-14 19:36:22.1260 ERROR System.Exception: Exception of type 'System.Exception' was thrown. 
+ System.Exception: Exception of type 'System.Exception' was thrown.
+   at Application.Posts.Commands.CreatePost.CreatePostCommandHandler.Handle(CreatePostCommand request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Commands/CreatePost/CreatePostCommand.cs:line 43
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Post(CreatePostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 83 
+------------------
+------------------
+ 2023-01-14 19:36:31.9262 ERROR System.Exception: Exception of type 'System.Exception' was thrown. 
+ System.Exception: Exception of type 'System.Exception' was thrown.
+   at Application.Posts.Commands.CreatePost.CreatePostCommandHandler.Handle(CreatePostCommand request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Commands/CreatePost/CreatePostCommand.cs:line 43
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Post(CreatePostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 83 
+------------------
+------------------
+ 2023-01-14 19:37:48.7843 ERROR System.Exception: Exception of type 'System.Exception' was thrown. 
+ System.Exception: Exception of type 'System.Exception' was thrown.
+   at Application.Posts.Commands.CreatePost.CreatePostCommandHandler.Handle(CreatePostCommand request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Commands/CreatePost/CreatePostCommand.cs:line 43
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Post(CreatePostCommand command) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 83 
+------------------

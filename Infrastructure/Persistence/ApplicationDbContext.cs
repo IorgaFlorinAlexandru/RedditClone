@@ -1,6 +1,7 @@
 ﻿using System;
 using Application.Common.Interfaces;
 using Domain.Entities;
+using Domain.Entities.PostEntities;
 using Duende.IdentityServer.EntityFramework.Options;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
@@ -24,6 +25,12 @@ namespace Infrastructure.Persistence
         public DbSet<Subreddit> Subreddits => Set<Subreddit>();
 
         public DbSet<Comment> Comments => Set<Comment>();
+
+        public DbSet<PostImage> PostImages => Set<PostImage>();
+
+        public DbSet<Link> PostLinks => Set<Link>();
+
+        public DbSet<OptionalText> PostOptionalTexts => Set<OptionalText>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

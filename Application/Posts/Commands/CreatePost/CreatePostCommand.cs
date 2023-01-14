@@ -2,6 +2,7 @@
 using Application.Common.Interfaces;
 using Domain.Common;
 using Domain.Entities;
+using Domain.Entities.PostEntities;
 using MediatR;
 
 namespace Application.Posts.Commands.CreatePost
@@ -48,10 +49,13 @@ namespace Application.Posts.Commands.CreatePost
             var post = new Post
             {
                 Title = request.Title,
-                OptionalText = request.OptionalText,
                 PostedAt = DateTime.UtcNow,
                 Community = community,
-                CommunityType = communityType
+                CommunityType = communityType,
+                Content = new OptionalText
+                {
+                    Text = request.OptionalText,
+                }
             };
 
             _context.Posts.Add(post);

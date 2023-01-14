@@ -24,6 +24,7 @@ namespace Application.Posts.Queries.GetPostsBySubreddit
         {
             var posts = await _context.Posts
                 .Where(p => p.CommunityType == CommunityType.Subreddit && p.CommunityId == request.SubredditId)
+            
                 .Select(p=> new PostDTO(p))
                 .ToArrayAsync();
 

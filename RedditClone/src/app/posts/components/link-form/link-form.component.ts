@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LinkFormModel } from '../../common/models/form-models/link-form';
 
 @Component({
   selector: 'link-form',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class LinkFormComponent {
 
+  linkFormData = new LinkFormModel();
 }

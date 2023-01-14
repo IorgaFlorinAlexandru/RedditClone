@@ -1,5 +1,6 @@
 ﻿using System;
 using Domain.Common;
+using Domain.Entities.PostEntities;
 using Domain.Interfaces;
 
 namespace Domain.Entities
@@ -10,7 +11,7 @@ namespace Domain.Entities
 
 		public string Title { get; set; } = string.Empty;
 
-		public string OptionalText { get; set; } = string.Empty;
+		public PostContent Content { get; set; }
 
 		public DateTime PostedAt { get; set; }
 
@@ -24,7 +25,7 @@ namespace Domain.Entities
 		public Community Community { get; set; } = null!;
 		public CommunityType CommunityType { get; set; }
 
-		public virtual ICollection<Comment> Comments { get; set; } = null!;
+		public virtual ICollection<Comment>? Comments { get; set; }
 
     }
 }

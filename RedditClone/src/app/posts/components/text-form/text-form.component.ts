@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { TextFormModel } from '../../common/models/text-form';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CreatePostData } from '../../common/models/request-models/create-post-data';
+import { TextFormModel } from '../../common/models/form-models/text-form';
 
 @Component({
   selector: 'text-form',
@@ -9,6 +10,4 @@ import { TextFormModel } from '../../common/models/text-form';
 export class TextFormComponent {
 
   textPostForm : TextFormModel = new TextFormModel();
-
-
 }

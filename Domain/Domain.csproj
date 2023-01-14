@@ -11,11 +11,13 @@
     <None Remove="Interfaces\" />
     <None Remove="Common\" />
     <None Remove="DTO\" />
+    <None Remove="Entities\Post-Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Common\" />
     <Folder Include="DTO\" />
+    <Folder Include="Entities\Post-Entities\" />
   </ItemGroup>
 </Project>

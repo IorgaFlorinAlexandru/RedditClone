@@ -30,13 +30,13 @@
         </div>
 
         <div class="m-4 border-b border-[#343536] pb-4">
-            <text-form *ngIf="formActiveBools[0]"></text-form>
-            <media-form *ngIf="formActiveBools[1]"></media-form>
-            <link-form *ngIf="formActiveBools[2]"></link-form>
+            <text-form #textForm *ngIf="formActiveBools[0]"></text-form>
+            <media-form #mediaForm *ngIf="formActiveBools[1]"></media-form>
+            <link-form #linkForm *ngIf="formActiveBools[2]"></link-form>
         </div>
 
         <div class="m-4 w-min ml-auto">
-            <button class="bg-white border rounded-full w-16 font-bold text-sm p-1.5 
+            <button (click)="post()" class="bg-white border rounded-full w-16 font-bold text-sm p-1.5 
                 hover:bg-gray-300">Post</button>
         </div>
         <div class="bg-[#272729] rounded p-4 text-[#d7dadc]">
