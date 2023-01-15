@@ -10,7 +10,7 @@ using Application.Posts.Commands.EditPost;
 using Application.Posts.Queries;
 using Application.Posts.Queries.GetPostById;
 using Application.Posts.Queries.GetPostsBySubreddit;
-using Application.Posts.Queries.GetSortedPosts;
+using Domain.DTO;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,19 +38,6 @@ namespace Api.Controllers
             try
             {
                 return Ok(await Mediator.Send(new GetPostsBySubredditQuery { SubredditId = id }));
-            }
-            catch(Exception e)
-            {
-                return HandleException(e);
-            }
-        }
-
-        [HttpGet("getPosts")]
-        public async Task<ActionResult<PostDTO[]>> GetPosts()
-        {
-            try
-            {
-                return Ok(await Mediator.Send(new GetSortedPostsQuery()));
             }
             catch(Exception e)
             {
@@ -124,7 +111,6 @@ namespace Api.Controllers
                 return HandleException(e);
             }
         }
-
 
     }
 }

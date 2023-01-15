@@ -1,0 +1,128 @@
+------------------
+ 2023-01-15 23:05:46.7291 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Posts.Queries.GetPostById.GetPostByIdQueryHandler.Handle(GetPostByIdQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostById/GetPostByIdQuery.cs:line 36
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Get(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 54 
+------------------
+------------------
+ 2023-01-15 23:06:23.2222 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Posts.Queries.GetPostById.GetPostByIdQueryHandler.Handle(GetPostByIdQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostById/GetPostByIdQuery.cs:line 36
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Get(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 54 
+------------------
+------------------
+ 2023-01-15 23:08:22.7327 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Posts.Queries.GetPostById.GetPostByIdQueryHandler.Handle(GetPostByIdQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostById/GetPostByIdQuery.cs:line 36
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Get(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 54 
+------------------
+------------------
+ 2023-01-15 23:24:32.3760 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Posts.Queries.GetPostById.GetPostByIdQueryHandler.Handle(GetPostByIdQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostById/GetPostByIdQuery.cs:line 38
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Get(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 54 
+------------------
+------------------
+ 2023-01-15 23:26:59.7017 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Posts.Queries.GetPostById.GetPostByIdQueryHandler.Handle(GetPostByIdQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostById/GetPostByIdQuery.cs:line 38
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Get(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 54 
+------------------
+------------------
+ 2023-01-15 23:32:12.6587 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Posts.Queries.GetPostById.GetPostByIdQueryHandler.Handle(GetPostByIdQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostById/GetPostByIdQuery.cs:line 38
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Get(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 54 
+------------------
+------------------
+ 2023-01-15 23:37:49.3095 ERROR System.ArgumentNullException: Value cannot be null. (Parameter 'source') 
+ System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at Application.Posts.Queries.GetPostById.GetPostByIdQueryHandler.Handle(GetPostByIdQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostById/GetPostByIdQuery.cs:line 38
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.Get(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 54 
+------------------
+------------------
+ 2023-01-15 23:39:46.6300 INFO Entity Post with ID 7 was not found. 
+  
+------------------
+------------------
+ 2023-01-15 23:41:40.0794 ERROR System.ArgumentException: must be reducible node 
+ System.ArgumentException: must be reducible node
+   at System.Linq.Expressions.Expression.VisitChildren(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SelectExpressionPruningExpressionVisitor.Visit(Expression expression)
+   at System.Linq.Expressions.ExpressionVisitor.VisitUnary(UnaryExpression node)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SelectExpressionPruningExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SelectExpressionPruningExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryTranslationPostprocessor.Process(Expression query)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Query.Internal.NpgsqlQueryTranslationPostprocessor.Process(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](Expression query, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](IDatabase database, Expression query, IModel model, Boolean async)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass12_0`1.<ExecuteAsync>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable`1.GetAsyncEnumerator(CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.ConfiguredCancelableAsyncEnumerable`1.GetAsyncEnumerator()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToArrayAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Application.Posts.Queries.GetPostsBySubreddit.GetPostsBySubredditQueryHandler.Handle(GetPostsBySubredditQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostsBySubreddit/GetPostsBySubredditQuery.cs:line 27
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.GetSubredditPosts(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 40 
+------------------

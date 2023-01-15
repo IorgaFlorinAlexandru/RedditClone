@@ -36,7 +36,6 @@
     <None Remove="Posts\Commands\CreatePost\" />
     <None Remove="Posts\Commands\EditPost\" />
     <None Remove="Posts\Commands\DeletePost\" />
-    <None Remove="Posts\Queries\GetSortedPosts\" />
     <None Remove="Comments\Queries\GetCommentsByPost\" />
     <None Remove="Comments\Queries\GetCommentById\" />
     <None Remove="Comments\Commands\CreateComment\" />
@@ -71,7 +70,6 @@
     <Folder Include="Posts\Commands\CreatePost\" />
     <Folder Include="Posts\Commands\EditPost\" />
     <Folder Include="Posts\Commands\DeletePost\" />
-    <Folder Include="Posts\Queries\GetSortedPosts\" />
     <Folder Include="Comments\Queries\GetCommentsByPost\" />
     <Folder Include="Comments\Queries\GetCommentById\" />
     <Folder Include="Comments\Commands\CreateComment\" />

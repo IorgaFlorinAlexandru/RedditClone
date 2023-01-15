@@ -13,7 +13,7 @@ import { TextFormComponent } from '../text-form/text-form.component';
 export class CreatePostComponent {
 
   constructor(private postService: PostService){}
-
+  //TODO REWRITE BETTER LOGIC FLOW
   @ViewChild("textForm") textForm!: TextFormComponent | undefined;
   @ViewChild("mediaForm") mediaForm!: MediaFormComponent | undefined;
   @ViewChild("linkForm") linkForm : LinkFormComponent | undefined;

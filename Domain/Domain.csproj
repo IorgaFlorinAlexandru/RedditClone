@@ -12,6 +12,7 @@
     <None Remove="Common\" />
     <None Remove="DTO\" />
     <None Remove="Entities\Post-Entities\" />
+    <None Remove="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
@@ -19,5 +20,6 @@
     <Folder Include="Common\" />
     <Folder Include="DTO\" />
     <Folder Include="Entities\Post-Entities\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ namespace Domain.Entities
 
 		public string Title { get; set; } = string.Empty;
 
-		public PostContent Content { get; set; }
+		public PostContent? Content { get; set; }
 
 		public DateTime PostedAt { get; set; }
 
