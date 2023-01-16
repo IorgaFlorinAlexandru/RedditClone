@@ -3,19 +3,27 @@ using Application.Common.Interfaces;
 using Domain.Common;
 using Domain.Entities;
 using Domain.Entities.PostEntities;
+using Domain.Enums;
 using MediatR;
 
 namespace Application.Posts.Commands.CreatePost
 {
+    public record Content
+    {
+        public ContentType Type { get; set; }
+        public object Value { get; set; } = null!;
+    }
+
     public record CreatePostCommand : IRequest<int>
 	{
         public int CommunityId { get; set; }
 
-        public int CommunityType { get; set; }
+        public CommunityType CommunityType { get; set; }
 
 		public string Title { get; set; } = string.Empty;
 
-		public string OptionalText { get; set; } = string.Empty;
+        public Content? Content { get; set; }
+
 	}
 
     public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, int>
@@ -30,15 +38,13 @@ namespace Application.Posts.Commands.CreatePost
         public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
             Community? community;
-            CommunityType communityType;
 
             switch (request.CommunityType)
             {
-                case 1:
+                case CommunityType.Subreddit:
                     community = _context.Subreddits.FirstOrDefault(s => s.Id == request.CommunityId);
-                    communityType = CommunityType.Subreddit;
                     break;
-                case 2:
+                case CommunityType.Profile:
                     throw new NotImplementedException(); //Profile
                 default:
                     throw new Exception();
@@ -51,11 +57,9 @@ namespace Application.Posts.Commands.CreatePost
                 Title = request.Title,
                 PostedAt = DateTime.UtcNow,
                 Community = community,
-                CommunityType = communityType,
-                Content = new OptionalText
-                {
-                    Text = request.OptionalText,
-                }
+                CommunityType = request.CommunityType,
+                Content = request.Content != null ? PostContent.CreateContent(request.Content.Type,request.Content.Value)
+                    : null,
             };
 
             _context.Posts.Add(post);

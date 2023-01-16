@@ -1,4 +1,6 @@
 ﻿using System;
+using Domain.Enums;
+
 namespace Domain.Entities.PostEntities
 {
 	public class Link : PostContent

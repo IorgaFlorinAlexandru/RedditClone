@@ -26,8 +26,7 @@ namespace Application.Posts.Commands.DeletePost
 
 			if (post == null) throw new NotFoundException(nameof(Post), request.ToString());
 
-			post.isTrashed = true;
-			post.DeletedAt = DateTime.UtcNow;
+			_context.Posts.Remove(post);
 
 			await _context.SaveChangesAsync(cancellationToken);
 
