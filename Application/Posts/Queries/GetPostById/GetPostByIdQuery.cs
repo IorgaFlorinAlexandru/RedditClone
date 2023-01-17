@@ -29,6 +29,7 @@ namespace Application.Posts.Queries.GetPostById
                 .Where(p => p.Id == request.Id)
                 .Include(p => p.Content)
                 .Include(p => p.Community)
+                .AsNoTracking()
                 .Select(post => new PostDTO
                 {
                     Id = post.Id,
@@ -52,8 +53,6 @@ namespace Application.Posts.Queries.GetPostById
                 .FirstOrDefaultAsync();
 
             if (post == null) throw new NotFoundException(nameof(Post), request.Id.ToString());
-
-            //if (post.isTrashed) throw new NotFoundException(nameof(Post), request.Id.ToString()); //TODO MAYBE MAKE CUSTOM EXCEPTION
 
             return post;
         }

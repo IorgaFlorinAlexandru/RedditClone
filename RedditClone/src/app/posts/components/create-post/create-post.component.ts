@@ -35,10 +35,10 @@ export class CreatePostComponent {
 
   post(){
     if(this.textForm != undefined)
-      this.postService.createPost(this.textForm.textPostForm).subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error)
-      });
+      // this.postService.createPost(this.textForm.textPostForm).subscribe({
+      //   next: (response) => console.log(response),
+      //   error: (error) => console.log(error)
+      // });
     if(this.mediaForm != undefined)
       console.log(this.mediaForm.mediaFormData);
     if(this.linkForm != undefined)

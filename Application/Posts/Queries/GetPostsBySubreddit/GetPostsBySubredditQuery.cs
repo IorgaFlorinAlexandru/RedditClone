@@ -28,6 +28,7 @@ namespace Application.Posts.Queries.GetPostsBySubreddit
                 .Where(p => p.CommunityType == CommunityType.Subreddit && p.CommunityId == request.SubredditId)
                 .Include(p => p.Content)
                 .Include(p => p.Community)
+                .AsNoTracking()
                 .Select(post => new PostDTO
                 {
                     Id = post.Id,

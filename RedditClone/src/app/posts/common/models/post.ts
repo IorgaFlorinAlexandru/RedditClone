@@ -1,13 +1,21 @@
 export interface Post{
      id : number;
      title : string;
-     optionalText : string ;
-     upvotes : number;
-     postedAt : string ;
-     hasBeenEdited : boolean ;
-     comments : number;
+     originalPoster : string;
+     createdAt : string;
+     commentsCount : number;
+     upvotesCount : number;
+     content : Content;
+     community : Community;
+}
 
-     originalPoster : string ;
-     posterId : string ;
-     communityId : number ;
+export interface Content{
+     id: number;
+     content: string;
+}
+
+export interface Community{
+     id: number;
+     name: string;
+     icon: string;
 }

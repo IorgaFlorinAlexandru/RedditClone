@@ -21,12 +21,12 @@
     </section>
 
     <section class="auth">
-        <div *ngIf="!isAuthenticated" class="auth-buttons">
+        <ng-container *ngIf="!isAuthenticated,else userMenu">
             <app-auth-menu></app-auth-menu>
-        </div>
-        <div *ngIf="isAuthenticated" class="auth-profile">
+        </ng-container>
+        <ng-template #userMenu>
             <h2>b</h2>
-        </div>
+        </ng-template>
     </section>
 
 </div>
