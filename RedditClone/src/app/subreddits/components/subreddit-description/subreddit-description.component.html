@@ -1,1 +1,22 @@
-<p>subreddit-description works!</p>
+<ng-container>
+   <div class="mr-2 ml-2">
+        <ng-container *ngIf="!editDescription,else edit">
+            <button class="w-full bg-[#272729] border border-black h-8 rounded
+            hover:border-[#d7dadc] focus:border-[#d7dadc] focus:outline-none
+            text-xs text-white transition text-left
+            placeholder:text-white placeholder:text-xs pl-2" placeholder="Add description"
+            (click)="changeTemplate()" >
+            Add description
+        </button>
+            
+        </ng-container>
+
+        <ng-template #edit>
+            <textarea #editInput class="w-full bg-[#272729] border border-black h-14 rounded
+            hover:border-[#d7dadc] focus:border-[#d7dadc] focus:outline-none
+            text-xs text-white transition resize-none
+            placeholder:text-[#818384] placeholder:text-xs pl-2 pt-2" placeholder="Tell us about your community."
+            (focusout)="editDescription = !editDescription"></textarea>
+        </ng-template>
+   </div>
+</ng-container>
