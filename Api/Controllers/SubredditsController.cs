@@ -1,6 +1,7 @@
 ﻿using Application.Common.Models;
 using Application.Subreddits.Commands.CreateSubreddit;
 using Application.Subreddits.Commands.DeleteSubreddit;
+using Application.Subreddits.Commands.EditDescription;
 using Application.Subreddits.Commands.EditSubreddit;
 using Application.Subreddits.Queries;
 using Application.Subreddits.Queries.GetSubredditById;
@@ -59,6 +60,21 @@ namespace Api.Controllers
 				await Mediator.Send(commnad);
 
 				return Ok(new RequestResponse(true, "Subreddit has been edited"));
+			}
+			catch(Exception e)
+			{
+				return HandleException(e);
+			}
+		}
+
+		[HttpPut("editDescription")]
+		public async Task<ActionResult> EditDescription([FromBody]EditDescriptionCommand command)
+		{
+			try
+			{
+				await Mediator.Send(command);
+
+				return Ok();
 			}
 			catch(Exception e)
 			{

@@ -56,3 +56,10 @@ Infrastructure/obj/project.assets.json
 Infrastructure/obj/project.nuget.cache
 Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.AssemblyReference.cache
 Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.CoreCompileInputs.cache
+Infrastructure/obj/Debug/net7.0/Infrastructure.csproj.AssemblyReference.cache
+Application/obj/Debug/net7.0/Application.csproj.CoreCompileInputs.cache
+Application/Application.csproj
+Api/obj/Debug/net7.0/refint/Api.dll
+Api/obj/Debug/net7.0/ref/Api.dll
+Api/obj/Debug/net7.0/Api.csproj.AssemblyReference.cache
+.vs/RedditClone/xs/project-cache/Application-Debug.json

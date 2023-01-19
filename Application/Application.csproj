@@ -44,6 +44,7 @@
     <None Remove="Users\Commands\CreateUser\" />
     <None Remove="Users\Commands\LogInUser\" />
     <None Remove="Posts\Queries\GetPostsBySubreddit\" />
+    <None Remove="Subreddits\Commands\EditDescription\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
@@ -78,6 +79,7 @@
     <Folder Include="Users\Commands\CreateUser\" />
     <Folder Include="Users\Commands\LogInUser\" />
     <Folder Include="Posts\Queries\GetPostsBySubreddit\" />
+    <Folder Include="Subreddits\Commands\EditDescription\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="11.1.0" />
