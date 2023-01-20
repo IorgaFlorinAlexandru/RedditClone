@@ -9,6 +9,7 @@ import { AboutSubredditComponent } from './ui/about-subreddit/about-subreddit.co
 import { SubredditRulesComponent } from './ui/subreddit-rules/subreddit-rules.component';
 import { SubredditModeratorsComponent } from './ui/subreddit-moderators/subreddit-moderators.component';
 import { SubredditDescriptionComponent } from './components/subreddit-description/subreddit-description.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,9 @@ import { SubredditDescriptionComponent } from './components/subreddit-descriptio
   ],
   imports: [
     CommonModule,
-    PostsModule
+    PostsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     SubredditPageComponent

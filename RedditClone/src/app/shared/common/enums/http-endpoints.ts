@@ -3,4 +3,5 @@ export enum HttpEndpoints{
     CreatePost = "Post",
     GetPostsBySubreddit = "Post/getPostsBySubreddit/",
     GetSubreddit = "Subreddits/",
+    EditSubredditDescription = "Subreddits/editDescription"
 }

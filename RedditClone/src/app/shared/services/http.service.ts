@@ -20,7 +20,7 @@ export class HttpService {
     switch(method){
       case HttpMethods.GET: return this.httpClient.get(`${this.baseUrl}/${endPoint.toString()}` + (body == undefined ? "" : body), {headers: this.headers});
       case HttpMethods.POST: return this.httpClient.post(`${this.baseUrl}/${endPoint.toString()}`,body, {headers: this.headers});
-      case HttpMethods.PUT: return this.httpClient.put(`${this.baseUrl}/${endPoint.toString()}${body}`,{headers: this.headers});
+      case HttpMethods.PUT: return this.httpClient.put(`${this.baseUrl}/${endPoint.toString()}`,body,{headers: this.headers});
       case HttpMethods.DELETE: return this.httpClient.delete(`${this.baseUrl}/${endPoint.toString()}${body}`,{headers: this.headers});
       default: throw new Error("Method type is not valid");
     }

@@ -10,7 +10,7 @@ import { PostService } from '../../services/post.service';
 })
 export class PostListComponent {
  
-  posts : Post[] = [];
+  posts : Post[] | undefined = undefined;
   @Input() set data(value : PostListData | null){
     if(value == null) return;
 
