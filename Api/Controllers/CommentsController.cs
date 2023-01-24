@@ -4,6 +4,7 @@ using Application.Comments.Commands.DeleteComment;
 using Application.Comments.Commands.EditComment;
 using Application.Comments.Queries;
 using Application.Comments.Queries.GetCommentById;
+using Application.Comments.Queries.GetCommentsByPost;
 using Application.Common.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,7 +40,23 @@ namespace Api.Controllers
 			}
 		}
 
-		[HttpPost]
+
+        [HttpGet("getCommentsByPost/{id}")]
+        public async Task<ActionResult<CommentDTO>> GetCommentsByPostId(int id)
+        {
+            try
+            {
+                var comment = await Mediator.Send(new GetCommentsByPostIdQuery { PostId = id });
+
+                return Ok(comment);
+            }
+            catch (Exception e)
+            {
+                return HandleException(e);
+            }
+        }
+
+        [HttpPost]
 		public async Task<ActionResult<RequestResponse>> Post([FromBody] CreateCommentCommand command)
 		{
 			try
