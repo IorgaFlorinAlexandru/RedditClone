@@ -45,6 +45,8 @@
     <None Remove="Users\Commands\LogInUser\" />
     <None Remove="Posts\Queries\GetPostsBySubreddit\" />
     <None Remove="Subreddits\Commands\EditDescription\" />
+    <None Remove="Posts\Commands\CreateLinkPost\" />
+    <None Remove="Posts\Commands\CreateImagePost\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
@@ -80,6 +82,8 @@
     <Folder Include="Users\Commands\LogInUser\" />
     <Folder Include="Posts\Queries\GetPostsBySubreddit\" />
     <Folder Include="Subreddits\Commands\EditDescription\" />
+    <Folder Include="Posts\Commands\CreateLinkPost\" />
+    <Folder Include="Posts\Commands\CreateImagePost\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="11.1.0" />

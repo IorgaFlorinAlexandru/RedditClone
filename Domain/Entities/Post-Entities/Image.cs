@@ -5,7 +5,9 @@ namespace Domain.Entities.PostEntities
 {
 	public class PostImage : PostContent
 	{
-		public byte[] Bytes { get; set; } = null!;
+		public string Path { get; set; } = null!;
+
+		public string? Description { get; set; } = null;
     }
 }
 

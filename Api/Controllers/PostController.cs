@@ -61,22 +61,6 @@ namespace Api.Controllers
             }
         }
 
-        // POST api/values
-        [HttpPost]
-        public async Task<ActionResult<RequestResponse>> Post([FromBody]CreatePostCommand command)
-        {
-            try
-            {
-                var id = await Mediator.Send(command);
-
-                return StatusCode(201, new RequestResponse(true, $"A new post has been created."));
-            }
-            catch (Exception e)
-            {
-                return HandleException(e);
-            }
-        }
-
         // PUT api/values/5
         [HttpPut("{id}")]
         public async Task<ActionResult<RequestResponse>> Put(int id, [FromBody]EditPostCommand command)

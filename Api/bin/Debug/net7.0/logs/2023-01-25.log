@@ -1,0 +1,23 @@
+------------------
+ 2023-01-25 20:46:56.0536 ERROR System.NullReferenceException: Object reference not set to an instance of an object. 
+ System.NullReferenceException: Object reference not set to an instance of an object.
+   at Domain.DTO.ContentDTO.GetContent(PostContent c) in /Users/alexandru/Desktop/Projects/RedditClone/Domain/DTO/PostDTO.cs:line 70
+   at lambda_method236(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToArrayAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Application.Posts.Queries.GetPostsBySubreddit.GetPostsBySubredditQueryHandler.Handle(GetPostsBySubredditQuery request, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Posts/Queries/GetPostsBySubreddit/GetPostsBySubredditQuery.cs:line 27
+   at Application.Common.Behaviours.ValidationBehaviour`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /Users/alexandru/Desktop/Projects/RedditClone/Application/Common/Behaviours/ValidationBehaviour.cs:line 39
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at Api.Controllers.PostController.GetSubredditPosts(Int32 id) in /Users/alexandru/Desktop/Projects/RedditClone/Api/Controllers/PostController.cs:line 40 
+------------------
+------------------
+ 2023-01-25 20:49:20.2625 INFO One or more validation errors have occured. 
+  
+------------------

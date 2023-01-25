@@ -1,4 +1,5 @@
-﻿using Application.Common.Exceptions;
+﻿using System;
+using Application.Common.Exceptions;
 using Application.Common.Interfaces;
 using Domain.Common;
 using Domain.Entities;
@@ -6,14 +7,14 @@ using Domain.Entities.PostEntities;
 using Domain.Enums;
 using MediatR;
 
-namespace Application.Posts.Commands.CreatePost
+namespace Application.Posts.Commands.CreateLinkPost
 {
-    public record TextContent
+    public record LinkContent
     {
-        public string OptionalText { get; set; } = null!;
+        public string Link { get; set; } = string.Empty;
     }
 
-    public record CreatePostCommand : IPostRequest<int>
+	public record CreateLinkPostCommand : IPostRequest<int>
 	{
         public int CommunityId { get; set; }
 
@@ -21,20 +22,19 @@ namespace Application.Posts.Commands.CreatePost
 
         public string Title { get; set; } = string.Empty;
 
-        public TextContent? Content { get; set; }
+        public LinkContent Content { get; set; } = null!;
+    }
 
-	}
-
-    public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, int>
+    public class CreateLinkPostCommandHandler : IRequestHandler<CreateLinkPostCommand, int>
     {
         private readonly IApplicationDbContext _context;
 
-        public CreatePostCommandHandler(IApplicationDbContext context)
+        public CreateLinkPostCommandHandler(IApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateLinkPostCommand request, CancellationToken cancellationToken)
         {
             Community? community;
 
@@ -49,7 +49,7 @@ namespace Application.Posts.Commands.CreatePost
                     throw new Exception();
             }
 
-            if (community == null) throw new NotFoundException(nameof(community),request.CommunityId.ToString());
+            if (community == null) throw new NotFoundException(nameof(community), request.CommunityId.ToString());
 
             var post = new Post
             {
@@ -57,10 +57,10 @@ namespace Application.Posts.Commands.CreatePost
                 PostedAt = DateTime.UtcNow,
                 Community = community,
                 CommunityType = request.CommunityType,
-                Content = request.Content != null ? new OptionalText
+                Content = request.Content != null ? new Link
                 {
-                    Text = request.Content.OptionalText,
-                    Type = ContentType.Text
+                    Url = request.Content.Link,
+                    Type = ContentType.Link
                 } : null,
             };
 
