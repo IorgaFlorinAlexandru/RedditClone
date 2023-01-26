@@ -1,17 +1,19 @@
-Api/bin
-Api/obj
+Api/bin/
+Api/obj/
+Api/obj/Debug/net7.0
 Api/Api.csproj
-Application/bin
-Application/obj
+Application/bin/
+Application/obj/
 Application/Application.csproj
-Infrastructre/bin
-Infrastructre/obj
+Infrastructre/bin/
+Infrastructre/obj/
 Infrastructre/Infrastructre.csproj
-Domain/bin
-Domain/obj
+Domain/bin/
+Domain/obj/
 Domain/Domain.csproj
 
 UploadedFiles
 obj
 .vs
 .DS_STORE
+Api/obj/Debug/net7.0/Api.csproj.AssemblyReference.cache
