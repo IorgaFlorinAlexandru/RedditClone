@@ -21,10 +21,9 @@ namespace Domain.Entities
 
 		public DateTime? DeletedAt { get; set; } = null;
 
-		public int CommunityId { get; set; }
-		public Community Community { get; set; } = null!;
-		public CommunityType CommunityType { get; set; }
-
+		public int SubredditId { get; set; }
+		public Subreddit Community { get; set; } = null!;
+		
 		public virtual ICollection<Comment>? Comments { get; set; }
 
     }

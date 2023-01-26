@@ -19,8 +19,8 @@ namespace Api.Configurations
             });
 
             services.AddTransient<ILoggingService,NlogService>();
-            services.AddTransient<IImageService, ImageService>();
-
+            //services.AddTransient<IImageService, ImageService>();
+            services.AddSingleton<ImageService>();
 
             return services;
 		}

@@ -42,7 +42,7 @@ namespace Infrastructure.Persistence
             builder.Entity<Post>()
                 .HasOne(p => p.Community)
                 .WithMany(s => s.CommunityPosts)
-                .HasForeignKey(p => p.CommunityId);
+                .HasForeignKey(p => p.SubredditId);
 
             builder.Entity<Comment>()
                 .HasOne(c => c.Post)

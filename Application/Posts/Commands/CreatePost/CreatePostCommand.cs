@@ -17,8 +17,6 @@ namespace Application.Posts.Commands.CreatePost
 	{
         public int CommunityId { get; set; }
 
-        public CommunityType CommunityType { get; set; }
-
         public string Title { get; set; } = string.Empty;
 
         public TextContent? Content { get; set; }
@@ -28,35 +26,23 @@ namespace Application.Posts.Commands.CreatePost
     public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, int>
     {
         private readonly IApplicationDbContext _context;
+        private readonly ICommunityService _communityService;
 
-        public CreatePostCommandHandler(IApplicationDbContext context)
+        public CreatePostCommandHandler(IApplicationDbContext context, ICommunityService communityService)
         {
             _context = context;
+            _communityService = communityService;
         }
 
         public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
-            Community? community;
-
-            switch (request.CommunityType)
-            {
-                case CommunityType.Subreddit:
-                    community = _context.Subreddits.FirstOrDefault(s => s.Id == request.CommunityId);
-                    break;
-                case CommunityType.Profile:
-                    throw new NotImplementedException(); //Profile
-                default:
-                    throw new Exception();
-            }
-
-            if (community == null) throw new NotFoundException(nameof(community),request.CommunityId.ToString());
+            Subreddit community = await _communityService.FindCommunity(request.CommunityId);
 
             var post = new Post
             {
                 Title = request.Title,
                 PostedAt = DateTime.UtcNow,
                 Community = community,
-                CommunityType = request.CommunityType,
                 Content = request.Content != null ? new OptionalText
                 {
                     Text = request.Content.OptionalText,

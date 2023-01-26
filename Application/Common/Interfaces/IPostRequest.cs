@@ -8,8 +8,6 @@ namespace Application.Common.Interfaces
 	{
         public int CommunityId { get; set; }
 
-        public CommunityType CommunityType { get; set; }
-
         public string Title { get; set; }
     }
 }

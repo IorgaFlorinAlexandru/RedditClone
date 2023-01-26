@@ -25,7 +25,7 @@ namespace Application.Posts.Queries.GetPostsBySubreddit
         public async Task<PostDTO[]> Handle(GetPostsBySubredditQuery request, CancellationToken cancellationToken)
         {
             var posts = await _context.Posts
-                .Where(p => p.CommunityType == CommunityType.Subreddit && p.CommunityId == request.SubredditId)
+                .Where(p => p.SubredditId == request.SubredditId)
                 .Include(p => p.Content)
                 .Include(p => p.Community)
                 .AsNoTracking()

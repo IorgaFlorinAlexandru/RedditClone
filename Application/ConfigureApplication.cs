@@ -2,6 +2,8 @@
 using System;
 using System.Reflection;
 using Application.Common.Behaviours;
+using Application.Common.Interfaces;
+using Application.Common.Services;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +18,7 @@ namespace Application
 			services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+			services.AddScoped<ICommunityService, CommunityService>();
 
             return services;
 		}

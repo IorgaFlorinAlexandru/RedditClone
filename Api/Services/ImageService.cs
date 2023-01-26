@@ -3,12 +3,25 @@ using Application.Common.Interfaces;
 
 namespace Api.Services
 {
-	public class ImageService : IImageService
+	public sealed class ImageService
 	{
-        public async Task<string> SaveImageToDisk()
+        public async Task<string> SaveImageToDisk(IFormFile file)
         {
-            await Task.Delay(300);
-            return "path";
+            string directoryPath = "/Users/alexandru/Desktop/Projects/RedditClone/UploadedFiles";
+            string extension = CheckFileExtension(file.FileName);
+            string filePath = Path.Combine(directoryPath
+                , Guid.NewGuid().ToString() + extension);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return filePath;
+        }
+
+        private string CheckFileExtension(string fileName)
+        {
+            return Path.GetExtension(fileName);
         }
     }
 }
