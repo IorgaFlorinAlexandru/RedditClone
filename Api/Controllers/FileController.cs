@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
+    [Route("api/file")]
 	public class FileController : ApiControllerBase
 	{
         private readonly ImageService _imageService;
@@ -15,12 +16,18 @@ namespace Api.Controllers
 
 
         [HttpPost("upload")]
-        public async Task<ActionResult> UploadFile(IFormFile file)
+        public async Task<ActionResult<string>> UploadFile(IFormFile file)
         {
 
             string path = await _imageService.SaveImageToDisk(file);
 
             return Ok(path);
+        }
+
+        [HttpPost("multipart/upload")]
+        public async Task<ActionResult<string>> UploadFile()
+        {
+            throw new NotImplementedException();
         }
     }
 }

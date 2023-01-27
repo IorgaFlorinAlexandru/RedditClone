@@ -19,6 +19,7 @@ namespace Application
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 			services.AddScoped<ICommunityService, CommunityService>();
+			services.AddScoped<IPostService, PostService>();
 
             return services;
 		}

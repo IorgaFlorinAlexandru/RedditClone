@@ -9,12 +9,12 @@ using MediatR;
 
 namespace Application.Posts.Commands.CreateLinkPost
 {
-    public record LinkContent
+    public sealed record LinkContent
     {
         public string Link { get; set; } = string.Empty;
     }
 
-	public record CreateLinkPostCommand : IPostRequest<int>
+	public sealed record CreateLinkPostCommand : IPostRequest<int>
 	{
         public int CommunityId { get; set; }
 
@@ -23,32 +23,25 @@ namespace Application.Posts.Commands.CreateLinkPost
         public LinkContent Content { get; set; } = null!;
     }
 
-    public class CreateLinkPostCommandHandler : IRequestHandler<CreateLinkPostCommand, int>
+    public sealed class CreateLinkPostCommandHandler : IRequestHandler<CreateLinkPostCommand, int>
     {
         private readonly IApplicationDbContext _context;
         private readonly ICommunityService _communityService;
+        private readonly IPostService _postService;
 
-        public CreateLinkPostCommandHandler(IApplicationDbContext context,ICommunityService communityService)
+        public CreateLinkPostCommandHandler(IApplicationDbContext context,
+            ICommunityService communityService, IPostService postService)
         {
             _context = context;
             _communityService = communityService;
+            _postService = postService;
         }
 
         public async Task<int> Handle(CreateLinkPostCommand request, CancellationToken cancellationToken)
         {
             Subreddit community = await _communityService.FindCommunity(request.CommunityId);
 
-            var post = new Post
-            {
-                Title = request.Title,
-                PostedAt = DateTime.UtcNow,
-                Community = community,
-                Content = new Link
-                {
-                    Url = request.Content.Link,
-                    Type = ContentType.Link
-                },
-            };
+            var post = _postService.CreatePost(request, community);
 
             _context.Posts.Add(post);
 

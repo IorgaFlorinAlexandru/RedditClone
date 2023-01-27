@@ -8,12 +8,12 @@ using MediatR;
 
 namespace Application.Posts.Commands.CreatePost
 {
-    public record TextContent
+    public sealed record TextContent
     {
         public string OptionalText { get; set; } = null!;
     }
 
-    public record CreatePostCommand : IPostRequest<int>
+    public sealed record CreatePostCommand : IPostRequest<int>
 	{
         public int CommunityId { get; set; }
 
@@ -27,28 +27,21 @@ namespace Application.Posts.Commands.CreatePost
     {
         private readonly IApplicationDbContext _context;
         private readonly ICommunityService _communityService;
+        private readonly IPostService _postService;
 
-        public CreatePostCommandHandler(IApplicationDbContext context, ICommunityService communityService)
+        public CreatePostCommandHandler(IApplicationDbContext context,
+            ICommunityService communityService, IPostService postService)
         {
             _context = context;
             _communityService = communityService;
+            _postService = postService;
         }
 
         public async Task<int> Handle(CreatePostCommand request, CancellationToken cancellationToken)
         {
             Subreddit community = await _communityService.FindCommunity(request.CommunityId);
 
-            var post = new Post
-            {
-                Title = request.Title,
-                PostedAt = DateTime.UtcNow,
-                Community = community,
-                Content = request.Content != null ? new OptionalText
-                {
-                    Text = request.Content.OptionalText,
-                    Type = ContentType.Text
-                } : null,
-            };
+            var post = _postService.CreatePost(request,community);
 
             _context.Posts.Add(post);
 

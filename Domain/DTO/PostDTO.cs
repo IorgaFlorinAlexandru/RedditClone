@@ -14,9 +14,7 @@ namespace Domain.DTO
 
         public int CommentsCount { get; set; }
         public int UpvotesCount { get; set; }
-        /// <summary>
-        /// "optionalText": value || "linkUrl": value || "imageId" : value => then get image from backend
-        /// </summary>
+
         public ContentDTO? Content { get; set; }
         public CommunityDTO Community { get; set; }
     }
@@ -72,7 +70,8 @@ namespace Domain.DTO
                     var l = c as Link;
                     return l!.Url;
                 case ContentType.Image:
-                    return string.Empty;
+                    var i = c as PostImage;
+                    return i!.Path;
                 default:
                     return string.Empty;
             };

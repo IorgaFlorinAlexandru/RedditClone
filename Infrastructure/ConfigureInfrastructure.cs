@@ -57,7 +57,7 @@ namespace Infrastructure
             #endregion
 
             #region Infrastructure
-            services.AddTransient<IApplicationDbContext, ApplicationDbContext>();
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddTransient<IIdentityService, IdentityService>();
             #endregion
 
