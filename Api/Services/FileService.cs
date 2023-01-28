@@ -3,11 +3,11 @@ using Application.Common.Interfaces;
 
 namespace Api.Services
 {
-	public sealed class ImageService
+	public sealed class FileService
 	{
+        const string directoryPath = "/Users/alexandru/Desktop/Projects/RedditClone/UploadedFiles";
         public async Task<string> SaveImageToDisk(IFormFile file)
         {
-            string directoryPath = "/Users/alexandru/Desktop/Projects/RedditClone/UploadedFiles";
             string extension = CheckFileExtension(file.FileName);
             string filePath = Path.Combine(directoryPath
                 , Guid.NewGuid().ToString() + extension);
@@ -17,6 +17,12 @@ namespace Api.Services
             }
 
             return filePath;
+        }
+
+        public bool CheckIfFileExists(string path)
+        {
+            string filePath = Path.Combine(directoryPath, path);
+            return File.Exists(filePath);
         }
 
         private string CheckFileExtension(string fileName)
