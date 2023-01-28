@@ -37,6 +37,11 @@ namespace Api.Controllers
                 case NotFoundException:
                     Logger.LogInfo(e.Message);
                     return BadRequest(e.Message);
+                case WrongFileFormatException:
+                    Logger.LogInfo(e.Message);
+                    return BadRequest(e.Message);
+                case FileNotFoundException:
+                    return BadRequest("File has not been found.");
                 default:
                     Logger.LogError(e);
                     return StatusCode((int)HttpStatusCode.InternalServerError, SERVER_ERROR_MESSAGE);

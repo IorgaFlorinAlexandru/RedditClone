@@ -1,5 +1,5 @@
-﻿using System;
-using Api.Services;
+﻿using Api.Services;
+using Application.Common.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -7,26 +7,39 @@ namespace Api.Controllers
     [Route("api/file")]
 	public class FileController : ApiControllerBase
 	{
-        private readonly ImageService _imageService;
+        private readonly IFileService _fileService;
 
-        public FileController(ImageService imageService)
+        public FileController(IFileService fileService)
         {
-            _imageService = imageService;
+            _fileService = fileService;
         }
 
 
         [HttpPost("upload")]
         public async Task<ActionResult<string>> UploadFile(IFormFile file)
         {
+            try
+            {
+                string path;
+                using (var stream = new MemoryStream())
+                {
+                    await file.CopyToAsync(stream);
+                    var bytes = stream.ToArray();
+                    path = _fileService.SaveFileToDisk(file.FileName,bytes);
+                }
 
-            string path = await _imageService.SaveImageToDisk(file);
-
-            return Ok(path);
+                return Ok(path);
+            }
+            catch(Exception e)
+            {
+                return HandleException(e);
+            }
         }
 
         [HttpPost("multipart/upload")]
         public async Task<ActionResult<string>> UploadFile()
         {
+            await Task.Delay(1);
             throw new NotImplementedException();
         }
     }

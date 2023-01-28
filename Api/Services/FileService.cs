@@ -1,22 +1,23 @@
 ﻿using System;
+using Application.Common.Exceptions;
 using Application.Common.Interfaces;
 
 namespace Api.Services
 {
-	public sealed class FileService
+	public sealed class FileService : IFileService
 	{
         const string directoryPath = "/Users/alexandru/Desktop/Projects/RedditClone/UploadedFiles";
-        public async Task<string> SaveImageToDisk(IFormFile file)
-        {
-            string extension = CheckFileExtension(file.FileName);
-            string filePath = Path.Combine(directoryPath
-                , Guid.NewGuid().ToString() + extension);
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(stream);
-            }
 
-            return filePath;
+        public string SaveFileToDisk(string fileName,byte[] bytes)
+        {
+            string extension = CheckFileExtension(fileName);
+
+            fileName = Guid.NewGuid().ToString() + extension;
+            string filePath = Path.Combine(directoryPath, fileName);
+
+            File.WriteAllBytes(filePath, bytes);
+
+            return fileName;
         }
 
         public bool CheckIfFileExists(string path)
@@ -27,7 +28,17 @@ namespace Api.Services
 
         private string CheckFileExtension(string fileName)
         {
-            return Path.GetExtension(fileName);
+            string ext = Path.GetExtension(fileName);
+
+            switch (ext.ToLower())
+            {
+                case ".jpg":
+                case ".jpeg":
+                case ".png":
+                    return ext;
+                default:
+                    throw new WrongFileFormatException();
+            }
         }
     }
 }

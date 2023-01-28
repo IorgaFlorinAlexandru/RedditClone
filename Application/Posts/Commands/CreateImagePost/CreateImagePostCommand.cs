@@ -29,18 +29,24 @@ namespace Application.Posts.Commands.CreateImagePost
         private readonly IApplicationDbContext _context;
         private readonly ICommunityService _communityService;
         private readonly IPostService _postService;
+        private readonly IFileService _fileService;
 
         public CreateImagePostCommandHandler(IApplicationDbContext context,
-            ICommunityService communityService, IPostService postService)
+            ICommunityService communityService, IPostService postService,
+            IFileService fileService)
         {
             _context = context;
             _communityService = communityService;
             _postService = postService;
+            _fileService = fileService;
         }
 
         public async Task<int> Handle(CreateImagePostCommand request, CancellationToken cancellationToken)
         {
             Subreddit community = await _communityService.FindCommunity(request.CommunityId);
+
+            if (!_fileService.CheckIfFileExists(request.Content.Path))
+                throw new FileNotFoundException();
 
             var post = _postService.CreatePost(request,community);
 

@@ -1,6 +1,4 @@
-﻿using Api.Services;
-using Application.Common.Interfaces;
-using Application.Common.Models;
+﻿using Application.Common.Models;
 using Application.Posts.Commands.CreateImagePost;
 using Application.Posts.Commands.CreateLinkPost;
 using Application.Posts.Commands.CreatePost;
@@ -11,12 +9,6 @@ namespace Api.Controllers
     [Route("api/submitPost")]
     public class CreatePostController : ApiControllerBase
 	{
-
-        private readonly ImageService _imageService;
-        public CreatePostController(ImageService imageService)
-        {
-            _imageService = imageService;
-        }
 
        [HttpPost()]
         public async Task<ActionResult<RequestResponse>> Post([FromBody] CreatePostCommand command)

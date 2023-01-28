@@ -18,9 +18,9 @@ namespace Api.Configurations
                         .AllowCredentials());
             });
 
-            services.AddTransient<ILoggingService,NlogService>();
-            //services.AddTransient<IImageService, ImageService>();
-            services.AddSingleton<ImageService>();
+            services.AddScoped<ILoggingService,NlogService>();
+            services.AddScoped<IFileService, FileService>();
+
 
             return services;
 		}
