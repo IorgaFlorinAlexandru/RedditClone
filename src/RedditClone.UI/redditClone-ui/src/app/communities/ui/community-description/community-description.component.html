@@ -1,0 +1,27 @@
+<ng-container *ngIf="!isEditing,else edit">
+    <button class="w-full bg-transparent border border-transparent min-h-8 rounded
+    hover:!border-[#d7dadc] focus:border-[#d7dadc] focus:outline-none
+    text-xs text-white transition text-left
+    placeholder:text-white placeholder:text-xs p-2"
+    [ngClass]="{'!bg-[#272729] !border-black': description === ''}"
+    (click)="editDescription()" >
+    {{description == "" ? "Add description" : description}}
+   
+    </button>
+</ng-container>
+
+<ng-template #edit>
+    <div class="w-full bg-[#272729] border border-[#d7dadc] min-h-16 rounded relative pb-5">
+        <form [formGroup]="descriptionForm">
+            <textarea focus-input textareaAutosize rows="1" formControlName="valueControl" class="w-full hover:border-[#d7dadc] focus:border-[#d7dadc] focus:outline-none
+            text-xs text-white transition resize-none bg-transparent placeholder:text-[#818384] placeholder:text-sm pl-2 pr-2 pt-2 leading-5 overflow-y-hidden"
+            name="description"
+            placeholder="Tell us about your community." maxlength="500"></textarea>
+        </form>
+        <div class="text-xs absolute right-2 bottom-2">
+            <button class="text-red-500" (click)="cancel()">Cancel</button>
+            <button class="text-white ml-2" (click)="save()">Save</button>
+        </div>
+        <p class="text-[#818384] text-xs absolute left-2 bottom-2">{{500 - descriptionForm.get('valueControl')?.value.length}} characters remaining</p>
+    </div>
+</ng-template>

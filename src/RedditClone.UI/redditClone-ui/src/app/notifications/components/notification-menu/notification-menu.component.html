@@ -1,0 +1,21 @@
+<div class="w-[375px]">
+    <section class="p-3">
+        <h3 class="inline align-middle">Notifications</h3>
+        <div class="inline-block align-middle float-right text-[#818384]">
+            <button class="rounded hover:bg-[#303030] active:bg-[#343536] p-1">
+                <app-icon icon="envelope-open"></app-icon>
+            </button>
+            <button dropdown-menu-item routerLink="/settings/notifications" class="ml-2 rounded hover:bg-[#303030] active:bg-[#343536] p-1">
+                <app-icon icon="cog-8"></app-icon>
+            </button>
+        </div>
+    </section>
+    <section>
+        <notification-list></notification-list>
+    </section>
+    <section class="bg-[#272729] h-10">
+        <div class="m-auto pt-2 pb-2 w-max">
+            <a dropdown-menu-item routerLink="/notifications" class="uppercase cursor-pointer text-[#0079d3] font-semibold">See All</a>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,20 @@
+<div class="text-[#d7dadc] w-[648px] m-auto pt-10">
+    <h1 class="inline align-middle text-xl font-semibold">Notifications</h1>
+    <section class="p-3">
+        <div class="inline-block align-middle float-right text-[#818384] font-semibold">
+            <button class="rounded 
+                hover:text-[#d7dadc] hover:bg-[#303030] active:bg-[#343536] p-1">
+                <app-icon class="inline-block" icon="envelope-open"></app-icon> 
+                <span class="align-middle ml-1">Mark as read</span>
+            </button>
+            <button routerLink="/settings/notifications" class="ml-2 rounded 
+                hover:text-[#d7dadc] hover:bg-[#303030] active:bg-[#343536] p-1">
+                <app-icon class="inline-block" icon="cog-8"></app-icon>
+                <span class="align-middle ml-1">Settings</span>
+            </button>
+        </div>
+    </section>
+    <section class="mt-10 bg-[#1a1a1b] rounded overflow-hidden">
+        <notification-list></notification-list>
+    </section>
+</div>

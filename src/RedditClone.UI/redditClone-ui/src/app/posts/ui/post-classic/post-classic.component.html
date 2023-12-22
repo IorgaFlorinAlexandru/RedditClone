@@ -1,0 +1,20 @@
+<div class="flex 
+     border border-[#343536] w-full hover:border-[#818384] 
+     cursor-pointer overflow-hidden bg-[#1a1a1b]">
+    <div class="bg-[#151516] rounded">
+        <post-upvote-buttons></post-upvote-buttons>
+    </div>
+    <div class="text-[#7b7d7e] bg-[#202021] h-20 w-20 mt-2.5 ml-1 relative flex items-center justify-center">
+        <app-icon>newspaper</app-icon>
+    </div>
+    <div class="w-full text-[#d7dadc] flex flex-col justify-between">
+        <div class="mt-4 ml-2">
+            <h2 class="font-bold">{{post.title}}</h2>
+            <div>
+                <a [routerLink]="['/r',post.community]" class="text-xs hover:underline">r/{{post.community}}</a>
+                <span class="text-xs text-[#7b7d7e] ml-1">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</span>
+            </div>
+        </div>
+        <post-buttons></post-buttons>
+    </div>
+</div>

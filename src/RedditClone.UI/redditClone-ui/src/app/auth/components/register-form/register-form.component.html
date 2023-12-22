@@ -1,0 +1,35 @@
+<div class="p-8">
+    <form (submit)="false">
+        <ng-container *ngIf="REGISTER_STEP === SET_EMAIL_STEP">
+            <h1 class="text-xl font-semibold">Sign Up</h1>
+            <p class="text-sm mt-4">
+                By continuing, you agree to our <a class="text-[#4fbcff] hover:underline cursor-pointer">User Agreement</a> 
+                and acknowledge that you understand the <a class="text-[#4fbcff] hover:underline cursor-pointer">Privacy Policy</a>. 
+            </p>
+            <div class="mt-6">
+                <input class="bg-transparent border border-[#343536] rounded w-full pl-4 text-sm h-12 mb-4" placeholder="Email"/>
+            </div>
+            <div class="text-sm mt-6">
+                <p class="mt-4">Already a redditor? <a (click)="navigateToForm('login')" class="font-semibold text-[#4fbcff] hover:underline cursor-pointer">LOG IN</a></p>
+            </div>
+            <button (click)="goToNextStep()"  class="bg-[#0079d3] mt-10 font-bold w-full text-white rounded-md p-2 hover:bg-[#3394dc] active:bg-[#0061a9]">Continue</button>
+        </ng-container>
+
+        <ng-container *ngIf="REGISTER_STEP === SET_USER_AND_PASS_STEP">
+            <div class="border-b border-[#dcddde] pb-6">
+                <h1 class="text-xl font-semibold">Choose Your Username</h1>
+                <p class="text-sm mt-4">
+                    Your username is how other community members will see you. This name will be used to credit you for things you share on Reddit. What should we call you?
+                </p>
+            </div>
+            <div class="mt-6">
+                <input class="bg-transparent border border-[#343536] rounded w-full pl-4 text-sm h-12 mb-4" placeholder="Username"/>
+                <input type="password" class="bg-transparent border border-[#343536] rounded w-full pl-4 text-sm h-12 mb-4" placeholder="Password"/>
+            </div>
+            <div class="w-full border-t border-[#dcddde] mt-4 pt-6">
+                <button (click)="goToPreviousStep()" class="rounded-md p-2 hover:text-[#4fbcff] active:text-[#459ddf]">Back</button>
+                <button class="bg-[#0079d3] w-44 font-bold text-white rounded-md p-2 hover:bg-[#3394dc] active:bg-[#0061a9] float-right">Sign Up</button>
+            </div>
+        </ng-container>
+    </form>
+</div>

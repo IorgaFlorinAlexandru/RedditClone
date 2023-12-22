@@ -1,0 +1,28 @@
+<ng-container *ngIf="postLayout$ | async as layout">
+    <div class="post-list flex flex-col mr-6"
+    [ngClass]="{'w-full': layout !== cardLayout,'w-[40rem]': layout === cardLayout}">
+        <create-post-bar (submitRoute)="navigateToSubmitPage($event)" class="mb-4"></create-post-bar>
+        <trending-bar class="mb-4"></trending-bar>
+        <ng-container *ngIf="postListEntity$ | async as postListEntity">
+            <ng-container *ngIf="postListEntity.status !== LOADING_STATUS,else loading">
+                <div *ngFor="let post of postListEntity.data">
+                    <post [post]="post" [postLayout]="layout"></post>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+
+    <ng-template #loading>
+        <ng-container [ngSwitch]="layout">
+            <ng-container *ngSwitchCase="POST_LAYOUT.Card">
+                <skeleton-post-card *dynamicSkeletonLoader="layout"></skeleton-post-card>
+            </ng-container>
+            <ng-container *ngSwitchCase="POST_LAYOUT.Classic">
+                <skeleton-post-classic *dynamicSkeletonLoader="layout"></skeleton-post-classic>
+            </ng-container>
+            <ng-container *ngSwitchCase="POST_LAYOUT.Compact">
+                <skeleton-post-compact *dynamicSkeletonLoader="layout"></skeleton-post-compact>
+            </ng-container>
+        </ng-container>
+    </ng-template>
+</ng-container>

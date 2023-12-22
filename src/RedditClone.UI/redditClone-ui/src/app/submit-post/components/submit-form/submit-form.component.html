@@ -1,0 +1,20 @@
+<form [formGroup]="submitFormGroup" class="text-[#d7dadc]">
+    <div class="relative">
+        <input class="bg-transparent border border-[#343536] rounded w-full pl-4 pr-20 text-sm h-9
+             placeholder:text-[#474748]" 
+            formControlName="title" placeholder="Title" />
+        <span class="text-[#818384] absolute right-0 mt-2.5 mr-4 font-bold text-xs">{{submitFormGroup.get('title')?.value.length+'/300'}}</span>
+    </div>
+    <div class="mt-2">
+        <ng-container *ngIf="submitFormGroup.get('optionalText')">
+            <textarea class="bg-transparent border border-[#343536] rounded w-full 
+                pl-4 pt-2 text-sm min-h-40 placeholder:text-[#474748]" placeholder="Text (optional)"
+                formControlName="optionalText"></textarea>
+        </ng-container>
+        <ng-container *ngIf="submitFormGroup.get('link')">
+            <input class="bg-transparent border border-[#343536] rounded w-full pl-4 text-sm h-12
+                placeholder:text-[#474748]" 
+            formControlName="link" placeholder="Url" />
+        </ng-container>
+    </div>
+</form>

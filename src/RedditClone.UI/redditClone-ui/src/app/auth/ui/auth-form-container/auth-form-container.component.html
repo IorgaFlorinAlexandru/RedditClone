@@ -1,0 +1,6 @@
+<ng-container [ngSwitch]="currentRoute">
+    <login-form (changeForm)="changeFormComponent($event)" *ngSwitchCase="LOGIN_ROUTE"></login-form>
+    <register-form (changeForm)="changeFormComponent($event)" *ngSwitchCase="REGISTER_ROUTE"></register-form>
+    <forgot-password-form (changeForm)="changeFormComponent($event)" *ngSwitchCase="FORGOT_PASS_ROUTE"></forgot-password-form>
+    <forgot-username-form (changeForm)="changeFormComponent($event)" *ngSwitchCase="FORGOT_USER_ROUTE"></forgot-username-form>
+</ng-container>

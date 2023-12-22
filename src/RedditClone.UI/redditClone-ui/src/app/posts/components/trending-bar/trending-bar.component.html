@@ -1,0 +1,22 @@
+<div class="w-full h-14 p-4 rounded border border-[#343536] bg-[#1a1a1b] flex items-center text-[#818384] font-bold">
+    <button *ngFor="let trend of trends" class="flex items-center p-1 pr-2 rounded-md hover:bg-[#272729] mr-2 active:bg-[#343536]"
+        [ngClass]="{'bg-[#272729] text-[#d7dadc]': trend.isSelected}" (click)="changeTrend(trend)">
+        <app-icon [icon]="trend.icon"></app-icon>
+        <span class="ml-1">{{trend.name}}</span>
+    </button>
+    <span class="flex-1"></span>
+
+    <div>
+        <button [dropdownMenuTriggerFor]="postLayoutMenu" class="flex items-center p-1 rounded-md hover:bg-[#272729]">
+            <app-icon>ellipsis-horizontal</app-icon>
+        </button>
+        <dropdown-menu-component position="right" #postLayoutMenu>
+            <ul>
+                <li *ngFor="let enum of postLayout | keyvalue" dropdown-menu-item class="cursor-pointer p-2 pl-4 pr-4 text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B]"
+                    (click)="changeLayout(enum.value)">
+                    {{enum.key}}
+                </li>
+            </ul>
+        </dropdown-menu-component>
+    </div>
+</div>

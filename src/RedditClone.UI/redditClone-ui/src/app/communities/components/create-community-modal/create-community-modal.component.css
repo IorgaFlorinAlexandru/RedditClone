@@ -1,0 +1,8 @@
+input[type=radio]:not(:checked)::-ms-check {
+    border-color: red; 
+  }
+
+  input[type=radio]::-ms-check {
+    border-color: red; /* This will make the border red when the button is checked. */
+    color: red; /* This will make the circle red when the button is checked. */
+  }

@@ -1,0 +1,61 @@
+<div class="flex justify-center mt-10 ">
+    <div class="w-[38%]">
+        <section class="text-[#d7dadc] font-bold pb-2 border-b border-[#343536]">
+            <h2 class="text-lg inline">Create a post</h2>
+            <button class="inline float-right uppercase hover:bg-[#272729] rounded pl-2 pr-2" (click)="openDraftsModal()">
+                Drafts
+                <span class="pl-0.5 pr-0.5 rounded bg-[#818384] text-[#030303] text-sm">0</span>
+            </button>
+        </section>
+
+        <section class="mt-4">
+            <community-select (hasSelectedCommunity)="hasSelectedCommunity($event)"></community-select>
+        </section>
+    
+        <section class="mt-3 rounded w-full bg-[#1a1a1b]">
+            <div class="flex justify-between h-12 text-[#818384]">
+                <button *ngFor="let tab of submitFormTabs" class="border-t border-b border-[#343536] w-full
+                    hover:bg-[#272729] cursor-pointer font-semibold text-sm
+                    first:border-l first:border-r first:rounded-tl
+                    last:border-l last:border-r last:rounded-tr
+                    disabled:text-[#434445] disabled:hover:bg-inherit disabled:cursor-not-allowed"
+                    [ngClass]="{'text-[#d7dadc] border-b-2 border-b-[#d7dadc]': tab.isActive}" 
+                    (click)="changeCurrentTab(tab)" [disabled]="tab.disabled">
+                      <app-icon class="inline" [icon]="tab.icon"></app-icon>              
+                      <span class="ml-2">{{tab.name}}</span>
+                </button>
+            </div>
+    
+            <div class="m-4 border-b border-[#343536] pb-4">
+                <submit-form [submitFormGroup]="submitFormGroup"></submit-form>
+            </div>
+    
+            <div class="m-4 w-min ml-auto">
+                <button *ngIf="createPostStatus$ | async as status" class="bg-[#d7dadc] rounded-md 
+                    w-16 font-bold text-sm p-1.5 hover:bg-gray-300 h-8
+                    disabled:text-[#737373] disabled:cursor-not-allowed
+                    disabled:hover:bg-gray-400 disabled:bg-gray-400"
+                    (click)="submitPost()" [disabled]="canPost() && status !== LOADING_STATUS">
+                    <ng-container *ngIf="status !== LOADING_STATUS,else buttonSpinner">
+                        Post
+                    </ng-container>
+                </button>
+            </div>
+            <div class="bg-[#272729] rounded p-4 text-[#d7dadc]">
+                <p class="text-sm mb-1">Send me post reply notifications</p>
+                <a class="hover:underline cursor-pointer text-sm text-[#4fbcff]">
+                    Connect accounts to share your post
+                </a>
+            </div>
+        </section>
+    
+    </div>
+
+    <div class="ml-6 pt-4">
+        <reddit-rules></reddit-rules>
+    </div>
+</div>
+
+<ng-template #buttonSpinner>
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</ng-template>

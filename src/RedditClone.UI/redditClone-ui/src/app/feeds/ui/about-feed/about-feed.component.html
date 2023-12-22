@@ -1,0 +1,18 @@
+<div class="border-[#343536] bg-[#1a1a1b] 
+text-white w-80  min-h-fit rounded-md border overflow-hidden relative">
+    <div class="absolute">
+        <img [src]="'../../../../assets/images/' + feedDescription.backgroundImage"/>
+    </div>
+    <div class="p-3 relative pt-6">
+        <div>
+            <img class="w-[40px] h-[68px] inline-block" src="../../../../assets/images/snoo-feed.png"/>
+            <span class="ml-4 align-middle">{{feedDescription.name}}</span>
+        </div>
+        <p class="text-sm mt-4">{{feedDescription.description}}</p>
+        <div class="separator h-[1px] w-full bg-[#343536] mt-4 mb-4"></div>
+        <div class="font-bold">
+            <button class="w-full text-[#1a1a1b] bg-[#d7dadc] rounded-md p-1 pl-2 pr-2 hover:bg-[#c7cacc] active:bg-[#a9abad] block mb-2" (click)="navigateToSubmitPost()">Create Post</button>
+            <button class="w-full text-[#d7dadc] border border-[#d7dadc] rounded-md p-1 pl-2 pr-2 hover:bg-[#3b3c3d] active:bg-[#4e5051]" (click)="openCreateCommunityModal()">Create Community</button>
+        </div>
+    </div>
+</div>

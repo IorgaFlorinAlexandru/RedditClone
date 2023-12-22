@@ -1,0 +1,19 @@
+<ng-container *ngIf="communityData$ | async as communityData">
+    <community-header 
+        [name]="communityName"
+        [title]="communityTitle"
+        [status]="communityData.status">
+    </community-header>
+    <div class="flex justify-center p-4 pl-6 pr-6">
+        <post-list></post-list>
+        <div >
+            <about-community
+                [description]="communityDescription"
+                [createdDate]="communityCreatedDate"
+                [status]="communityData.status">
+            </about-community>
+        </div>
+    </div>
+</ng-container>
+
+<!-- TODO MOCK UP LOADING COMPONENTS -->

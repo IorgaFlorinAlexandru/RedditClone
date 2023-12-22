@@ -1,0 +1,24 @@
+<div class="flex border border-[#343536] w-[40rem] rounded-md hover:border-[#818384] cursor-pointer mb-4 overflow-hidden">
+    <div class="bg-[#151516] rounded">
+        <post-upvote-buttons></post-upvote-buttons>
+    </div>
+    <!-- max-h-64 overflow-hidden -->
+    <div class="flex flex-col w-full bg-[#1a1a1b] rounded p-1.5 pr-3 pt-2 text-[#d7dadc] relative
+">
+        <div class="flex items-center">
+            <a [routerLink]="['/r',post.community]" class="text-xs hover:underline">r/{{post.community}}</a>
+            <span></span>
+            <p class="text-xs text-[#7b7d7e] ml-1">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</p>
+        </div>
+        <!-- TODO  REPLACE THIS WITH CUSTOM COMPONENT OR DIFF COMP FOR EVERY SITUATION FOR CONTENT
+            SO IT WILL KNOW WHAT TO DISPLAY EVEN IF CONTENT IS VIDEO, LINK, TEXT etc.. -->
+        <div class="content w-full  overflow-hidden  max-h-64 relative
+            after:content-[''] after:w-full after:bottom-0
+            after:block after:absolute after:h-10 after:from-[#1a1a1b] after:bg-gradient-to-t" > 
+            <h2 class="font-bold mt-2 mb-2">{{post.title}}</h2>
+            <p class="text-sm pb-2">{{post.content}}</p>
+        </div>
+        
+        <post-buttons></post-buttons>
+    </div>
+</div>

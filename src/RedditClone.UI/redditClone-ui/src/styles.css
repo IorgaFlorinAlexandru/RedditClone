@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: black;
+}
+
+.scrollbar-dark::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-track {
+    background: #424242;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+    background: #686868;
+    border-radius: 5px;
+    border: 3px solid #424242;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
+    background: #727272;
+}
+
+.min-h-40{
+    min-height: 10rem;
+}
+
+.min-h-96{
+    min-height: 24rem;
+}
+
+.min-w-96{
+    min-width: 24rem;
+}
+
+/* Up */
+/* .scrollbar-dark::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #555555 transparent;
+}
+
+.scrollbar-dark::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+    border-color: transparent transparent #777777 transparent;
+} */
+/* Down */
+/* .scrollbar-dark::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-width: 8px 8px 0 8px;
+    border-color: #555555 transparent transparent transparent;
+}
+
+.scrollbar-dark::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+    border-color: #777777 transparent transparent transparent;
+} */
+
+.animated-background {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: linear-gradient(to right, #272729 8%, #343536 50%, #272729 33%);
+    background-size: 800px 104px;
+    position: relative;
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -800px 0
+    }
+    100% {
+        background-position: 800px 0
+    }
+}

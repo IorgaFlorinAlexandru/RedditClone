@@ -1,0 +1,3 @@
+.routes:last-child .separator {
+    display: none;
+}

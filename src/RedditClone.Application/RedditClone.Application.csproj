@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\DataTransferObjects\" />
+    <Folder Include="Common\Mappings\" />
+    <Folder Include="Common\Exceptions\" />
+    <Folder Include="Communities\Commands\ChangeDescription\" />
+    <Folder Include="Communities\EventHandlers\" />
+    <Folder Include="Communities\Queries\GetAllCommunities\" />
+    <Folder Include="Posts\EventHandlers\" />
+    <Folder Include="Posts\Queries\GetPostById\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.6.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.6.0" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RedditClone.Domain\RedditClone.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

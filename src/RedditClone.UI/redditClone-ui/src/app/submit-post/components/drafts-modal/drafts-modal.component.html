@@ -1,0 +1,22 @@
+<div class="text-[#d7dadc] h-[400px] w-[680px] flex flex-col">
+    <section class="p-3 border-b border-[#343536]">
+        <h2 class="inline-block font-semibold">Drafts</h2>
+        <button (click)="close()" class="float-right align-middle hover:bg-[#303030] active:bg-[#343536]"><app-icon>x-mark</app-icon></button>
+    </section>
+    <section class="flex-1">
+        <div class="flex items-center pl-2 pr-2 cursor-pointer border-b border-[#343536] text-[#818384]
+            hover:bg-[#272729]">
+            <app-icon>newspaper</app-icon>
+            <div class="ml-2 flex-1">
+                <h2 class="font-bold text-[#d7dadc]">aa</h2>
+                <span class="text-xs">Draft saved 19 minutes ago</span>
+            </div>
+            <button class="hover:text-[#d7dadc]">
+                <app-icon>trash</app-icon>
+            </button>
+        </div>
+    </section>
+    <section class="border-t border-[#343536] p-2 pr-4">
+        <button class="float-right rounded-md border p-1 pl-2 pr-2 font-bold hover:bg-[#272729]" (click)="close()">Close</button>
+    </section>
+</div>

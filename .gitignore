@@ -1,0 +1,6 @@
+#IDE
+.vs
+obj
+bin
+.DS_STORE
+

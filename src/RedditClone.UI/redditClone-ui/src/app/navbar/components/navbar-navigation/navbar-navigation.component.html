@@ -1,0 +1,25 @@
+<!-- Borders were at fault when opening the menu as it would move the elements inside -->
+<div #navContainer *ngIf="navInfo$ | async as navInfo"
+    tabindex="1" 
+    class="w-[270px] box-border border border-transparent rounded hover:border-[#343536]"
+    [ngClass]="{'mt-[4px] !border-[#343536]' : isDropdownOpened,'hover:border-[#343536]': !navInfo.showAsAsideMenu}"
+    >
+    <div (click)="openClose(navInfo.showAsAsideMenu)" class="flex items-center h-[38px] box-border p-1.5"
+        [ngClass]="{'cursor-pointer': !navInfo.showAsAsideMenu}">
+        <span class="mr-2">
+            <app-icon [icon]="navInfo.currentRoute.icon"></app-icon>
+        </span>
+        <h5 class="font-semibold flex-1 text-sm select-none">{{navInfo.currentRoute.name}}</h5>
+        <span *ngIf="!navInfo.showAsAsideMenu" class="mr-1 flex items-center">
+            <button (click)="showAsAsideMenu()" *ngIf="isDropdownOpened" class="items-center mr-2">
+                <app-icon class="m-auto" >list</app-icon>
+            </button>
+            <span>
+                <app-icon class="h-4 w-4">chevron-down</app-icon>
+            </span>
+        </span>
+    </div>
+    <div class="scrollbar-dark" [ngClass]="{'block mt-1 h-[32rem] bg-[#1A1A1B] overflow-auto' : isDropdownOpened}" [class.hidden]="!isDropdownOpened">
+        <navigation-menu></navigation-menu>
+    </div>
+</div>

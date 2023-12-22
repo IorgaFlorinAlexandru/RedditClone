@@ -1,0 +1,41 @@
+<div class="flex">    
+    <span>
+        <button toolTip="Popular" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
+            <app-icon>trending-up</app-icon>
+        </button>
+    </span>
+    <span>
+        <button toolTip="Moderation" [dropdownMenuTriggerFor]="modMenu" class="hover:bg-[#303030] active:bg-[#343536] focus:bg-[#343536] p-1 rounded ml-1">
+            <app-icon>shield-exclamation</app-icon>        
+        </button>
+         <dropdown-menu-component #modMenu position="right">
+            <ul *ngIf="moderatingRoutes$ | async as routes" class="box-border">
+                <div *ngFor="let route of routes" class="routes">
+                    <li dropdown-menu-item (click)="navigateToRoute(route)" class="flex p-2 pl-4 pr-4 text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer">
+                        <app-icon [icon]="route.icon"></app-icon>
+                        <span class="ml-1">{{route.name}}</span>
+                    </li>
+                    <div class="separator h-[1px] w-4/6 bg-[#343536] ml-auto mr-auto"></div>
+                </div>
+            </ul>
+         </dropdown-menu-component>
+    </span>
+    <span>
+        <button toolTip="Chat" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
+            <app-icon>chat-bubble</app-icon> 
+        </button>
+    </span>
+    <span>
+        <button toolTip="Notifications" [dropdownMenuTriggerFor]="notificationsMenu" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1 focus:bg-[#343536]">
+            <app-icon>notification</app-icon>
+        </button>
+        <dropdown-menu-component #notificationsMenu position="center">
+            <notification-menu></notification-menu>
+        </dropdown-menu-component>
+    </span>
+    <span>
+        <button toolTip="Create Post" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
+            <app-icon>plus</app-icon>
+        </button>
+    </span>
+</div>

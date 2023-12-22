@@ -1,0 +1,16 @@
+<div class="p-8">
+    <h1 class="text-xl font-semibold">Log In</h1>
+    <p class="text-sm mt-4">
+        By continuing, you agree to our <a class="text-[#4fbcff] hover:underline cursor-pointer">User Agreement</a> 
+        and acknowledge that you understand the <a class="text-[#4fbcff] hover:underline cursor-pointer">Privacy Policy</a>. 
+    </p>
+    <form class="mt-6">
+        <input class="bg-transparent border border-[#343536] rounded w-full pl-4 text-sm h-12 mb-4" placeholder="Username"/>
+        <input type="password" class="bg-transparent border border-[#343536] rounded w-full pl-4 text-sm h-12" placeholder="Password"/>
+    </form>
+    <div class="text-sm mt-6">
+        <p>Forgot your <a (click)="navigateToForm('forgotUsername')" class="text-[#4fbcff] hover:underline cursor-pointer">username</a> or <a (click)="navigateToForm('forgotPassword')" class="text-[#4fbcff] hover:underline cursor-pointer">password</a>?</p>
+        <p class="mt-4">New to Reddit? <a (click)="navigateToForm('register')" class="font-semibold text-[#4fbcff] hover:underline cursor-pointer">SIGN UP</a></p>
+    </div>
+    <button class="bg-[#d93a00] mt-10 font-bold w-full text-white rounded-md p-2 hover:bg-[#962900] active:bg-[#7e2300]">Log In</button>
+</div>

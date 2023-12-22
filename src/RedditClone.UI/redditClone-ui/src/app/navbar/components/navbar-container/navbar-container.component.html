@@ -1,0 +1,18 @@
+<div #navbarContainer class="w-full bg-[#1A1A1B] h-12 
+    flex items-center text-[#D7DADC]
+    justify-between pl-5 pr-5 z-50 gap-8
+    border-b border-[#343536] fixed">
+    <navbar-logo></navbar-logo>
+    <navbar-navigation class="m-auto ml-0 mr-0"></navbar-navigation>
+    <navbar-search class="w-1/2"></navbar-search>
+    <ng-container *ngIf="isLoggedOn$ | async,else authButtons">
+        <navbar-buttons></navbar-buttons>
+        <user-menu></user-menu>
+    </ng-container>
+</div>
+
+<ng-template #authButtons>
+    <div class="flex-1">
+        <auth-buttons class="float-right"></auth-buttons>
+    </div>
+</ng-template>

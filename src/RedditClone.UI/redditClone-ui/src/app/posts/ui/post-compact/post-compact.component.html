@@ -1,0 +1,20 @@
+<div class="flex 
+     border border-[#343536] w-full hover:border-[#818384] 
+     cursor-pointer overflow-hidden bg-[#1a1a1b] pr-2">
+    <post-upvote-buttons [postLayout]="compactLayout"></post-upvote-buttons>
+    <div class="text-[#7b7d7e]  ml-1 relative flex items-center justify-center">
+        <button class="hover:bg-[#303030] active:bg-[#343536] rounded p-1">
+            <app-icon>newspaper</app-icon>
+        </button>
+    </div>
+    <div class="w-full text-[#d7dadc] flex flex-col justify-between">
+        <div class="m-1 ml-2">
+            <h2 class="font-bold">{{post.title}}</h2>
+            <div>
+                <a [routerLink]="['/r',post.community]" class="text-xs hover:underline">r/{{post.community}}</a>
+                <span class="text-xs text-[#7b7d7e] ml-1">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</span>
+            </div>
+        </div>
+    </div>
+    <post-buttons></post-buttons>
+</div>

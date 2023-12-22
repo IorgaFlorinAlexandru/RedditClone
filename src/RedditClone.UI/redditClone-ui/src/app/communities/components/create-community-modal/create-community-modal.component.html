@@ -1,0 +1,62 @@
+<div class="flex flex-col justify-between w-[512px] h-[523px]">
+    <div class="text-[#d7dadc] p-4 font-semibold">
+        <div class="flex items-center justify-between mb-4">
+            <h1>Create a community</h1>
+            <button (click)="close()" class="hover:bg-[#303030] active:bg-[#343536]"><app-icon>x-mark</app-icon></button>
+        </div>
+        <div class="h-[1px] w-full bg-[#343536]"></div>
+        <section class="mt-4">
+            <h1>Name</h1>
+            <p class="text-xs text-[#818384]">Community names including capitalization cannot be changed.</p>
+        </section>
+        <form [formGroup]="communityFormGroup">
+            <section class="mt-4 relative">
+                <input class="bg-transparent border border-[#343536] rounded w-full pl-6 text-sm h-9" formControlName="nameControl"/>
+                <p class="text-xs text-[#818384] mt-2">{{21 - nameControl.value.length}} Characters remaining</p>
+                <!-- <p class="text-xs text-[#ff0000] mt-1">Eroor</p> -->
+                <p class="absolute text-sm text-[#818384] top-[7.5px] left-[13px]">r/</p>
+            </section>
+            <section class="mt-6">
+                <h1>Community type</h1>
+                <div class="mt-2 flex items-center">
+                    <input type="radio" value="public" class="accent-[#0079d3] border border-[#343536] w-4 h-4" formControlName="typeControl" />
+                    <label class="ml-2">
+                        <!-- <span class="inline-block"><app-icon classes="text-[#818384]" icon="user"></app-icon></span> -->
+                        <span class="text-sm ml-2 mr-2">Public</span>
+                        <span class="text-xs text-[#818384]">Anyone can view, post, and comment to this community</span>
+                    </label>
+                </div>
+                <div class="mt-2 flex items-center">
+                    <input type="radio" value="restricted" class="accent-[#0079d3] border border-[#343536] w-4 h-4" formControlName="typeControl"/>
+                    <label class="ml-2">
+                        <!-- <span class="inline-block"><app-icon classes="text-[#818384]" icon="user"></app-icon></span> -->
+                        <span class="text-sm ml-2 mr-2">Restricted</span>
+                        <span class="text-xs text-[#818384]">Anyone can view this community, but only approved users can post</span>
+                    </label>
+                </div>
+                <div class="mt-2 flex items-center">
+                    <input type="radio" value="private" class="accent-[#0079d3] border border-[#343536] w-4 h-4" formControlName="typeControl"/>
+                    <label class="ml-2">
+                        <!-- <span class="inline-block"><app-icon classes="text-[#818384]" icon="user"></app-icon></span> -->
+                        <span class="text-sm ml-2 mr-2">Private</span>
+                        <span class="text-xs text-[#818384]">Only approved users can view and submit to this community</span>
+                    </label>
+                </div>
+            </section>
+            <section class="mt-10 ">
+                <h1>Adult Content</h1>
+                <div class="flex items-center mt-2">
+                    <input type="checkbox" class="accent-[#0079d3] inline" formControlName="hasNSFWControl"/>
+                    <span class="text-xs pl-1 pr-1 ml-2 mr-2 rounded bg-[#ff585b]">NSFW</span>
+                    <span class="text-sm">18+ year old community</span>
+                </div>
+            </section>
+        </form>
+    </div>
+    <section class="h-16 bg-[#343536] flex items-center justify-end">
+        <div class="font-bold mr-4">
+            <button class="mr-2 text-[#d7dadc] border border-[#d7dadc] rounded-md p-1 pl-2 pr-2 hover:bg-[#3b3c3d] active:bg-[#4e5051]" (click)="close()">Cancel</button>
+            <button class="bg-[#d7dadc] rounded-md p-1 pl-2 pr-2 hover:bg-[#c7cacc] active:bg-[#a9abad]" (click)="createCommunity()">Create Community</button>
+        </div>
+    </section>
+</div>

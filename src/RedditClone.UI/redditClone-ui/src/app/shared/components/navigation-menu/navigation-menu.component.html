@@ -1,0 +1,28 @@
+<div *ngIf="navigation$ | async as navigation" class="pb-2 bg-[#1A1A1B] h-full text-[#D7DADC]">
+    <div *ngIf="navigation.showNavigationMenu" class="pt-2 pr-3 w-full">
+        <button class="hover:bg-[#303030] active:bg-[#343536] rounded float-right mb-2" (click)="hideNavigationMenu()">
+            <app-icon>x-mark</app-icon>
+        </button>
+    </div>
+    <div class="p-4">
+        <form [formGroup]="formGroup">
+            <input name="filterInput" formControlName="filter" class="w-full border p-0.5 pl-1 bg-[#272729] border-[#343536] hover:border-white
+                focus:outline-none focus:bg-transparent
+                placeholder:text-[#767879] placeholder:text-sm placeholder:pl-2" placeholder="Filter"/>
+        </form>
+    </div>
+    <div *ngFor="let group of navigation.items | filterEmptyNavGroups">
+        <h5 class="text-[#818384] font-bold uppercase text-[10px] p-2 pl-6 ">{{group.name}}</h5>
+        <ul>
+           <li *ngFor="let navItem of group.routes" (click)="navigationItemClicked(navItem,navigation.currentRoute)"
+            class="p-1.5 cursor-pointer text-sm hover:bg-[#303030] flex items-center">
+                <span class="ml-4">
+                    <app-icon [icon]="navItem.icon"></app-icon>
+                </span>
+                <span class="ml-2">{{navItem.name}}</span>
+            </li> 
+        </ul>
+        <div class="h-2"></div>
+    </div>
+</div>
+
