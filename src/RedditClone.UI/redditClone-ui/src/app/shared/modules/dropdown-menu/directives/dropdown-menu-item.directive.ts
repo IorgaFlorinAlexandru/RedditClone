@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Host, HostListener, Inject, Renderer2 } from '@angular/core';
+import { Directive, HostListener, Inject } from '@angular/core';
 import { DropdownMenuComponent } from '../dropdown-menu/dropdown-menu.component';
 
 @Directive({
@@ -6,14 +6,14 @@ import { DropdownMenuComponent } from '../dropdown-menu/dropdown-menu.component'
 })
 export class DropdownMenuItemDirective {
 
-  constructor(private element: ElementRef, @Inject(DropdownMenuComponent) private menu: DropdownMenuComponent) {}
+  constructor(@Inject(DropdownMenuComponent) private menu: DropdownMenuComponent) {}
 
   @HostListener('click') onClick() {
-    this.closeMenu();
+    this.closeDropdownMenu();
   }
 
-  private closeMenu(): void {
-    this.menu.close();
+  private closeDropdownMenu(): void {
+    this.menu.closeMenu();
   }
 
 }

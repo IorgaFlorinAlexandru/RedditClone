@@ -5,7 +5,7 @@ export interface UserState{
 }
 
 const initialState: UserState = {
-    isLoggedOn: false
+    isLoggedOn: true
 }
 
 export const userFeatureKey = 'User';

@@ -17,7 +17,6 @@ export function setupNavigation() : Navigation {
         name: 'Your Communities',
         routes: [
             { icon: 'plus', name: 'Create Community', route: '', actionType: NavigationActionType.CREATE_COMMUNITY_MODAL},
-            { icon: 'plus', name: 'Test UI Subreddit', route: 'r', actionType: NavigationActionType.ROUTE},
             { icon: 'star', name: 'Test Page', route: 'test', actionType: NavigationActionType.ROUTE},
         ],
         type: NavigationGroupType.COMMUNITY

@@ -1,36 +1,40 @@
-import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
-import { Subject, fromEvent, takeUntil, tap } from 'rxjs';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Subject, fromEvent, skip, takeUntil, tap } from 'rxjs';
 
 @Directive({
-  selector: '[hideOnClickAway]'
+  selector: '[hideOnClickAway]',
+  standalone: true
 })
-export class HideOnClickAwayDirective implements AfterViewInit {
+export class HideOnClickAwayDirective implements AfterViewInit, OnDestroy {
 
   constructor(private element: ElementRef) { }
-  
-  @Input() hideOnClickAway!: Function;
-  
+
+  @Output('clickedOutsideEvent') clickedOutsideEvent = new EventEmitter<boolean>();
+
   destroy$: Subject<boolean> = new Subject();
-  
+
   ngAfterViewInit(): void {
     this.checkIfClickedOutside();
   }
 
-  checkIfClickedOutside(): void {
-    fromEvent(document.body,'click').pipe(
-      tap(e =>{
-        if(this.element.nativeElement.contains(e.target)) return;
-        
-          this.hide();
-        }
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+  }
+
+  private checkIfClickedOutside(): void {
+    fromEvent(document.body, 'click').pipe(
+      skip(1),
+      tap(e => {
+        if (this.element.nativeElement.contains(e.target)) return;
+        this.hide();
+      }
       ),
       takeUntil(this.destroy$)
     ).subscribe();
   }
 
   private hide(): void {
-    this.destroy$.next(true);
-    this.hideOnClickAway();
+    this.clickedOutsideEvent.emit();
   }
 
 }

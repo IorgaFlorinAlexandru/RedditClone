@@ -5,4 +5,15 @@
 
   <div class="animated-background w-96 h-6 rounded"></div>
 
+  <div class="mt-4 w-96 border-red-500 border">
+    <button [dropdownMenuTriggerFor]="testMenu">Open Dropdown</button>
+    <dropdown-menu-component #testMenu position="center">
+      <div class="w-52">
+        <h1 (click)="testSnackbar()" dropdown-menu-item>Hello World</h1>
+        <h1 >Hello World</h1>
+        <h1 >Hello World</h1>
+        <h1 >Hello World</h1>
+      </div>
+    </dropdown-menu-component>
+  </div>
 </div>

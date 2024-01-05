@@ -1,85 +1,50 @@
-import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, TemplateRef, ViewChild } from '@angular/core';
-import { Subject, fromEvent, takeUntil, tap } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { DropdownMenuPosition } from '../dropdown-menu.models';
-import { ElementPositions } from 'src/app/shared/models/shared.models';
 
 @Component({
   selector: 'dropdown-menu-component',
   templateUrl: './dropdown-menu.component.html',
   styleUrls: ['./dropdown-menu.component.css'],
 })
-export class DropdownMenuComponent implements OnDestroy {
+export class DropdownMenuComponent implements OnInit{
 
-  @ViewChild('menu',{static: false}) menu!: ElementRef;
+  constructor() {}
+
+  ngOnInit(): void {
+    this.setPositionClass(this.position);
+    this.setDropdownMenuStyle();
+  }
+
+  @ViewChild('menu',{static: false}) templateMenu!: TemplateRef<any>;
 
   @Input() position: DropdownMenuPosition = 'left';
-  @Input() hasSameWidth: boolean = false;
   @Input() offsetY: number = 0;
+  @Output() close: EventEmitter<boolean> = new EventEmitter();
 
-  isVisible: boolean = false;
-  destroy$: Subject<boolean> = new Subject();
-  private positions: ElementPositions = new ElementPositions(0,0,0,0);
-  positionStyle: string = '';
+  positionClass = 'dropdown-menu-left';
+  dropdownMenuStyle = '';
 
-  ngOnDestroy(): void {
-    this.destroy$.next(true);
+  public closeMenu(): void {
+    this.close.emit(true);
   }
 
-  public checkIfUserClickedOutside(element: ElementRef<any>): void {
-    fromEvent(document.body,'click').pipe(
-      tap(e => {
-        if(this.menu?.nativeElement.contains(e.target) || element.nativeElement.contains(e.target)) return;
-
-        this.close();
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe();
-  }
-
-  public openClose(): void {
-    this.isVisible = !this.isVisible;
-
-  }
-
-  public close(): void {
-    this.destroy$.next(true);
-    this.isVisible = false;
-  }
-
-  public open(triggerElement: ElementRef<any>): void {
-    if(!this.isVisible){
-      this.isVisible = true;
-      this.checkIfUserClickedOutside(triggerElement); 
-      this.positionMenu(triggerElement.nativeElement as HTMLElement);
-      return;
-    }
-
-    this.close();
-  }
-
-  private positionMenu(element: HTMLElement): void {
-    const domRect = element.getBoundingClientRect();
-    if(this.hasSameWidth){
-      const rightPos = document.body.clientWidth - domRect.right;
-      this.positionStyle = `right: ${rightPos}px;left: ${domRect.left}px;top: ${domRect.top + domRect.height + this.offsetY}px`
-      return;
-    }
-
-    switch(this.position){
+  private setPositionClass(position: string): void {
+    switch(position){
       case 'left':
-        const rightPos = document.body.clientWidth - domRect.right;
-        this.positionStyle = `right: ${rightPos}px;`
+        this.positionClass = 'dropdown-menu-left';
         break;
       case 'center':
-        let centerPos = document.body.clientWidth - domRect.right;
-        centerPos -= this.menu.nativeElement.offsetWidth/2 - domRect.width/2;
-        this.positionStyle = `right: ${centerPos}px;`
+        this.positionClass = 'dropdown-menu-center';
         break;
       case 'right':
-        let leftPos = document.body.clientWidth - domRect.right;
-        leftPos -= this.menu.nativeElement.offsetWidth - domRect.width;
-        this.positionStyle = `right: ${leftPos}px;`
+        this.positionClass = 'dropdown-menu-right';
         break;
+    }
+  }
+
+  private setDropdownMenuStyle(): void {
+    if(this.offsetY !== 0) {
+      this.dropdownMenuStyle += `top: ${this.offsetY}px`;
     }
   }
 }

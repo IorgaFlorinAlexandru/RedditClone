@@ -9,12 +9,12 @@ import { AppIconModule } from './modules/app-icon/app-icon.module';
 import { ToggleSwitchComponent } from './ui/toggle-switch/toggle-switch.component';
 import { AppInputComponent } from './ui/app-input/app-input.component';
 import { DynamicSkeletonLoaderDirective } from './directives/dynamic-skeleton-loader.directive';
+import { DropdownMenuModule } from './modules/dropdown-menu/dropdown-menu.module';
 
 @NgModule({
   declarations: [
     FilterEmptyNavGroupsPipe,
     FocusInputDirective,
-    HideOnClickAwayDirective,
     TextareaAutosizeDirective,
     TestPageComponent,
     ToggleSwitchComponent,
@@ -23,12 +23,12 @@ import { DynamicSkeletonLoaderDirective } from './directives/dynamic-skeleton-lo
   ],
   imports: [
     CommonModule,
-    AppIconModule
+    AppIconModule,
+    DropdownMenuModule
   ],
   exports: [
     FilterEmptyNavGroupsPipe,
     FocusInputDirective,
-    HideOnClickAwayDirective,
     TextareaAutosizeDirective,
     DynamicSkeletonLoaderDirective,
     TestPageComponent,
