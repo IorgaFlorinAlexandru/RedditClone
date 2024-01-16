@@ -6,7 +6,6 @@ import { StateEntity } from "src/app/shared/models/store-entity.models";
 
 export interface CommunitiesState {
     userCommunities: StateEntity<Community[]>,
-    createdCommunity?: Community,
     createdCommunityStatus: RequestStatus,
     community?: Community,
     getCommunityStatus: RequestStatus
@@ -14,7 +13,6 @@ export interface CommunitiesState {
 
 const initialState: CommunitiesState = {
     userCommunities: { data: [], status: RequestStatus.IDLE },
-    createdCommunity: undefined,
     createdCommunityStatus: RequestStatus.IDLE,
     community: undefined,
     getCommunityStatus: RequestStatus.IDLE
@@ -47,5 +45,17 @@ export const communitiesReducer = createReducer(
         ...state,
         community: undefined,
         getCommunityStatus: RequestStatus.FAILED
-    }))
+    })),
+    on(CommunityActions.createCommunityAction, (state) => ({
+        ...state,
+        createdCommunityStatus: RequestStatus.LOADING
+    })),
+    on(CommunityActions.createCommunitySuccessAction, (state) => ({
+        ...state,
+        createdCommunityStatus: RequestStatus.SUCCESS
+    })),
+    on(CommunityActions.createCommunityFailedAction, (state) => ({
+        ...state,
+        createdCommunityStatus: RequestStatus.FAILED
+    })),
 );

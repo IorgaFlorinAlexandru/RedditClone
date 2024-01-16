@@ -12,6 +12,7 @@ import { TooltipModule } from '../shared/modules/tooltip/tooltip.module';
 import { AppIconModule } from '../shared/modules/app-icon/app-icon.module';
 import { AuthModule } from '../auth/auth.module';
 import { NotificationsModule } from '../notifications/notifications.module';
+import { HideOnClickAwayDirective } from '../shared/directives/hide-on-click-away.directive';
 
 
 
@@ -32,7 +33,8 @@ import { NotificationsModule } from '../notifications/notifications.module';
     RouterModule,
     AppIconModule,
     AuthModule,
-    NotificationsModule
+    NotificationsModule,
+    HideOnClickAwayDirective
   ],
   exports: [
     NavbarContainerComponent

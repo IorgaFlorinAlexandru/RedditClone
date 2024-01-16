@@ -9,6 +9,7 @@ using RedditClone.Application.Communities.Commands.EditCommunity;
 using RedditClone.Application.Communities.Queries.GetAllCommunities;
 using RedditClone.Application.Communities.Queries.GetCommunitiesIds;
 using RedditClone.Application.Communities.Queries.GetCommunityPosts;
+using RedditClone.Domain.Entities;
 
 namespace RedditClone.Api.Controllers
 {
@@ -38,10 +39,12 @@ namespace RedditClone.Api.Controllers
             
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Guid>> Post(CreateCommunityCommand command)
+        [HttpPost] //TODO Look into Created, CreatedAtAction, CreatedAtRoute
+        public async Task<ActionResult<Community>> Post(CreateCommunityCommand command)
         {
-            return Ok(await Mediator.Send(command));
+            var communityId = await Mediator.Send(command);
+
+            return Ok(await Mediator.Send(new GetCommunityByIdentifierQuery { Identifier = communityId.ToString() }));
         }
 
         [HttpPut("{id}")]

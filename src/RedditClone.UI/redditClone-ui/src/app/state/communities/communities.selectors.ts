@@ -16,3 +16,5 @@ export const selectGetCommunityStatus = createSelector(selectCommunitiesState, (
 export const selectCommunity = createSelector(selectCommunitiesState, (state: CommunitiesState) => state.community);
 
 export const selectGetCommunityData = createSelector({ community: selectCommunity, status: selectGetCommunityStatus});
+
+export const selectCreateCommunityStatus = createSelector(selectCommunitiesState, (state: CommunitiesState) => state.createdCommunityStatus);
