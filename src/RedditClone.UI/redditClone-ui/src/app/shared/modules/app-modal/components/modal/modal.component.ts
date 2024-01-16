@@ -50,12 +50,6 @@ export class ModalComponent implements OnInit,AfterViewInit,OnDestroy {
         for(let el of this.modalService.elementRefs){
           if(el.nativeElement.contains(e.target)) return;
         }
-
-        let currentElement = e.target as HTMLElement;
-        while(currentElement){
-          if(currentElement === this.modalElementRef.nativeElement) return;
-          currentElement = currentElement.parentElement!;
-        }
         this.close();
       }),
       takeUntil(this.destroy$)
