@@ -34,9 +34,9 @@ namespace RedditClone.Api.Controllers
         }
 
         [HttpGet("{identifier}/posts")]
-        public void GetCommunityPosts(string identifier) 
+        public async Task<ActionResult<List<PostDTO>>> GetCommunityPosts(string identifier) 
         {
-            
+            return Ok(await Mediator.Send(new GetCommunityPostsQuery { Identifier = identifier }));
         }
 
         [HttpPost] //TODO Look into Created, CreatedAtAction, CreatedAtRoute
@@ -83,12 +83,6 @@ namespace RedditClone.Api.Controllers
             await Mediator.Send(command);
 
             return Ok();
-        }
-
-        [HttpGet("{id}/posts")]
-        public async Task<ActionResult<List<PostDTO>>> GetPosts(Guid id)
-        {
-            return Ok(await Mediator.Send(new GetCommunityPostsQuery { Id = id}));
         }
     }
 }
