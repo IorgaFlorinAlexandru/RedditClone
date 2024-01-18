@@ -13,8 +13,10 @@ export class FeedPageComponent implements OnInit {
   constructor(private router: Router) {}
 
   feedDescription : AboutFeed | undefined = undefined;
+  feedId: string | undefined = undefined;
 
   ngOnInit(): void {
+    this.setFeedId(this.router.url);
     this.setFeedDescription(this.router.url);
   }
 
@@ -22,6 +24,10 @@ export class FeedPageComponent implements OnInit {
     const map = getFeedDescriptionMap();
     
     this.feedDescription = map.get(feedRoute);
+  }
+
+  private setFeedId(id: string): void {
+    this.feedId = id;
   }
 
 }

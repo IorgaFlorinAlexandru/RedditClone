@@ -17,7 +17,7 @@ export class CommunityService {
 
   public getCommunityByName(communityName: string): Observable<Community> {
     return this.http.get<Community>('api/community/' + communityName).pipe(
-      delay(2000)
+      delay(1000)
     )
   }
 

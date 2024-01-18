@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -17,6 +17,32 @@ import { RequestStatus } from 'src/app/shared/enums/status.enum';
 })
 export class PostListComponent implements OnInit{
 
+  //Community
+  private _communityIndentifier: string | undefined = undefined;
+  @Input() set communityIdentifier(value: string | undefined) {
+    if(!value) return;
+    this._communityIndentifier = value;
+    console.log("Community Identifier:",value);
+    this.loadAllPosts();
+  };
+  get communityIdentifier(): string | undefined {
+    return this._communityIndentifier;
+  } 
+
+  //Feed
+  private _feedId: string | undefined = undefined;
+  @Input() set feedId(value: string | undefined) {
+    if(!value) return;
+    this._feedId = value;
+    console.log("Feed Id:",value);
+    this.loadAllPosts();
+  };
+  get feedId(): string | undefined {
+    return this._feedId;
+  }
+
+  @Input() getCommunityStatus: RequestStatus = RequestStatus.IDLE;
+
   postLayout$: Observable<PostLayout> = new Observable();
   postListEntity$: Observable<StateEntity<Post[]>> = new Observable();
 
@@ -27,7 +53,6 @@ export class PostListComponent implements OnInit{
   constructor(private router: Router,private store: Store) {}
 
   ngOnInit(): void {
-    this.loadAllPosts();
     this.setPostLayout();
     this.setPostList();
   }
@@ -44,7 +69,7 @@ export class PostListComponent implements OnInit{
     this.postListEntity$ = this.store.select(fromPostState.selectPostListEntity)
   }
 
-  private loadPostsFromCommunity(): void {
+  private loadPostsFromCommunity(communityIdentifier: string): void {
 
   }
 

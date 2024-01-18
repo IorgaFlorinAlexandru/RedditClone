@@ -8,9 +8,9 @@ import { RequestStatus } from 'src/app/shared/enums/status.enum';
 })
 export class CommunityHeaderComponent {
  
-  @Input() name!: string; 
-  @Input() title!: string;
-  @Input() status!: RequestStatus;
+  @Input() name: string | undefined = ''; 
+  @Input() title: string | undefined = '';
+  @Input() status: RequestStatus = RequestStatus.LOADING;
 
   LOADING_STATUS = RequestStatus.LOADING;
 

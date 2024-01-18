@@ -1,15 +1,17 @@
 <ng-container *ngIf="communityData$ | async as communityData">
     <community-header 
-        [name]="communityName"
-        [title]="communityTitle"
+        [name]="communityData.community?.name"
+        [title]="communityData.community?.title"
         [status]="communityData.status">
     </community-header>
     <div class="flex justify-center p-4 pl-6 pr-6">
-        <post-list></post-list>
+        <post-list [communityIdentifier]="communityData.community?.id"
+                   [getCommunityStatus]="communityData.status" 
+        ></post-list>
         <div >
             <about-community
-                [description]="communityDescription"
-                [createdDate]="communityCreatedDate"
+                [description]="communityData.community?.description"
+                [createdDate]="communityData.community?.createdAt"
                 [status]="communityData.status">
             </about-community>
         </div>

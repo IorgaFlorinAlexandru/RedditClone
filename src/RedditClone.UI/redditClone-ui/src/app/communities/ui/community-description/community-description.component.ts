@@ -15,7 +15,7 @@ export class CommunityDescriptionComponent {
     this.descriptionForm = this.formBuilder.group({ valueControl: new FormControl('') })
   }
 
-  @Input() description: string = '';
+  @Input() description: string | undefined = '';
   isEditing: boolean = false;
   destroy$: Subject<boolean> = new Subject();
 

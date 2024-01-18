@@ -4,7 +4,7 @@
         <create-post-bar (submitRoute)="navigateToSubmitPage($event)" class="mb-4"></create-post-bar>
         <trending-bar class="mb-4"></trending-bar>
         <ng-container *ngIf="postListEntity$ | async as postListEntity">
-            <ng-container *ngIf="postListEntity.status !== LOADING_STATUS,else loading">
+            <ng-container *ngIf="postListEntity.status !== LOADING_STATUS && getCommunityStatus !== LOADING_STATUS,else loading">
                 <div *ngFor="let post of postListEntity.data">
                     <post [post]="post" [postLayout]="layout"></post>
                 </div>

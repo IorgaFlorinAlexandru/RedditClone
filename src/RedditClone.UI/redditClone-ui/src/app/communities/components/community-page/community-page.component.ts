@@ -18,11 +18,6 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
 
   communityData$: Observable<GetCommunityData> = new Observable();
   destroy$: Subject<boolean> = new Subject();
-
-  public communityName: string = '';
-  public communityTitle: string = '';
-  public communityDescription: string = '';
-  public communityCreatedDate: Date = new Date();
   
   ngOnInit(): void {
     this.handleCommunityPageRouteChange();
@@ -44,18 +39,7 @@ export class CommunityPageComponent implements OnInit, OnDestroy {
   }
 
   private setCommunityData(): void {
-    this.communityData$ = this.store.select(fromCommunityState.selectGetCommunityData).pipe(
-      tap((data) => {
-        //Also settings the values that i am passing to the ui components 
-        // Maybe find a better way
-        if(data.community){
-          this.communityName = data.community.name;
-          this.communityTitle = data.community.title;
-          this.communityDescription = data.community.description;
-          this.communityCreatedDate = data.community.createdAt;
-        }
-      })
-    );
+    this.communityData$ = this.store.select(fromCommunityState.selectGetCommunityData);
   }
 
   private callGetCommunityByName(communityName: string): void {
