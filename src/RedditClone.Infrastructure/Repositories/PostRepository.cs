@@ -16,6 +16,11 @@ namespace RedditClone.Infrastructure.Repositories
             return All();
         }
 
+        public IQueryable<Post> GetPostsByCommunity(Community community)
+        {
+            return FindByCondition(p => p.Community == community).AsNoTracking();
+        }
+
         public Post? GetPostById(Guid Id)
         {
             return FindByCondition(p => p.Id == Id).FirstOrDefault();

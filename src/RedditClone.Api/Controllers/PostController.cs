@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RedditClone.Application;
 using RedditClone.Application.Common.DataTransferObjects;
 using RedditClone.Application.Posts.Commands.CreatePost;
 using RedditClone.Application.Posts.Commands.DeletePost;
@@ -17,9 +18,12 @@ namespace RedditClone.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<PostDTO>>> Get()
+        public async Task<ActionResult<List<PostDTO>>> Get([FromQuery] string? communityIdentifier, string? feed)
         {
-            return Ok(await Mediator.Send(new GetAllPostsQuery()));
+            return Ok(await Mediator.Send(new GetPostsQuery {
+                CommunityIdentifier = communityIdentifier,
+                Feed = feed
+            }));
         }
 
         [HttpGet("{id}")]
