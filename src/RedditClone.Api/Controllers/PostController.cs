@@ -18,10 +18,10 @@ namespace RedditClone.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<PostDTO>>> Get([FromQuery] string? communityIdentifier, string? feed)
+        public async Task<ActionResult<List<PostDTO>>> Get([FromQuery] string? community, string? feed)
         {
             return Ok(await Mediator.Send(new GetPostsQuery {
-                CommunityIdentifier = communityIdentifier,
+                CommunityIdentifier = community,
                 Feed = feed
             }));
         }

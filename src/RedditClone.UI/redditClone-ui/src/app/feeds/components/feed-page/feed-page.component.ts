@@ -16,8 +16,8 @@ export class FeedPageComponent implements OnInit {
   feedId: string | undefined = undefined;
 
   ngOnInit(): void {
-    this.setFeedId(this.router.url);
     this.setFeedDescription(this.router.url);
+    this.setFeedId();
   }
 
   private setFeedDescription(feedRoute: string): void {
@@ -26,8 +26,8 @@ export class FeedPageComponent implements OnInit {
     this.feedDescription = map.get(feedRoute);
   }
 
-  private setFeedId(id: string): void {
-    this.feedId = id;
+  private setFeedId(): void {
+    this.feedId = this.feedDescription?.name.toLowerCase();
   }
 
 }

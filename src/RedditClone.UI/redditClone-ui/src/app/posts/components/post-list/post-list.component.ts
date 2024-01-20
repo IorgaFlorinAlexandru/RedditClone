@@ -22,8 +22,7 @@ export class PostListComponent implements OnInit{
   @Input() set communityIdentifier(value: string | undefined) {
     if(!value) return;
     this._communityIndentifier = value;
-    console.log("Community Identifier:",value);
-    this.loadAllPosts();
+    this.loadPostsFromCommunity(value);
   };
   get communityIdentifier(): string | undefined {
     return this._communityIndentifier;
@@ -34,8 +33,7 @@ export class PostListComponent implements OnInit{
   @Input() set feedId(value: string | undefined) {
     if(!value) return;
     this._feedId = value;
-    console.log("Feed Id:",value);
-    this.loadAllPosts();
+    this.loadPostsFromFeed(value);
   };
   get feedId(): string | undefined {
     return this._feedId;
@@ -70,16 +68,10 @@ export class PostListComponent implements OnInit{
   }
 
   private loadPostsFromCommunity(communityIdentifier: string): void {
-
+    this.store.dispatch(fromPostState.loadPostsAction({community: communityIdentifier}));
   }
 
-  private loadPostsFromFeed(): void {
-
+  private loadPostsFromFeed(feed: string): void {
+    this.store.dispatch(fromPostState.loadPostsAction({feed: feed}));
   }
-
-  private loadAllPosts(): void {
-    this.store.dispatch(fromPostState.loadPostsAction());
-  }
-
-
 }

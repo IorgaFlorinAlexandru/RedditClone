@@ -8,7 +8,8 @@ export enum PostStateActionTypes {
 }
 
 export const loadPostsAction = createAction(
-    PostStateActionTypes.LOAD_POSTS
+    PostStateActionTypes.LOAD_POSTS,
+    props<{ community?: string, feed?: string}>()
 );
 
 export const loadPostsSuccessAction = createAction(

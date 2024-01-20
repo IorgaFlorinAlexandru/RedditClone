@@ -5,7 +5,7 @@
         [status]="communityData.status">
     </community-header>
     <div class="flex justify-center p-4 pl-6 pr-6">
-        <post-list [communityIdentifier]="communityData.community?.id"
+        <post-list [communityIdentifier]="communityData.community?.name"
                    [getCommunityStatus]="communityData.status" 
         ></post-list>
         <div >
@@ -17,5 +17,3 @@
         </div>
     </div>
 </ng-container>
-
-<!-- TODO MOCK UP LOADING COMPONENTS -->

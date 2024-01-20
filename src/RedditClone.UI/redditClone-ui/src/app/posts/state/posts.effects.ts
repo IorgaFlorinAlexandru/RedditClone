@@ -12,8 +12,8 @@ export class PostsEffects {
 
     loadPosts$ = createEffect(() => this.actions$.pipe(
         ofType(PostStateActionTypes.LOAD_POSTS),
-        switchMap(() => {
-            return this.postService.getPosts().pipe(
+        switchMap((action: any) => {
+            return this.postService.getPosts(action.feed,action.community).pipe(
                 map((postsResponse) => PostsActions.loadPostsSuccessAction({posts: postsResponse})),
                 catchError((error: HttpErrorResponse) => of(PostsActions.loadPostsFailedAction()))
             )
