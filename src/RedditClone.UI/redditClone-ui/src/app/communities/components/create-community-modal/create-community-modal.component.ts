@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -27,7 +27,7 @@ export class CreateCommunityModalComponent implements OnInit {
     private formBuilder: FormBuilder,
     private store: Store) {
       this.nameControl = new FormControl('');
-      this.typeControl = new FormControl(null);
+      this.typeControl = new FormControl(0);
       this.hasNSFWControl = new FormControl(false);
       this.communityFormGroup = this.formBuilder.group({ 
         name: this.nameControl, 

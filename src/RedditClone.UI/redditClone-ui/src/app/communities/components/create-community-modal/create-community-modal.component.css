@@ -1,12 +1,3 @@
-input[type=radio]:not(:checked)::-ms-check {
-  border-color: red; 
-}
-
-input[type=radio]::-ms-check {
-  border-color: red; /* This will make the border red when the button is checked. */
-  color: red; /* This will make the circle red when the button is checked. */
-}
-
 .lds-ring {
   position: relative;
   width: 100%;
@@ -44,4 +35,11 @@ input[type=radio]::-ms-check {
   100% {
     transform: rotate(360deg);
   }
+}
+
+input[type=checkbox]:disabled:checked{
+  filter: invert(100%) brightness(3);
+}
+input[type="radio"]:disabled:checked{
+  filter: invert(100%) brightness(3);
 }
