@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { RequestStatus } from 'src/app/shared/enums/status.enum';
@@ -14,10 +14,10 @@ import { CreateCommunityRequest } from '../../common/models/create-community.mod
 })
 export class CreateCommunityModalComponent implements OnInit {
 
-  communityFormGroup: FormGroup;
-  nameControl: FormControl;
-  typeControl: FormControl;
-  hasNSFWControl: FormControl;
+  communityFormGroup!: FormGroup;
+  nameControl!: FormControl;
+  typeControl!: FormControl;
+  hasNSFWControl!: FormControl;
   requestStatus$: Observable<RequestStatus> = new Observable();
 
   LOADING_STATUS = RequestStatus.LOADING;
@@ -25,17 +25,10 @@ export class CreateCommunityModalComponent implements OnInit {
   constructor(
     private modalRef: ModalElementRef<CreateCommunityModalComponent>,
     private formBuilder: FormBuilder,
-    private store: Store) {
-      this.nameControl = new FormControl('');
-      this.typeControl = new FormControl(0);
-      this.hasNSFWControl = new FormControl(false);
-      this.communityFormGroup = this.formBuilder.group({ 
-        name: this.nameControl, 
-        communityType: this.typeControl, 
-        isNsfw: this.hasNSFWControl});
-  }
+    private store: Store) {}
 
   ngOnInit(): void {
+    this.initializeCommunityFormGroup();
     this.setRequestStatus();
   }
 
@@ -44,6 +37,8 @@ export class CreateCommunityModalComponent implements OnInit {
   }
 
   public createCommunity(): void {
+    if(!this.communityFormGroup.valid) return;
+
     const request = this.communityFormGroup.value as CreateCommunityRequest;
     this.store.dispatch(CommunityState.createCommunityAction({ request }))
   }
@@ -52,13 +47,20 @@ export class CreateCommunityModalComponent implements OnInit {
     this.requestStatus$ = this.store.select(CommunityState.selectCreateCommunityStatus);
   }
 
-  private setCommunityFormGroup(): void {
-    this.nameControl = new FormControl('');
-    this.typeControl = new FormControl('');
+  private initializeCommunityFormGroup(): void {
+    this.nameControl = new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(21)
+      ],
+      updateOn: 'change'
+  });
+    this.typeControl = new FormControl(0);
     this.hasNSFWControl = new FormControl(false);
     this.communityFormGroup = this.formBuilder.group({ 
-      nameControl: this.nameControl, 
-      typeControl: this.typeControl, 
-      hasNSFWControl: this.hasNSFWControl});
+      name: this.nameControl, 
+      communityType: this.typeControl, 
+      isNsfw: this.hasNSFWControl});
   }
 }

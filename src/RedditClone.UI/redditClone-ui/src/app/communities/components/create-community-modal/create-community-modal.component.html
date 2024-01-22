@@ -15,8 +15,15 @@
                 <fieldset [disabled]="status === LOADING_STATUS">
                     <section class="mt-4 relative">
                         <input maxlength="21" class="bg-transparent border border-[#343536] rounded w-full pl-6 text-sm h-9" formControlName="name"/>
-                        <p class="text-xs text-[#818384] mt-2">{{21 - nameControl.value.length}} Characters remaining</p>
-                        <!-- <p class="text-xs text-[#ff0000] mt-1">Eroor</p> -->
+                        <p class="text-xs text-[#818384] mt-2">{{21 - nameControl.value?.length}} Characters remaining</p>
+                        <ng-container *ngIf="nameControl.errors && nameControl.dirty || nameControl.touched">
+                            <ng-container *ngIf="nameControl.errors?.['required']">
+                                <p class="text-xs text-[#ff0000] mt-1">A community name is required</p>
+                            </ng-container>
+                            <ng-container *ngIf="nameControl.errors?.['minlength'] || nameControl.errors?.['maxlength']">
+                                <p class="text-xs text-[#ff0000] mt-1">Community names must be between 3–21 characters</p>
+                            </ng-container>
+                        </ng-container>
                         <p class="absolute text-sm text-[#818384] top-[7.5px] left-[13px]">r/</p>
                     </section>
                     <section class="mt-6">
@@ -69,7 +76,7 @@
                     </button>
                     <button class="bg-[#d7dadc] rounded-md p-1 pl-2 pr-2 hover:bg-[#c7cacc] active:bg-[#a9abad] w-44 h-8
                         disabled:bg-[#e0e0e0] disabled:cursor-not-allowed" 
-                        [disabled]="status === LOADING_STATUS"
+                        [disabled]="status === LOADING_STATUS || !communityFormGroup.valid"
                         (click)="createCommunity()">
                         <ng-container *ngIf="status !== LOADING_STATUS else buttonSpinner">
                             Create Community
