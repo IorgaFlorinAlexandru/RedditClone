@@ -6,6 +6,7 @@ import { RequestStatus } from 'src/app/shared/enums/status.enum';
 import { ModalElementRef } from 'src/app/shared/modules/app-modal/modal.models';
 import * as CommunityState from '../../../state/communities/index';
 import { CreateCommunityRequest } from '../../common/models/create-community.model';
+import { UniqueNameValidator } from '../../common/validators/unique-name.validator';
 
 @Component({
   selector: 'app-create-community-modal',
@@ -25,7 +26,8 @@ export class CreateCommunityModalComponent implements OnInit {
   constructor(
     private modalRef: ModalElementRef<CreateCommunityModalComponent>,
     private formBuilder: FormBuilder,
-    private store: Store) {}
+    private store: Store,
+    private uniqueNameValidator: UniqueNameValidator) {}
 
   ngOnInit(): void {
     this.initializeCommunityFormGroup();
@@ -53,6 +55,9 @@ export class CreateCommunityModalComponent implements OnInit {
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(21)
+      ],
+      asyncValidators: [
+        this.uniqueNameValidator.validate.bind(this.uniqueNameValidator)
       ],
       updateOn: 'change'
   });

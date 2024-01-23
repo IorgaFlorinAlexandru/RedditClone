@@ -33,8 +33,8 @@ import { SnackbarModule } from './shared/modules/snackbar/snackbar.module';
     }),
     EffectsModule.forRoot([CommunitiesEffects,NavigationEffects]),
     StoreDevtoolsModule.instrument(),
-    AppModalModule,
     HttpClientModule,
+    AppModalModule,
     SnackbarModule
   ],
   providers: [],

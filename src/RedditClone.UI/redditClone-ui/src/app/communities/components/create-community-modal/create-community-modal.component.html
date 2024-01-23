@@ -23,6 +23,9 @@
                             <ng-container *ngIf="nameControl.errors?.['minlength'] || nameControl.errors?.['maxlength']">
                                 <p class="text-xs text-[#ff0000] mt-1">Community names must be between 3–21 characters</p>
                             </ng-container>
+                            <ng-container *ngIf="nameControl.errors?.['uniqueName']">
+                                <p class="text-xs text-[#ff0000] mt-1">Sorry, r/{{nameControl.value}} is taken. Try another.</p>
+                            </ng-container>
                         </ng-container>
                         <p class="absolute text-sm text-[#818384] top-[7.5px] left-[13px]">r/</p>
                     </section>

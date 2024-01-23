@@ -84,5 +84,13 @@ namespace RedditClone.Api.Controllers
 
             return Ok();
         }
+
+        [HttpGet("check-uniqueness")]
+        public async Task<ActionResult<bool>> CheckUniqueness([FromQuery] string name) 
+        {
+            var result =  await Mediator.Send(new CheckNameUniquenessCommand{ Name = name });
+
+            return Ok(new { name,isTaken = result });
+        }
     }
 }
