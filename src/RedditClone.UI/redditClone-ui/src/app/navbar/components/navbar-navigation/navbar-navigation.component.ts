@@ -10,8 +10,6 @@ import * as fromNavigation from '../../../state/navigation/index';
   styleUrls: ['./navbar-navigation.component.css']
 })
 export class NavbarNavigationComponent implements OnInit, OnDestroy {
-
-  @ViewChild('navContainer',{static: false}) navContainer! : ElementRef;
   
   navInfo$: Observable<NavInfoData> = new Observable();
 
@@ -29,6 +27,25 @@ export class NavbarNavigationComponent implements OnInit, OnDestroy {
     this.destroy$.next(true);
   }
 
+  public openClose(showAsAsideMenu: boolean): void {
+    if(showAsAsideMenu) return;
+    if(this.isDropdownOpened) {
+      this.close();
+      return;
+    }
+
+    this.isDropdownOpened = true;
+  }
+
+  public close(): void {
+    this.isDropdownOpened = false;
+    this.destroy$.next(true);
+  }
+
+  public showAsAsideMenu(){
+    this.store.dispatch(fromNavigation.showNavMenuAsAside());
+  }
+
   private setNavInfoData(): void {
     this.navInfo$ = combineLatest([
       this.store.select(fromNavigation.selectCurrentRoute),
@@ -41,35 +58,5 @@ export class NavbarNavigationComponent implements OnInit, OnDestroy {
         return {currentRoute: route, showAsAsideMenu: show}
       })
     )
-  }
-  //TODO COMMENT FUNCTIONALITY
-  private checkIfUserClickedOutsideElement(): void {
-    fromEvent(document.body,'click').pipe(
-      tap(e => {
-        if(this.navContainer.nativeElement.contains(e.target)) return;
-        this.close();
-      }),
-      takeUntil(this.destroy$)
-    ).subscribe();
-  }
-
-  public openClose(showAsAsideMenu: boolean): void {
-    if(showAsAsideMenu) return;
-    if(this.isDropdownOpened) {
-      this.close();
-      return;
-    }
-
-    this.isDropdownOpened = true;
-    this.checkIfUserClickedOutsideElement();
-  }
-
-  private close(): void {
-    this.isDropdownOpened = false;
-    this.destroy$.next(true);
-  }
-
-  public showAsAsideMenu(){
-    this.store.dispatch(fromNavigation.showNavMenuAsAside());
   }
 }

@@ -1,5 +1,5 @@
 <!-- Borders were at fault when opening the menu as it would move the elements inside -->
-<div #navContainer *ngIf="navInfo$ | async as navInfo"
+<div *ngIf="navInfo$ | async as navInfo"
     tabindex="1" 
     class="w-[270px] box-border border border-transparent rounded hover:border-[#343536]"
     [ngClass]="{'mt-[4px] !border-[#343536]' : isDropdownOpened,'hover:border-[#343536]': !navInfo.showAsAsideMenu}"
@@ -19,7 +19,7 @@
             </span>
         </span>
     </div>
-    <div class="scrollbar-dark" [ngClass]="{'block mt-1 h-[32rem] bg-[#1A1A1B] overflow-auto' : isDropdownOpened}" [class.hidden]="!isDropdownOpened">
+    <div *ngIf="isDropdownOpened" hideOnClickAway (clickedOutsideEvent)="close()" class="scrollbar-dark block mt-1 h-[32rem] bg-[#1A1A1B] overflow-auto">
         <navigation-menu></navigation-menu>
     </div>
 </div>
