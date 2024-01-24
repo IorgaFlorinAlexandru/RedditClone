@@ -56,7 +56,7 @@ export class CommunitiesEffects {
         ofType(CommunitiesStateActionType.CREATE_COMMUNITY_ACTION_SUCCESS),
         map((action: any) => {
             return NavigationActions.changeCurrentRoute({
-                item : { route: 'r/', name: action.community.name, icon: 'star', actionType: NavigationActionType.ROUTE, extraOptions: [action.community.name]}})
+                item : { route: 'r/', name: action.community.name, icon: 'star', actionType: NavigationActionType.COMMUNITY_ROUTE, extraOptions: [action.community.name]}})
         })
     ))
 }

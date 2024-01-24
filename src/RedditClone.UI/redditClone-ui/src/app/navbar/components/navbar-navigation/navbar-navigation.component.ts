@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, combineLatest, fromEvent, map, takeUntil, tap } from 'rxjs';
+import { Observable, Subject, combineLatest, map, tap } from 'rxjs';
 import { NavInfoData } from '../../common/utils/navbar.types';
 import * as fromNavigation from '../../../state/navigation/index';
+import { NavigationActionType } from 'src/app/core/common/enums/navigation.enums';
 
 @Component({
   selector: 'navbar-navigation',
@@ -12,10 +13,10 @@ import * as fromNavigation from '../../../state/navigation/index';
 export class NavbarNavigationComponent implements OnInit, OnDestroy {
   
   navInfo$: Observable<NavInfoData> = new Observable();
-
   destroy$: Subject<boolean> = new Subject();
   
   isDropdownOpened : boolean = false;
+  navActionTypes: typeof NavigationActionType = NavigationActionType;
 
   constructor(private store: Store){}
   

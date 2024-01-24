@@ -21,7 +21,7 @@ export class PostComponent implements OnInit {
   }
 
   public navigateToCommunityPage(): void {
-    this.store.dispatch(NavigationActions.changeCurrentRoute({item: { route: 'r/', name: this.post.community, icon: 'star', actionType: NavigationActionType.ROUTE, extraOptions: [this.post.community]}}));
+    this.store.dispatch(NavigationActions.changeCurrentRoute({item: { route: 'r/', name: this.post.community, icon: 'star', actionType: NavigationActionType.COMMUNITY_ROUTE, extraOptions: [this.post.community]}}));
   }
 
 }
