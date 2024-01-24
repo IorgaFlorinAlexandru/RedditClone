@@ -20,7 +20,7 @@ export class SnackbarService {
       { provide: MESSAGE_TYPE, useValue: messageType },
       { provide: MESSAGE, useValue: message },
       { provide: SNACKBAR_ID, useValue: snackbar_id },
-      { provide: SnackbarService, useValue: this}
+      { provide: SnackbarService, useValue: this }
     ];
 
     const injector = Injector.create({providers: providers});

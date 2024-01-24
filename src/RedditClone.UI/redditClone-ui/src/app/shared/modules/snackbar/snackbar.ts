@@ -1,5 +1,6 @@
 import { Component, Inject, InjectionToken, OnDestroy, OnInit } from "@angular/core";
 import { SnackbarService } from "./snackbar.service";
+import { animate, style, transition, trigger } from "@angular/animations";
 
 export enum MessageType {
     SUCCESS = 'SUCCESS',
@@ -28,9 +29,9 @@ export const COLORS_MAP = new Map<MessageType,string>([
 
 @Component({
     template: `
-        <div class="mb-5 overflow-hidden relative text-[#cbcdcf] 
-         rounded-md w-[496px] h-[52px] ml-auto mr-auto text-white group">
-            <div class="flex items-center absolute h-full w-[526px] w-full
+        <div @flyInOut class="mb-5 overflow-hidden relative text-[#cbcdcf]
+         rounded-md w-[496px] h-[52px] ml-auto mr-auto group">
+            <div class="flex items-center absolute h-full w-[526px] 
                 left-[-30px] ease-in duration-200 group-hover:left-0">
                 <button class="text-black h-full pr-2 pl-2" [style.background-color]="borderColor" (click)="close()">
                     <app-icon icon="x-mark"></app-icon>
@@ -48,7 +49,25 @@ export const COLORS_MAP = new Map<MessageType,string>([
             </div>
         </div>
     `,
-    selector: 'snackbar'
+    selector: 'snackbar',
+    animations: [
+        trigger('flyInOut', [
+            transition(':enter', [
+                style({ 
+                    transform: 'translateX(-30%)',
+                    opacity: 0 
+                }),
+                animate(200)
+            ]),
+            transition(':leave', [
+                style({ 
+                    transform: 'translateX(30%)',
+                    opacity: 0 
+                }),
+                animate(200)
+            ]),
+        ])
+    ]
 })
 export class Snackbar implements OnInit, OnDestroy {
     constructor(
