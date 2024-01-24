@@ -1,6 +1,5 @@
-<div class="flex 
-     border border-[#343536] w-full hover:border-[#818384] 
-     cursor-pointer overflow-hidden bg-[#1a1a1b] pr-2">
+<div class="flex border border-[#343536] w-full hover:border-[#818384] 
+     cursor-pointer overflow-visible bg-[#1a1a1b] pr-2">
     <post-upvote-buttons [postLayout]="compactLayout"></post-upvote-buttons>
     <div class="text-[#7b7d7e]  ml-1 relative flex items-center justify-center">
         <button class="hover:bg-[#303030] active:bg-[#343536] rounded p-1">
@@ -16,5 +15,5 @@
             </div>
         </div>
     </div>
-    <post-buttons></post-buttons>
+    <post-buttons [post]="post" [layout]="compactLayout"></post-buttons>
 </div>

@@ -1,5 +1,5 @@
-<div class="flex border border-[#343536] w-[40rem] rounded-md hover:border-[#818384] cursor-pointer mb-4 overflow-hidden">
-    <div class="bg-[#151516] rounded">
+<div class="flex border border-[#343536] w-[40rem] rounded-md hover:border-[#818384] cursor-pointer mb-4 overflow-visible">
+    <div class="bg-[#151516] rounded overflow-hidden">
         <post-upvote-buttons></post-upvote-buttons>
     </div>
     <!-- max-h-64 overflow-hidden -->
@@ -19,6 +19,6 @@
             <p class="text-sm pb-2">{{post.content}}</p>
         </div>
         
-        <post-buttons></post-buttons>
+        <post-buttons [post]="post"></post-buttons>
     </div>
 </div>

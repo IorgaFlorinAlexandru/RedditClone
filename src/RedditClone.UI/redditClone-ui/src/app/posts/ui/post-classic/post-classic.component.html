@@ -1,6 +1,5 @@
-<div class="flex 
-     border border-[#343536] w-full hover:border-[#818384] 
-     cursor-pointer overflow-hidden bg-[#1a1a1b]">
+<div class="flex border border-[#343536] w-full hover:border-[#818384] 
+     cursor-pointer overflow-visible bg-[#1a1a1b]">
     <div class="bg-[#151516] rounded">
         <post-upvote-buttons></post-upvote-buttons>
     </div>
@@ -15,6 +14,6 @@
                 <span class="text-xs text-[#7b7d7e] ml-1">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</span>
             </div>
         </div>
-        <post-buttons></post-buttons>
+        <post-buttons [post]="post"></post-buttons>
     </div>
 </div>
