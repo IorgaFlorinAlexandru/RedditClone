@@ -1,6 +1,6 @@
 <div class="flex">    
     <span>
-        <button toolTip="Popular" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
+        <button toolTip="Popular" (click)="navigateToPopularFeed()" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
             <app-icon>trending-up</app-icon>
         </button>
     </span>
@@ -34,7 +34,7 @@
         </dropdown-menu-component>
     </span>
     <span>
-        <button toolTip="Create Post" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
+        <button toolTip="Create Post" (click)="navigateToSubmit()" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
             <app-icon>plus</app-icon>
         </button>
     </span>

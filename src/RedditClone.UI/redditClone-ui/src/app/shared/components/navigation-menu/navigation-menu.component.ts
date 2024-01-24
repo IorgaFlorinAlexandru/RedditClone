@@ -68,7 +68,7 @@ export class NavigationMenuComponent implements OnInit {
   }
 
   private navigateToRoute(item: NavigationItem): void {
-    this.router.navigateByUrl(item.route);
+    //this.router.navigateByUrl(item.route);
     this.store.dispatch(fromNavigation.changeCurrentRoute({item: item}));
   }
 

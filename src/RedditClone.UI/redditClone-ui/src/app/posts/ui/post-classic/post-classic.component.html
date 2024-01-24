@@ -10,7 +10,7 @@
         <div class="mt-4 ml-2">
             <h2 class="font-bold">{{post.title}}</h2>
             <div>
-                <a [routerLink]="['/r',post.community]" class="text-xs hover:underline">r/{{post.community}}</a>
+                <a (click)="navigateToCommunityPage()" class="text-xs hover:underline">r/{{post.community}}</a>
                 <span class="text-xs text-[#7b7d7e] ml-1">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</span>
             </div>
         </div>

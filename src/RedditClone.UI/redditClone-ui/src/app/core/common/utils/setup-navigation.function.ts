@@ -1,3 +1,4 @@
+import { ALL_NAV_ITEM, HOME_NAV_ITEM, POPULAR_NAV_ITEM, SUBMIT_NAV_ITEM } from "src/app/navbar/common/constants/nav-item.constants";
 import { NavigationActionType, NavigationGroupType } from "../enums/navigation.enums";
 import { Navigation, NavigationGroup } from "../models/navigation.models";
 
@@ -5,11 +6,7 @@ export function setupNavigation() : Navigation {
 
     const feedRoutes : NavigationGroup = {
         name: 'Feeds',
-        routes: [
-            { icon: 'home', name: 'Home', route: '',actionType: NavigationActionType.ROUTE},
-            { icon: 'trending-up', name: 'Popular', route: 'popular',actionType: NavigationActionType.ROUTE},
-            { icon: 'chart', name: 'All', route: 'all',actionType: NavigationActionType.ROUTE},
-        ],
+        routes: [HOME_NAV_ITEM,POPULAR_NAV_ITEM,ALL_NAV_ITEM],
         type: NavigationGroupType.FEEDS
     }
 
@@ -25,9 +22,9 @@ export function setupNavigation() : Navigation {
     const moderatingRoutes: NavigationGroup = {
         name: 'Moderating',
         routes: [
-            { icon: 'squares-plus', name: 'Mod Queue', route: 'mod/about/queue', actionType: NavigationActionType.ROUTE},
-            { icon: 'envelope', name: 'Modmail', route: 'mod/mail', actionType: NavigationActionType.ROUTE},
-            { icon: 'shield-exclamation', name: 'r/Mod', route: 'r/Mod', actionType: NavigationActionType.ROUTE},
+            { icon: 'squares-plus', name: 'Mod Queue', route: '', actionType: NavigationActionType.ROUTE},
+            { icon: 'envelope', name: 'Modmail', route: '', actionType: NavigationActionType.ROUTE},
+            { icon: 'shield-exclamation', name: 'r/Mod', route: '', actionType: NavigationActionType.ROUTE},
         ],
         type: NavigationGroupType.MODERATING
     }
@@ -37,7 +34,7 @@ export function setupNavigation() : Navigation {
         routes: [
             { icon: 'adjustments-h', name: 'User Settings', route: 'settings',actionType: NavigationActionType.ROUTE},
             { icon: 'user-circle', name: 'Messages', route: 'messages/inbox',actionType: NavigationActionType.ROUTE},
-            { icon: 'plus', name: 'Create Post', route: 'submit',actionType: NavigationActionType.ROUTE},
+            SUBMIT_NAV_ITEM,
             { icon: 'notification', name: 'Notifications', route: 'notifications',actionType: NavigationActionType.ROUTE},
         ],
         type: NavigationGroupType.OTHER

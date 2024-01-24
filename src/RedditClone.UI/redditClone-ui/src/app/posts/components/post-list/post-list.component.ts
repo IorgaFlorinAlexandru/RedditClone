@@ -6,8 +6,10 @@ import { PostLayout } from '../../common/enums/post-layout';
 import * as fromSettings from '../../../state/settings/index';
 import { Post } from '../../common/models/post.models';
 import * as fromPostState from '../../state/index';
+import * as NavigationActions from '../../../state/navigation/navigation.actions';
 import { StateEntity } from 'src/app/shared/models/store-entity.models';
 import { RequestStatus } from 'src/app/shared/enums/status.enum';
+import { SUBMIT_NAV_ITEM } from 'src/app/navbar/common/constants/nav-item.constants';
 
 
 @Component({
@@ -48,15 +50,16 @@ export class PostListComponent implements OnInit{
   LOADING_STATUS = RequestStatus.LOADING;
   POST_LAYOUT: typeof PostLayout = PostLayout;
 
-  constructor(private router: Router,private store: Store) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.setPostLayout();
     this.setPostList();
   }
 
-  public navigateToSubmitPage(route: string): void {
-    this.router.navigateByUrl(route);
+  public navigateToSubmitPage(query: string): void {
+    const item = { ...SUBMIT_NAV_ITEM, queryParams: query ? { form: query } : null }
+    this.store.dispatch(NavigationActions.changeCurrentRoute({item}));
   }
 
   private setPostLayout(): void {

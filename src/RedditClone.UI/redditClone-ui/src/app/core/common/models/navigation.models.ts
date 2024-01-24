@@ -1,3 +1,4 @@
+import { Params } from "@angular/router";
 import { NavigationActionType, NavigationGroupType } from "../enums/navigation.enums";
 
 export interface Navigation {
@@ -20,4 +21,6 @@ export interface NavigationItem extends RouteItem {
 export interface RouteItem {
     route: string;
     name: string;
+    extraOptions?: string[];
+    queryParams?: Params | null | undefined;
 }

@@ -5,13 +5,13 @@
     </div>
     <button class="flex-1 bg-[#272729] border border-[#343536] ml-2 mr-2 h-8
         pl-2 text-left rounded text-sm
-        hover:bg-transparent hover:border-[#d7dadc]" (click)="navigateToSubmit('submit')">
+        hover:bg-transparent hover:border-[#d7dadc]" (click)="navigateToSubmit('')">
         Create post
     </button>
-    <button class="rounded ml-2 mr-2 hover:bg-[#303030] active:bg-[#343536] p-1" (click)="navigateToSubmit('submit?form=media')">
+    <button class="rounded ml-2 mr-2 hover:bg-[#303030] active:bg-[#343536] p-1" (click)="navigateToSubmit('media')">
         <app-icon>photo</app-icon>
     </button>
-    <button class="rounded ml-2 mr-2 hover:bg-[#303030] active:bg-[#343536] p-1" (click)="navigateToSubmit('submit?form=url')">
+    <button class="rounded ml-2 mr-2 hover:bg-[#303030] active:bg-[#343536] p-1" (click)="navigateToSubmit('url')">
         <app-icon>link</app-icon>
     </button>
 </div>

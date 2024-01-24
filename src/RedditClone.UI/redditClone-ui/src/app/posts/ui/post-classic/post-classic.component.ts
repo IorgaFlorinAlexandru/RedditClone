@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Post } from '../../common/models/post.models';
 
 @Component({
@@ -8,5 +8,10 @@ import { Post } from '../../common/models/post.models';
 })
 export class PostClassicComponent {
   @Input() post!: Post;
+  @Output() navigateToCommunity = new EventEmitter<boolean>();
+
+  public navigateToCommunityPage(): void {
+    this.navigateToCommunity.emit(true);
+  }
 
 }

@@ -6,7 +6,7 @@
     <div class="flex flex-col w-full bg-[#1a1a1b] rounded p-1.5 pr-3 pt-2 text-[#d7dadc] relative
 ">
         <div class="flex items-center">
-            <a [routerLink]="['/r',post.community]" class="text-xs hover:underline">r/{{post.community}}</a>
+            <a (click)="navigateToCommunityPage()" class="text-xs hover:underline">r/{{post.community}}</a>
             <span></span>
             <p class="text-xs text-[#7b7d7e] ml-1">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</p>
         </div>

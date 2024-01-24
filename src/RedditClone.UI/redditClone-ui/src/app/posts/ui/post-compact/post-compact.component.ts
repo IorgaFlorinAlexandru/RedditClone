@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PostLayout } from '../../common/enums/post-layout';
 import { Post } from '../../common/models/post.models';
 
@@ -10,5 +10,10 @@ import { Post } from '../../common/models/post.models';
 export class PostCompactComponent {
   compactLayout = PostLayout.Compact;
   @Input() post!: Post;
+  @Output() navigateToCommunity = new EventEmitter<boolean>();
+
+  public navigateToCommunityPage(): void {
+    this.navigateToCommunity.emit(true);
+  }
 
 }

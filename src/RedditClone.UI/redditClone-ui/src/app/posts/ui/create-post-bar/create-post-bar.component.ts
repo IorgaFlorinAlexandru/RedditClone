@@ -8,7 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class CreatePostBarComponent {
   @Output() submitRoute = new EventEmitter<string>();
 
-  navigateToSubmit(route: string): void {
-    this.submitRoute.emit(route);
+  navigateToSubmit(query: string): void {
+    this.submitRoute.emit(query);
   }
 }

@@ -55,9 +55,8 @@ export class CommunitiesEffects {
     createCommunitySuccess$ = createEffect(() => this.actions$.pipe(
         ofType(CommunitiesStateActionType.CREATE_COMMUNITY_ACTION_SUCCESS),
         map((action: any) => {
-            this.router.navigate(['/r',action.community.name]);
             return NavigationActions.changeCurrentRoute({
-                item : { route: 'r/', name: action.community.name, icon: 'star', actionType: NavigationActionType.ROUTE}})
+                item : { route: 'r/', name: action.community.name, icon: 'star', actionType: NavigationActionType.ROUTE, extraOptions: [action.community.name]}})
         })
     ))
 }

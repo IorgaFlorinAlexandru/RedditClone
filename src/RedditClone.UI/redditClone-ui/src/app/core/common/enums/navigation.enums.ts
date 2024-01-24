@@ -1,6 +1,7 @@
 
 export enum NavigationActionType {
     ROUTE,
+    COMMUNITY_ROUTE,
     CREATE_COMMUNITY_MODAL,
 } 
 

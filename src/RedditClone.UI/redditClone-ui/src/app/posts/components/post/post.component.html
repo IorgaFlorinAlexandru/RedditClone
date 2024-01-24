@@ -1,14 +1,14 @@
 <ng-container [ngTemplateOutlet]="{card,classic,compact}[postLayout]"></ng-container>
 
 <ng-template #card>
-    <post-card [post]="post"></post-card>
+    <post-card (navigateToCommunity)="navigateToCommunityPage()" [post]="post"></post-card>
 </ng-template>
 
 <ng-template #classic>
-    <post-classic [post]="post"></post-classic>
+    <post-classic (navigateToCommunity)="navigateToCommunityPage()" [post]="post"></post-classic>
 </ng-template>
 
 <ng-template #compact>
-    <post-compact [post]="post"></post-compact>
+    <post-compact (navigateToCommunity)="navigateToCommunityPage()" [post]="post"></post-compact>
 </ng-template>
 
