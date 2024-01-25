@@ -9,6 +9,7 @@ import { ToggleSwitchComponent } from './ui/toggle-switch/toggle-switch.componen
 import { AppInputComponent } from './ui/app-input/app-input.component';
 import { DynamicSkeletonLoaderDirective } from './directives/dynamic-skeleton-loader.directive';
 import { DropdownMenuModule } from './modules/dropdown-menu/dropdown-menu.module';
+import { VoteArrowComponent } from './ui/vote-arrow/vote-arrow.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DropdownMenuModule } from './modules/dropdown-menu/dropdown-menu.module
     TestPageComponent,
     ToggleSwitchComponent,
     AppInputComponent,
-    DynamicSkeletonLoaderDirective
+    DynamicSkeletonLoaderDirective,
+    VoteArrowComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { DropdownMenuModule } from './modules/dropdown-menu/dropdown-menu.module
     TextareaAutosizeDirective,
     DynamicSkeletonLoaderDirective,
     TestPageComponent,
-    ToggleSwitchComponent
+    ToggleSwitchComponent,
+    VoteArrowComponent
   ]
 })
 export class SharedModule { }
