@@ -1,25 +1,13 @@
 <div class="bg-[#151516] h-full">
-    <ng-container *ngIf="postLayout !== compactLayout,else compact">
-        <div class="flex flex-col items-center p-2 h-full">
-            <button class="text-[#818384] hover:bg-[#272729] hover:text-[#ff4500]">
-                <vote-arrow></vote-arrow>
-            </button>
-            <p class="text-xs font-bold text-white  pt-1 pb-1">10</p>
-            <button class="text-[#818384] hover:bg-[#272729] hover:text-[#7193ff]">
-                <vote-arrow [isDownvote]="true"></vote-arrow>                 
-            </button>
-        </div>
-    </ng-container>
-</div>
-
-<ng-template #compact>
-    <div class="flex items-center h-full pl-1 pr-1">
-        <button class="text-[#818384] hover:bg-[#272729] hover:text-[#ff4500]">
-            <vote-arrow></vote-arrow>
+    <div [classList]="containerClasses">
+        <button (click)="upvote()" class="text-[#818384] hover:bg-[#272729] hover:text-[#ff4500]"
+            [ngClass]="{'text-[#ff4500]' : vote === 'upvoted'}">
+            <vote-arrow [fill]="vote === 'upvoted' ? 'currentColor' : 'none'"></vote-arrow>
         </button>
-        <p class="text-xs font-bold text-white  mr-1 ml-1">10</p>
-        <button class="text-[#818384] hover:bg-[#272729] hover:text-[#7193ff]">
-            <vote-arrow [isDownvote]="true"></vote-arrow>                                         
+        <p class="text-xs font-bold text-white  pt-1 pb-1 mr-1 ml-1">10</p>
+        <button (click)="downvote()" class="text-[#818384] hover:bg-[#272729] hover:text-[#7193ff]"
+            [ngClass]="{'text-[#7193ff]' : vote === 'downvoted'}">
+            <vote-arrow [fill]="vote === 'downvoted' ? 'currentColor' : 'none'" [isDownvote]="true"></vote-arrow>                 
         </button>
     </div>
-</ng-template>
+</div>

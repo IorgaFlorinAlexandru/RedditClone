@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class VoteArrowComponent {
   @Input() isDownvote: boolean = false;
+  @Input() fill: string = 'none';
 }
