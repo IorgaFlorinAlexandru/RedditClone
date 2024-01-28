@@ -8,6 +8,9 @@ import { HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { NavigationActionType } from "src/app/core/common/enums/navigation.enums";
+import { NavigationItem } from "src/app/core/common/models/navigation.models";
+import { Community } from "src/app/communities/common/models/communities.models";
+import { CoreRoutes } from "src/app/core/common/enums/core-routes.enum";
 
 @Injectable()
 export class CommunitiesEffects {
@@ -25,6 +28,28 @@ export class CommunitiesEffects {
                     return of(CommunityActions.loadCommunitiesFailedAction());
                 })
             );
+        })
+    ));
+
+    loadCommunitiesSuccess$ = createEffect(() => this.actions$.pipe(
+        ofType(CommunitiesStateActionType.LOAD_COMMUNITIES_SUCCESS),
+        map((action: any) => {
+            const communities = action.communities;
+            const navItems: NavigationItem[] = [];
+
+            communities.forEach((community: Community) => {
+                navItems.push(
+                    {
+                        icon: 'star',
+                        actionType: NavigationActionType.COMMUNITY_ROUTE,
+                        route: CoreRoutes.Community,
+                        name: community.name,
+                        extraOptions: [community.name]
+                    }
+                )
+            });
+            
+            return NavigationActions.addCommunitiesToNav({navItems});
         })
     ));
 

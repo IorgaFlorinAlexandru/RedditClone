@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { ModalService } from "src/app/shared/modules/app-modal/services/modal.service";
 import { NavigationStateActionTypes } from "./navigation.actions";
-import { map } from "rxjs";
+import { tap } from "rxjs";
 import { Router } from "@angular/router";
 import { NavigationItem } from "src/app/core/common/models/navigation.models";
 
@@ -16,7 +16,7 @@ export class NavigationEffects {
 
     changingRoute$ = createEffect(() => this.actions$.pipe(
         ofType(NavigationStateActionTypes.CHANGE_CURRENT_ROUTE),
-        map((action: any) => {
+        tap((action: any) => {
             this.modalService.closeAll();
 
             const navItem = action.item as NavigationItem;

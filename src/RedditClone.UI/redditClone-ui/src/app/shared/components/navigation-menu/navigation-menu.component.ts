@@ -24,6 +24,7 @@ export class NavigationMenuComponent implements OnInit {
   navigation$: Observable<Navigation> | undefined;
   filterField: FormControl = new FormControl();
   formGroup: FormGroup;
+  navActionTypes : typeof NavigationActionType = NavigationActionType;
 
   constructor(private store: Store,private router: Router,private formBuilder: FormBuilder,private modalService: ModalService){
     this.formGroup = this.formBuilder.group({filter: this.filterField});
@@ -68,7 +69,6 @@ export class NavigationMenuComponent implements OnInit {
   }
 
   private navigateToRoute(item: NavigationItem): void {
-    //this.router.navigateByUrl(item.route);
     this.store.dispatch(fromNavigation.changeCurrentRoute({item: item}));
   }
 
