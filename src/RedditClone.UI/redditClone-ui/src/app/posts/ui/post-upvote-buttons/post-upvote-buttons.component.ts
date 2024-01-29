@@ -10,7 +10,7 @@ export class PostUpvoteButtonsComponent implements OnInit {
   @Input() postLayout = PostLayout.Card;
 
   vote: 'upvoted' | 'downvoted' | undefined = undefined;
-  containerClasses: string = 'flex flex-col items-center p-2 h-full';
+  containerClasses: string = 'flex flex-col items-center p-2 h-full'; // post-card classes
 
   ngOnInit(): void {
     this.setContainerClasses();
@@ -34,7 +34,7 @@ export class PostUpvoteButtonsComponent implements OnInit {
 
   private setContainerClasses(): void {
     if(this.postLayout === PostLayout.Compact) {
-      this.containerClasses = 'flex items-center h-full pl-1 pr-1';
+      this.containerClasses = 'flex items-center h-full pl-1 pr-1'; // post-compact classes
     }
   }
 }

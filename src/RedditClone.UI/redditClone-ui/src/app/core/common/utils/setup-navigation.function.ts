@@ -1,30 +1,32 @@
-import { ALL_NAV_ITEM, HOME_NAV_ITEM, POPULAR_NAV_ITEM, SUBMIT_NAV_ITEM } from "src/app/navbar/common/constants/nav-item.constants";
 import { NavigationActionType, NavigationGroupType } from "../enums/navigation.enums";
-import { Navigation, NavigationGroup } from "../models/navigation.models";
+import { Navigation, NavigationGroup, NavigationItem } from "../models/navigation.models";
+import { CoreRoutes } from "../enums/core-routes.enum";
+import * as NavConst from "src/app/navbar/common/constants/nav-item.constants";
+
 
 export function setupNavigation() : Navigation {
 
     const feedRoutes : NavigationGroup = {
         name: 'Feeds',
-        routes: [HOME_NAV_ITEM,POPULAR_NAV_ITEM,ALL_NAV_ITEM],
+        routes: [
+            NavConst.HOME_NAV_ITEM, 
+            NavConst.POPULAR_NAV_ITEM, 
+            NavConst.ALL_NAV_ITEM],
         type: NavigationGroupType.FEEDS
     }
 
     const communitiesRoutes: NavigationGroup = {
         name: 'Your Communities',
-        routes: [
-            { icon: 'plus', name: 'Create Community', route: '', actionType: NavigationActionType.CREATE_COMMUNITY_MODAL},
-            { icon: 'star', name: 'Test Page', route: 'test', actionType: NavigationActionType.ROUTE},
-        ],
+        routes: [NavConst.CREATE_COMMUNITY_NAV_ITEM],
         type: NavigationGroupType.COMMUNITY
     }
 
     const moderatingRoutes: NavigationGroup = {
         name: 'Moderating',
         routes: [
-            { icon: 'squares-plus', name: 'Mod Queue', route: '', actionType: NavigationActionType.ROUTE},
-            { icon: 'envelope', name: 'Modmail', route: '', actionType: NavigationActionType.ROUTE},
-            { icon: 'shield-exclamation', name: 'r/Mod', route: '', actionType: NavigationActionType.ROUTE},
+            NavConst.MOD_QUEUE_NAV_ITEM, 
+            NavConst.MOD_MAIL_NAV_ITEM,
+            NavConst.R_MOD_NAV_ITEM
         ],
         type: NavigationGroupType.MODERATING
     }
@@ -32,13 +34,37 @@ export function setupNavigation() : Navigation {
     const otherRoutes: NavigationGroup = {
         name: 'Other',
         routes: [
-            { icon: 'adjustments-h', name: 'User Settings', route: 'settings',actionType: NavigationActionType.ROUTE},
-            { icon: 'user-circle', name: 'Messages', route: 'messages/inbox',actionType: NavigationActionType.ROUTE},
-            SUBMIT_NAV_ITEM,
-            { icon: 'notification', name: 'Notifications', route: 'notifications',actionType: NavigationActionType.ROUTE},
+            NavConst.USER_SETTINGS_NAV_ITEM,
+            NavConst.MESSAGE_INBOX_NAV_ITEM,
+            NavConst.SUBMIT_NAV_ITEM,
+            NavConst.NOTIFICATIONS_NAV_ITEM,
+            NavConst.TEST_PAGE_NAV_ITEM,
         ],
         type: NavigationGroupType.OTHER
     }
 
-    return { currentRoute: feedRoutes.routes[0], items: [moderatingRoutes,communitiesRoutes,feedRoutes,otherRoutes], showNavigationMenu: false };
+    const navGroups = [moderatingRoutes,communitiesRoutes,feedRoutes,otherRoutes];
+
+    const navigation = { currentRoute: getCurrentRoute(navGroups), items: navGroups, showNavigationMenu: false };
+
+    return navigation;
+}
+
+function getCurrentRoute(navGroups: NavigationGroup[]): NavigationItem {
+
+    const items: NavigationItem[] = [];
+    navGroups.forEach(group => {
+        items.push(...group.routes);
+    });
+
+    const windowPath = window.location.pathname.substring(1);
+
+    if(windowPath.startsWith(CoreRoutes.Community)){
+        const communityName = windowPath.substring(2);
+        return { route: CoreRoutes.Community, name: communityName, icon: 'star', actionType: NavigationActionType.COMMUNITY_ROUTE, extraOptions: [communityName]}
+    }
+
+    const navRouteItem = items.find(i => i.route === windowPath && i.actionType !== NavigationActionType.CREATE_COMMUNITY_MODAL) ?? NavConst.HOME_NAV_ITEM;
+
+    return navRouteItem;
 }
