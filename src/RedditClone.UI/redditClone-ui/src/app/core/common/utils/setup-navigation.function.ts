@@ -4,13 +4,13 @@ import { CoreRoutes } from "../enums/core-routes.enum";
 import * as NavConst from "src/app/navbar/common/constants/nav-item.constants";
 
 
-export function setupNavigation() : Navigation {
+export function setupNavigation(): Navigation {
 
-    const feedRoutes : NavigationGroup = {
+    const feedRoutes: NavigationGroup = {
         name: 'Feeds',
         routes: [
-            NavConst.HOME_NAV_ITEM, 
-            NavConst.POPULAR_NAV_ITEM, 
+            NavConst.HOME_NAV_ITEM,
+            NavConst.POPULAR_NAV_ITEM,
             NavConst.ALL_NAV_ITEM],
         type: NavigationGroupType.FEEDS
     }
@@ -24,7 +24,7 @@ export function setupNavigation() : Navigation {
     const moderatingRoutes: NavigationGroup = {
         name: 'Moderating',
         routes: [
-            NavConst.MOD_QUEUE_NAV_ITEM, 
+            NavConst.MOD_QUEUE_NAV_ITEM,
             NavConst.MOD_MAIL_NAV_ITEM,
             NavConst.R_MOD_NAV_ITEM
         ],
@@ -43,7 +43,7 @@ export function setupNavigation() : Navigation {
         type: NavigationGroupType.OTHER
     }
 
-    const navGroups = [moderatingRoutes,communitiesRoutes,feedRoutes,otherRoutes];
+    const navGroups = [moderatingRoutes, communitiesRoutes, feedRoutes, otherRoutes];
 
     const navigation = { currentRoute: getCurrentRoute(navGroups), items: navGroups, showNavigationMenu: false };
 
@@ -59,12 +59,14 @@ function getCurrentRoute(navGroups: NavigationGroup[]): NavigationItem {
 
     const windowPath = window.location.pathname.substring(1);
 
-    if(windowPath.startsWith(CoreRoutes.Community)){
+    if (windowPath.startsWith(CoreRoutes.Community)) {
         const communityName = windowPath.substring(2);
-        return { route: CoreRoutes.Community, name: communityName, icon: 'star', actionType: NavigationActionType.COMMUNITY_ROUTE, extraOptions: [communityName]}
+        return { route: CoreRoutes.Community, name: communityName, icon: 'star', actionType: NavigationActionType.COMMUNITY_ROUTE, extraOptions: [communityName] }
     }
 
-    const navRouteItem = items.find(i => i.route === windowPath && i.actionType !== NavigationActionType.CREATE_COMMUNITY_MODAL) ?? NavConst.HOME_NAV_ITEM;
+    const routeName = windowPath.split('/')[0]; // there can be routes like settings/profile, so we just take the first word
+
+    const navRouteItem = items.find(i => i.route === routeName && i.actionType !== NavigationActionType.CREATE_COMMUNITY_MODAL) ?? NavConst.HOME_NAV_ITEM;
 
     return navRouteItem;
 }
