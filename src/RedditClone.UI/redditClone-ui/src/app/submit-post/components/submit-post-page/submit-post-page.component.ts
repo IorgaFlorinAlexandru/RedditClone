@@ -38,6 +38,8 @@ export class SubmitPostPageComponent implements OnInit {
   selectedCommunity: Community | undefined = undefined;
   createPostStatus$: Observable<RequestStatus> = new Observable();
   LOADING_STATUS = RequestStatus.LOADING;
+  communityParam: string | null = null;
+
 
   ngOnInit(): void {
     this.setFormTabs();
@@ -101,9 +103,10 @@ export class SubmitPostPageComponent implements OnInit {
   private getRouteParams(): void {
     this.route.queryParamMap.pipe(
       tap(param => {
-        const queryParam = param.get('form');
+        const formParam = param.get('form');
+        this.communityParam = param.get('community');
         let postType = PostType.TEXT;
-        switch(queryParam) {
+        switch(formParam) {
           case SubmitUrlParams.URL:
             postType = PostType.LINK;
             break;
@@ -111,6 +114,7 @@ export class SubmitPostPageComponent implements OnInit {
             postType = PostType.MEDIA;
             break;
         }
+
         const tab = this.submitFormTabs.find(t => t.postType === postType);
         this.changeCurrentTab(tab!);
       }),

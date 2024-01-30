@@ -1,6 +1,6 @@
 <div class="relative h-10">
-    <div  #communitySelectMenu class="text-[#818384] bg-[#1a1a1b] rounded absolute z-10
-    border border-[#343536] w-80 text-sm font-semibold">
+    <div *ngIf="userCommunities$ | async as userCommunities" #communitySelectMenu class="text-[#818384] bg-[#1a1a1b] rounded absolute z-10
+        border border-[#343536] w-80 text-sm font-semibold">
         <div (click)="openSelectMenu()" class="border-[#343536] w-full cursor-pointer flex items-center h-10  pr-2 pl-2"
             [ngClass]="{'border-b ': showSelectMenu}">
             <ng-container *ngIf="!showSelectMenu,else searchCommunities">
@@ -20,7 +20,6 @@
                 <h2 class="uppercase text-[10px] inline-block">Your Communities</h2>
                 <button class="inline float-right text-[#d7dadc] hover:bg-[#272729] pl-2 pr-2">Create new</button>
             </div>
-        <ng-container *ngIf="userCommunities$ | async as userCommunities">
             <ng-container *ngIf="userCommunities.status !== LOADING_STATUS, else loading">
                 <ul class="mt-4">
                     <li *ngFor="let community of userCommunities.data" (click)="selectCommunity(community)" class="cursor-pointer mt-2">
@@ -35,7 +34,6 @@
                     </li>
                 </ul>
             </ng-container>
-        </ng-container>
         </div>
     </div>
 </div>

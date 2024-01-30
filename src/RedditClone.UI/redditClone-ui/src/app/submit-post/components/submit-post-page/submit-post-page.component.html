@@ -9,7 +9,7 @@
         </section>
 
         <section class="mt-4">
-            <community-select (hasSelectedCommunity)="hasSelectedCommunity($event)"></community-select>
+            <community-select [community]="communityParam" (hasSelectedCommunity)="hasSelectedCommunity($event)"></community-select>
         </section>
     
         <section class="mt-3 rounded w-full bg-[#1a1a1b]">

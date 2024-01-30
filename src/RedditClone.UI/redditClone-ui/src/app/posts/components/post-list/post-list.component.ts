@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { PostLayout } from '../../common/enums/post-layout';
@@ -58,7 +58,14 @@ export class PostListComponent implements OnInit{
   }
 
   public navigateToSubmitPage(query: string): void {
-    const item = { ...SUBMIT_NAV_ITEM, queryParams: query ? { form: query } : null }
+    let queryParams: Params = {};
+    if(query) {
+      queryParams = { ...queryParams, form: query }
+    }
+    if(this.communityIdentifier) {
+      queryParams = {...queryParams, community: this._communityIndentifier }
+    }
+    const item = { ...SUBMIT_NAV_ITEM, queryParams }
     this.store.dispatch(NavigationActions.changeCurrentRoute({item}));
   }
 

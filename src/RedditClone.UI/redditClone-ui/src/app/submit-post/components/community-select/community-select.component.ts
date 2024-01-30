@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subject, combineLatest, fromEvent, of, skip, startWith, switchMap, takeUntil, tap } from 'rxjs';
 import * as CommunitySelectors from '../../../state/communities/communities.selectors';
@@ -16,6 +16,7 @@ export class CommunitySelectComponent implements OnInit, OnDestroy {
   
   @ViewChild('communitySelectMenu') selectCommunityMenu!: ElementRef;
   @Output() hasSelectedCommunity: EventEmitter<Community | undefined> = new EventEmitter();
+  @Input() community: string | null = null;
   constructor(private store: Store,private formBuilder: FormBuilder) {
     this.searchField = new FormControl('')
     this.searchForm = this.formBuilder.group({searchField: this.searchField});
@@ -75,6 +76,10 @@ export class CommunitySelectComponent implements OnInit, OnDestroy {
       this.searchField.valueChanges.pipe(startWith(''))
     ]).pipe(
       switchMap(([userCommunities,searchValue]) => {
+
+        const community = userCommunities.data.find(c => c.name === this.community);
+        this.setSelectedCommunity(community);
+
         return of(
           { ...userCommunities, data: userCommunities.data.filter(c => c.name.includes(searchValue))}
           );
@@ -84,6 +89,7 @@ export class CommunitySelectComponent implements OnInit, OnDestroy {
 
   private setSelectedCommunity(community: Community | undefined): void {
     this.selectedCommunity = community;
+    console.log(this.selectedCommunity)
     this.hasSelectedCommunity.next(community);
   }
 }
