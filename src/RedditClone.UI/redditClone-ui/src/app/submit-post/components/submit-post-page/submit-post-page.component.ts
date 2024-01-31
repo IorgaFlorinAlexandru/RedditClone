@@ -13,7 +13,9 @@ import { CreatePostRequest } from '../../common/models/create-post.model';
 import { Store } from '@ngrx/store';
 import * as SubmitActions from '../../state/submit.actions';
 import * as SubmitSelectors from '../../state/submit.selectors';
+import * as CommunitySelectors from '../../../state/communities/communities.selectors';
 import { RequestStatus } from 'src/app/shared/enums/status.enum';
+import { StateEntity } from 'src/app/shared/models/store-entity.models';
 
 @Component({
   selector: 'app-submit-post-page',
@@ -39,12 +41,14 @@ export class SubmitPostPageComponent implements OnInit {
   createPostStatus$: Observable<RequestStatus> = new Observable();
   LOADING_STATUS = RequestStatus.LOADING;
   communityParam: string | null = null;
+  userCommunities$: Observable<StateEntity<Community[]>> = new Observable();
 
 
   ngOnInit(): void {
     this.setFormTabs();
     this.getRouteParams();
     this.setCreatePostStatus();
+    this.setUserCommunities();
   }
 
   public changeCurrentTab(tab: SubmitFormTab): void {
@@ -120,5 +124,9 @@ export class SubmitPostPageComponent implements OnInit {
       }),
       take(1)
     ).subscribe();
+  }
+
+  private setUserCommunities(): void {
+    this.userCommunities$ = this.store.select(CommunitySelectors.selectUserCommunitiesEntity);
   }
 }

@@ -1,0 +1,73 @@
+<div class="relative h-10">
+    <ng-container *ngIf="!showSelectMenu else selectMenu">
+        <div (click)="openSelectMenu()" class="text-[#818384] bg-[#1a1a1b] 
+            rounded absolute z-10 border border-[#343536] 
+            w-80 text-sm font-semibold">
+        <div class="border-[#343536] w-full cursor-pointer flex items-center h-10  pr-2 pl-2">
+            <ng-container *ngIf="selectedCommunity, else chooseCommunity">
+                <div class="h-6 w-6">
+                    <ng-container *ngTemplateOutlet="communityIcon"></ng-container>
+                </div>
+                <div class="inline-block align-middle ml-2">
+                    <h2 class="text-sm text-[#d7dadc]">r/{{selectedCommunity.name}}</h2>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    </ng-container>
+</div>
+
+<ng-template #selectMenu>
+    <div hideOnClickAway (clickedOutsideEvent)="close()" class="text-[#818384] bg-[#1a1a1b] rounded absolute z-10
+        border border-[#343536] w-80 text-sm font-semibold">
+        <div class="border-[#343536] w-full cursor-pointer flex items-center h-10  pr-2 pl-2 border-b">
+            <app-icon>search</app-icon>
+            <form class="w-full" [formGroup]="searchForm">
+                <input formControlName="searchField" class="ml-2 w-full bg-transparent focus:outline-none text-white 
+                placeholder:text-[#818384]" placeholder="Search Communities"/>
+            </form>
+        </div>
+        <div class="select-menu overflow-y-scroll scrollbar-dark p-2">
+            <div class="w-full font-bold">
+                <h2 class="uppercase text-[10px] inline-block">Your Communities</h2>
+                <button (click)="openCreateCommunityModal()" 
+                    class="inline float-right text-[#d7dadc] hover:bg-[#272729] pl-2 pr-2">Create new</button>
+            </div>
+            <ng-container *ngIf="userCommunitiesEntity.status !== LOADING_STATUS, else loading">
+                <ul class="mt-4">
+                    <li *ngFor="let community of communities" (click)="selectCommunity(community)" class="cursor-pointer mt-2">
+                        <div class="w-8 h-8 inline-block">
+                            <ng-container *ngTemplateOutlet="communityIcon"></ng-container>
+                        </div>
+                        <div class="inline-block align-middle ml-2">
+                            <h2 class="text-sm text-[#d7dadc]">r/{{community.name}}</h2>
+                            <span class="text-[12px]">1 member</span>
+                        </div>
+                    </li>
+                </ul>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #chooseCommunity>
+    <app-icon>viewfinder-circle</app-icon>
+    <span class="ml-2 flex-1">Choose a community</span>
+    <app-icon class="w-4 h-4">chevron-down</app-icon>
+</ng-template>
+
+<ng-template #loading>
+    <div class="w-full p-2">
+        <div class="w-112 mt-2">
+            <div class="loader ml-auto mr-auto"></div>
+        </div>
+    </div>
+</ng-template>
+
+<!-- TODO Make separate component for this, too many use cases -->
+<ng-template #communityIcon>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="h-full w-full fill-[#0079d3] 
+    bg-white rounded-full border-2 inline-block">
+        <path d="M16.5,2.924,11.264,15.551H9.91L15.461,2.139h.074a9.721,9.721,0,1,0,.967.785ZM8.475,8.435a1.635,1.635,0,0,0-.233.868v4.2H6.629V6.2H8.174v.93h.041a2.927,2.927,0,0,1,1.008-.745,3.384,3.384,0,0,1,1.453-.294,3.244,3.244,0,0,1,.7.068,1.931,1.931,0,0,1,.458.151l-.656,1.558a2.174,2.174,0,0,0-1.067-.246,2.159,2.159,0,0,0-.981.215A1.59,1.59,0,0,0,8.475,8.435Z"></path>
+    </svg>
+</ng-template>
