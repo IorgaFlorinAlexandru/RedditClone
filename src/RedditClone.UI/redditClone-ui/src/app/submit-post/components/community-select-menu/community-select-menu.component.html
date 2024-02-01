@@ -23,15 +23,17 @@
         <div class="border-[#343536] w-full cursor-pointer flex items-center h-10  pr-2 pl-2 border-b">
             <app-icon>search</app-icon>
             <form class="w-full" [formGroup]="searchForm">
-                <input formControlName="searchField" class="ml-2 w-full bg-transparent focus:outline-none text-white 
+                <input focus-input formControlName="searchField" class="ml-2 w-full bg-transparent focus:outline-none text-white 
                 placeholder:text-[#818384]" placeholder="Search Communities"/>
             </form>
         </div>
         <div class="select-menu overflow-y-scroll scrollbar-dark p-2">
             <div class="w-full font-bold">
                 <h2 class="uppercase text-[10px] inline-block">Your Communities</h2>
-                <button (click)="openCreateCommunityModal()" 
-                    class="inline float-right text-[#d7dadc] hover:bg-[#272729] pl-2 pr-2">Create new</button>
+                <button (click)="openCreateCommunityModal()" class="inline float-right 
+                    text-[#d7dadc] hover:bg-[#272729] pl-2 pr-2">
+                    Create new
+                </button>
             </div>
             <ng-container *ngIf="userCommunitiesEntity.status !== LOADING_STATUS, else loading">
                 <ul class="mt-4">

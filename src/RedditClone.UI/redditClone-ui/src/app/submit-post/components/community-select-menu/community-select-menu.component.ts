@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Subject, map, startWith, takeUntil } from 'rxjs';
+import { Subject, map, takeUntil } from 'rxjs';
 import { Community } from 'src/app/communities/common/models/communities.models';
 import { CreateCommunityModalComponent } from 'src/app/communities/components/create-community-modal/create-community-modal.component';
 import { RequestStatus } from 'src/app/shared/enums/status.enum';
@@ -38,9 +38,10 @@ export class CommunitySelectMenuComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.setCommunityWithQueryParam(this.communityParam);
     if(changes['userCommunitiesEntity']) {
-      this.communities = this.userCommunitiesEntity.data;
+      if(this.userCommunitiesEntity.status === RequestStatus.SUCCESS) {
+        this.setCommunityWithQueryParam(this.communityParam);
+      }
     }
   }
 
@@ -55,6 +56,9 @@ export class CommunitySelectMenuComponent implements OnInit, OnChanges {
 
   public close(): void {
     this.showSelectMenu = false;
+    if(!this.selectedCommunity) {
+      this.searchField.setValue('');
+    }
   }
 
   public openCreateCommunityModal(): void {
@@ -63,7 +67,10 @@ export class CommunitySelectMenuComponent implements OnInit, OnChanges {
   }
 
   private setSelectedCommunity(community: Community | undefined): void {
-    if(community) this.searchField.setValue(community.name);
+    if(community) {
+      this.searchField.setValue(community.name);
+      this.filterCommunities(community.name);
+    }
     this.selectedCommunity = community;
     this.setCommunity.next(community);
   }
@@ -76,11 +83,15 @@ export class CommunitySelectMenuComponent implements OnInit, OnChanges {
     this.setSelectedCommunity(community);
   }
 
+  private filterCommunities(name: string): void {
+    this.communities = this.userCommunitiesEntity.data.filter(c => c.name.includes(name));
+  }
+
   private listenToSearchForm(): void {
     this.searchField.valueChanges.pipe(
       takeUntil(this.destroy$),
       map((value: string) => {
-        this.communities = this.userCommunitiesEntity.data.filter(c => c.name.includes(value));
+        this.filterCommunities(value);
         if(!value) {
           this.selectedCommunity = undefined;
         }
