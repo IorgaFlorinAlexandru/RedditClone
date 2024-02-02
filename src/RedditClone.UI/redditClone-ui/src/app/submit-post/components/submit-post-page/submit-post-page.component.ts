@@ -8,7 +8,6 @@ import { PostType } from 'src/app/posts/common/enums/post.enums';
 import { Community } from 'src/app/communities/common/models/communities.models';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, take, tap } from 'rxjs';
-import { SubmitUrlParams } from '../../common/enums/submit.enums';
 import { CreatePostRequest } from '../../common/models/create-post.model';
 import { Store } from '@ngrx/store';
 import * as SubmitActions from '../../state/submit.actions';
@@ -16,6 +15,7 @@ import * as SubmitSelectors from '../../state/submit.selectors';
 import * as CommunitySelectors from '../../../state/communities/communities.selectors';
 import { RequestStatus } from 'src/app/shared/enums/status.enum';
 import { StateEntity } from 'src/app/shared/models/store-entity.models';
+import { FormParamToPostTypeMap } from '../../common/constants/submit.constants';
 
 @Component({
   selector: 'app-submit-post-page',
@@ -35,32 +35,33 @@ export class SubmitPostPageComponent implements OnInit {
       this.submitFormGroup = this.submitFormService.getFormGroupByPostType(PostType.TEXT);
     }
 
-  submitFormTabs: SubmitFormTab[] = [];
-  submitFormGroup: FormGroup;
-  selectedCommunity: Community | undefined = undefined;
-  createPostStatus$: Observable<RequestStatus> = new Observable();
-  LOADING_STATUS = RequestStatus.LOADING;
-  communityParam: string | null = null;
-  userCommunities$: Observable<StateEntity<Community[]>> = new Observable();
+  public createPostStatus$: Observable<RequestStatus> = new Observable();
+  public userCommunities$: Observable<StateEntity<Community[]>> = new Observable();
+  public submitFormTabs: SubmitFormTab[] = [];
+  public submitFormGroup: FormGroup;
+  public selectedCommunity: Community | undefined = undefined;
+  public communityParam: string | null = null;
+  public LOADING_STATUS = RequestStatus.LOADING;
 
 
   ngOnInit(): void {
     this.setFormTabs();
     this.getRouteParams();
-    this.setCreatePostStatus();
     this.setUserCommunities();
+    this.setCreatePostStatus();
   }
 
-  public changeCurrentTab(tab: SubmitFormTab): void {
-    this.submitFormTabs.map(t => t.isActive = false);
+  public changeCurrentTab(currentTab: SubmitFormTab): void {
+    this.submitFormTabs.forEach(tab => {
+      tab.isActive = tab === currentTab;
+    });
 
-    tab.isActive = true;
-
-    this.submitFormGroup = this.submitFormService.getFormGroupByPostType(tab.postType);
+    this.submitFormGroup = this.submitFormService.getFormGroupByPostType(currentTab.postType);
   }
 
   public submitPost(): void {
     if(!this.selectedCommunity) return;
+    
     const submitValues = Object.values(this.submitFormGroup.value);
     const titleValue = submitValues[0] as string;
     const contentValue = submitValues[1] as string;
@@ -108,19 +109,10 @@ export class SubmitPostPageComponent implements OnInit {
     this.route.queryParamMap.pipe(
       tap(param => {
         const formParam = param.get('form');
-        this.communityParam = param.get('community');
-        let postType = PostType.TEXT;
-        switch(formParam) {
-          case SubmitUrlParams.URL:
-            postType = PostType.LINK;
-            break;
-          case SubmitUrlParams.MEDIA:
-            postType = PostType.MEDIA;
-            break;
+        if(formParam) {
+          this.changeCurrentTabWithQueryParam(formParam);
         }
-
-        const tab = this.submitFormTabs.find(t => t.postType === postType);
-        this.changeCurrentTab(tab!);
+        this.communityParam = param.get('community');
       }),
       take(1)
     ).subscribe();
@@ -128,5 +120,17 @@ export class SubmitPostPageComponent implements OnInit {
 
   private setUserCommunities(): void {
     this.userCommunities$ = this.store.select(CommunitySelectors.selectUserCommunitiesEntity);
+  }
+
+  private changeCurrentTabWithQueryParam(form: string): void {
+    if(!FormParamToPostTypeMap.has(form)) return;
+
+    const postType = FormParamToPostTypeMap.get(form);
+
+    const tab = this.submitFormTabs.find(t => t.postType === postType);
+    
+    if(tab) {
+      this.changeCurrentTab(tab);
+    }
   }
 }
