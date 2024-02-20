@@ -1,9 +1,10 @@
-<div #navbarContainer class="w-full bg-[#1A1A1B] h-12 
-    flex items-center text-[#D7DADC]
-    justify-between pl-5 pr-5 z-50 gap-8
-    border-b border-[#343536] fixed">
+<div #navbarContainer class="flex items-center justify-between
+    fixed w-full h-12 
+    px-5 z-50 gap-8 border-b 
+    border-secondary-light bg-primary-bg-light text-primary-text-light
+    dark:border-secondary-dark dark:bg-primary-bg-dark dark:text-primary-text-dark">
     <navbar-logo></navbar-logo>
-    <navbar-navigation class="m-auto ml-0 mr-0"></navbar-navigation>
+    <navbar-navigation class="m-auto mx-0"></navbar-navigation>
     <navbar-search class="w-1/2"></navbar-search>
     <ng-container *ngIf="isLoggedOn$ | async,else authButtons">
         <navbar-buttons></navbar-buttons>

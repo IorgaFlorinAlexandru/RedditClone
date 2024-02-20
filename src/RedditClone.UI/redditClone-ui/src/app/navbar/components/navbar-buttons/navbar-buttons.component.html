@@ -1,32 +1,43 @@
 <div class="flex">    
     <span>
-        <button toolTip="Popular" (click)="navigateToPopularFeed()" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
+        <button toolTip="Popular" (click)="navigateToPopularFeed()" class="p-1 ml-1 rounded 
+            hover:bg-primary-highlight-light active:bg-secondary-light
+            dark:hover:bg-primary-highlight-dark dark:active:bg-secondary-dark">
             <app-icon>trending-up</app-icon>
         </button>
     </span>
     <span>
-        <button toolTip="Moderation" [dropdownMenuTriggerFor]="modMenu" class="hover:bg-[#303030] active:bg-[#343536] focus:bg-[#343536] p-1 rounded ml-1">
+        <button toolTip="Moderation" [dropdownMenuTriggerFor]="modMenu" class="p-1 ml-1 rounded 
+            hover:bg-primary-highlight-light active:bg-secondary-light
+            dark:hover:bg-primary-highlight-dark dark:active:bg-secondary-dark dark:focus:bg-secondary-dark">
             <app-icon>shield-exclamation</app-icon>        
         </button>
          <dropdown-menu-component #modMenu position="right">
             <ul *ngIf="moderatingRoutes$ | async as routes" class="box-border">
                 <div *ngFor="let route of routes" class="routes">
-                    <li dropdown-menu-item (click)="navigateToRoute(route)" class="flex p-2 pl-4 pr-4 text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer">
+                    <li dropdown-menu-item (click)="navigateToRoute(route)" class="flex p-2 pl-4 pr-4 cursor-pointer text-sm
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark">
                         <app-icon [icon]="route.icon"></app-icon>
                         <span class="ml-1">{{route.name}}</span>
                     </li>
-                    <div class="separator h-[1px] w-4/6 bg-[#343536] ml-auto mr-auto"></div>
+                    <div class="separator h-[1px] w-4/6 ml-auto mr-auto bg-secondary-light dark:bg-secondary-dark"></div>
                 </div>
             </ul>
          </dropdown-menu-component>
     </span>
     <span>
-        <button toolTip="Chat" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
+        <button toolTip="Chat" class="p-1 ml-1 rounded
+            hover:bg-primary-highlight-light active:bg-secondary-light
+            dark:hover:bg-primary-highlight-dark dark:active:bg-secondary-dark">
             <app-icon>chat-bubble</app-icon> 
         </button>
     </span>
     <span>
-        <button toolTip="Notifications" [dropdownMenuTriggerFor]="notificationsMenu" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1 focus:bg-[#343536]">
+        <button toolTip="Notifications" [dropdownMenuTriggerFor]="notificationsMenu" 
+            class="p-1 ml-1 rounded 
+                hover:bg-primary-highlight-light active:bg-secondary-light
+                dark:hover:bg-primary-highlight-dark dark:active:bg-secondary-dark dark:focus:bg-secondary-dark">
             <app-icon>notification</app-icon>
         </button>
         <dropdown-menu-component #notificationsMenu position="center">
@@ -34,7 +45,9 @@
         </dropdown-menu-component>
     </span>
     <span>
-        <button toolTip="Create Post" (click)="navigateToSubmit()" class="hover:bg-[#303030] active:bg-[#343536] p-1 rounded ml-1">
+        <button toolTip="Create Post" (click)="navigateToSubmit()" class="p-1 ml-1 rounded 
+            hover:bg-primary-highlight-light active:bg-secondary-light
+            dark:hover:bg-primary-highlight-dark dark:active:bg-secondary-dark">
             <app-icon>plus</app-icon>
         </button>
     </span>

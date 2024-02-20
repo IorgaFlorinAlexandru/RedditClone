@@ -1,18 +1,19 @@
 <!-- Borders were at fault when opening the menu as it would move the elements inside -->
 <div *ngIf="navInfo$ | async as navInfo"
-    tabindex="1" 
-    class="w-[270px] box-border border border-transparent rounded hover:border-[#343536]"
-    [ngClass]="{'mt-[4px] !border-[#343536]' : isDropdownOpened,'hover:border-[#343536]': !navInfo.showAsAsideMenu}"
-    >
-    <div (click)="openClose(navInfo.showAsAsideMenu)" class="flex items-center h-[38px] box-border p-1.5"
+    class="w-[270px] box-border border border-transparent rounded
+        hover:border-secondary-light
+        dark:hover:border-secondary-dark"
+    [ngClass]="{'mt-[4px] border-secondary-light dark:!border-secondary-dark' : isDropdownOpened,
+        'dark:hover:border-secondary-dark': !navInfo.showAsAsideMenu}">
+    <div (click)="openClose(navInfo.showAsAsideMenu)" class="flex items-center h-[38px] p-1.5 box-border"
         [ngClass]="{'cursor-pointer': !navInfo.showAsAsideMenu}">
         <span class="mr-2">
             <ng-container *ngIf="navInfo.currentRoute.actionType !== navActionTypes.COMMUNITY_ROUTE,else communityIcon" >
                 <app-icon [icon]="navInfo.currentRoute.icon"></app-icon>
             </ng-container>
         </span>
-        <h5 class="font-semibold flex-1 text-sm select-none">{{navInfo.currentRoute.name}}</h5>
-        <span *ngIf="!navInfo.showAsAsideMenu" class="mr-1 flex items-center">
+        <h5 class="flex-1 select-none font-semibold text-sm">{{navInfo.currentRoute.name}}</h5>
+        <span *ngIf="!navInfo.showAsAsideMenu" class="flex items-center mr-1">
             <button (click)="showAsAsideMenu()" *ngIf="isDropdownOpened" class="items-center mr-2">
                 <app-icon class="m-auto" >list</app-icon>
             </button>
@@ -21,7 +22,8 @@
             </span>
         </span>
     </div>
-    <div *ngIf="isDropdownOpened" hideOnClickAway (clickedOutsideEvent)="close()" class="scrollbar-dark block mt-1 h-[32rem] bg-[#1A1A1B] overflow-auto">
+    <div *ngIf="isDropdownOpened" hideOnClickAway (clickedOutsideEvent)="close()" 
+        class="scrollbar-dark block h-[32rem] mt-1 overflow-auto bg-primary-bg-light dark:bg-primary-bg-dark">
         <navigation-menu></navigation-menu>
     </div>
 </div>

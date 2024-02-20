@@ -1,6 +1,8 @@
 <ng-template #menu>
     <div hideOnClickAway (clickedOutsideEvent)="closeMenu()" 
-        class="absolute min-w-max bg-[#1A1A1B] border border-[#343536] rounded box-border overflow-hidden z-10"
+    class="absolute min-w-max rounded box-border border overflow-hidden z-10
+        bg-primary-bg-light border-secondary-light
+        dark:bg-primary-bg-dark dark:border-secondary-dark"
         [class]="positionClass"
         [style]="dropdownMenuStyle">
         <ng-content></ng-content>
