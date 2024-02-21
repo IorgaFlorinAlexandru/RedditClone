@@ -17,6 +17,10 @@ export class UserMenuComponent {
 
   changeAppTheme(): void {
     this.darkTheme = !this.darkTheme;
+    if(this.darkTheme) {
+      document.body.classList.add('dark');  
+    }
+    else document.body.classList.remove('dark');
   }
 
   changeModMode(): void {

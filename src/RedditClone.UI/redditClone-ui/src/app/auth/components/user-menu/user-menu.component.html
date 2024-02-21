@@ -13,45 +13,52 @@
         <app-icon class="w-4 h-4">chevron-down</app-icon>
     </button>
     <dropdown-menu-component [offsetY]="50" #userMenu>
-        <section class="scrollbar-dark h-96 w-64 overflow-auto text-sm">
-            <div class=" pb-4 border-b border-secondary-dark">
-                <div class="p-4 font-semibold text-[#787c7e]">
+        <section class="scrollbar-dark h-96 w-64 overflow-auto text-sm font-semibold
+            text-primary-text-light dark:text-primary-text-dark">
+            <div class=" pb-4 border-b border-secondary-light dark:border-secondary-dark">
+                <div class="p-4 text-[#787c7e]">
                     <app-icon class="inline align-middle" icon="user-circle"></app-icon>
                     <h2 class="inline ml-2 align-middle">My Stuff</h2>
                 </div>
-                <ul class="font-semibold text-primary-text-dark">
-                    <li (click)="changeOnlineStatus()" class="select-none pl-10 p-2 cursor-pointer hover:bg-primary-highlight-dark pr-6">
+                <ul>
+                    <li (click)="changeOnlineStatus()" class="select-none pl-10 p-2 pr-6 cursor-pointer 
+                        hover:bg-primary-highlight-light dark:hover:bg-primary-highlight-dark">
                         <span>Online Status</span>
                         <toggle-switch [value]="onlineStatus" class="inline-block align-middle float-right"></toggle-switch>
                     </li>
-                    <li dropdown-menu-item class="select-none pl-10 p-2 cursor-pointer hover:bg-primary-highlight-dark">Profile</li>
-                    <li dropdown-menu-item class="select-none pl-10 p-2 cursor-pointer hover:bg-primary-highlight-dark">User Settings</li>
+                    <li dropdown-menu-item class="select-none pl-10 p-2 cursor-pointer 
+                        hover:bg-primary-highlight-light dark:hover:bg-primary-highlight-dark">Profile</li>
+                    <li dropdown-menu-item class="select-none pl-10 p-2 cursor-pointer 
+                        hover:bg-primary-highlight-light dark:hover:bg-primary-highlight-dark">User Settings</li>
                 </ul>
             </div>
-            <div class="pb-4 border-b border-secondary-dark">
-                <div class="p-4 font-semibold text-[#787c7e]">
+            <div class="pb-4 border-b border-secondary-light dark:border-secondary-dark">
+                <div class="p-4 text-[#787c7e]">
                     <app-icon class="inline align-middle" icon="user-circle"></app-icon>
                     <h2 class="inline ml-2 align-middle">View Options</h2>
                 </div>
-                <ul class="font-semibold text-primary-text-dark">
-                    <li (click)="changeAppTheme()" class="select-none pl-10 p-2 cursor-pointer hover:bg-primary-highlight-dark pr-6">
+                <ul>
+                    <li (click)="changeAppTheme()" class="select-none pl-10 p-2 pr-6 cursor-pointer 
+                        hover:bg-primary-highlight-light dark:hover:bg-primary-highlight-dark">
                         <span>Dark Mode</span>
                         <toggle-switch [value]="darkTheme" class="inline-block align-middle float-right"></toggle-switch>
                     </li>
-                    <li (click)="changeModMode()" class="select-none pl-10 p-2 cursor-pointer hover:bg-primary-highlight-dark pr-6">
+                    <li (click)="changeModMode()" class="select-none pl-10 p-2 pr-6 cursor-pointer 
+                        hover:bg-primary-highlight-light dark:hover:bg-primary-highlight-dark">
                         <span>Mod Mode</span>
                         <toggle-switch [value]="modMode" class="inline-block align-middle float-right"></toggle-switch>
                     </li>
                 </ul>
             </div>
             <div class="pb-6 pt-2">
-                <ul class="font-semibold text-primary-text-dark">
-                    <li dropdown-menu-item class="pl-4 p-2 cursor-pointer hover:bg-primary-highlight-dark">
+                <ul>
+                    <li dropdown-menu-item class="pl-4 p-2 cursor-pointer 
+                       hover:bg-primary-highlight-light dark:hover:bg-primary-highlight-dark">
                         <app-icon class="inline align-middle" icon="bootstrap-box-arrow-right"></app-icon>
                         <span class="ml-2 align-middle">Log Out</span>
                     </li>
                 </ul>
-                <p class="mt-4 text-xs text-center font-semibold text-[#787c7e]">Reddit, Inc. © 2023. All rights reserved.</p>
+                <p class="mt-4 px-4 text-xs text-center text-[#787c7e]">Reddit, Inc. © 2023. All rights reserved.</p>
             </div>
         </section>
     </dropdown-menu-component>
