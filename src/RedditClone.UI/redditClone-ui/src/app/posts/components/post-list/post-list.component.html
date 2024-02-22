@@ -1,5 +1,5 @@
 <ng-container *ngIf="postLayout$ | async as layout">
-    <div class="post-list flex flex-col mr-6"
+    <div class="flex flex-col mr-6"
     [ngClass]="{'w-full': layout !== cardLayout,'w-[40rem]': layout === cardLayout}">
         <create-post-bar (submitRoute)="navigateToSubmitPage($event)" class="mb-4"></create-post-bar>
         <trending-bar class="mb-4"></trending-bar>

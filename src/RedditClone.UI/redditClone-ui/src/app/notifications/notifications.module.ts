@@ -9,6 +9,7 @@ import { NotificationCardComponent } from './ui/notification-card/notification-c
 import { AppIconModule } from '../shared/modules/app-icon/app-icon.module';
 import { RouterModule } from '@angular/router';
 import { DropdownMenuModule } from '../shared/modules/dropdown-menu/dropdown-menu.module';
+import { DefaultCommunityIconComponent } from '../shared/components/default-community-icon/default-community-icon.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DropdownMenuModule } from '../shared/modules/dropdown-menu/dropdown-men
   imports: [
     CommonModule,
     NotificationsRoutingModule,
+    DefaultCommunityIconComponent,
     AppIconModule,
     DropdownMenuModule,
     RouterModule

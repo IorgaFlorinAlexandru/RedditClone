@@ -17,7 +17,7 @@ import { SUBMIT_NAV_ITEM } from 'src/app/navbar/common/constants/nav-item.consta
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css']
 })
-export class PostListComponent implements OnInit{
+export class PostListComponent implements OnInit {
 
   //Community
   private _communityIndentifier: string | undefined = undefined;

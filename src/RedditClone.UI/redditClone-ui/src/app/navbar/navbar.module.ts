@@ -13,6 +13,7 @@ import { AppIconModule } from '../shared/modules/app-icon/app-icon.module';
 import { AuthModule } from '../auth/auth.module';
 import { NotificationsModule } from '../notifications/notifications.module';
 import { HideOnClickAwayDirective } from '../shared/directives/hide-on-click-away.directive';
+import { DefaultCommunityIconComponent } from '../shared/components/default-community-icon/default-community-icon.component';
 
 
 
@@ -34,7 +35,8 @@ import { HideOnClickAwayDirective } from '../shared/directives/hide-on-click-awa
     AppIconModule,
     AuthModule,
     NotificationsModule,
-    HideOnClickAwayDirective
+    HideOnClickAwayDirective,
+    DefaultCommunityIconComponent
   ],
   exports: [
     NavbarContainerComponent

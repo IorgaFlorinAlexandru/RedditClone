@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class UserMenuComponent {
 
   public onlineStatus = true;
-  public darkTheme = true;
+  public darkTheme = false;
   public modMode = false;
 
   changeOnlineStatus(): void {

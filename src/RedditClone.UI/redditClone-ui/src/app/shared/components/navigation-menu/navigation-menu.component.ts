@@ -11,10 +11,19 @@ import { CreateCommunityModalComponent } from 'src/app/communities/components/cr
 import * as fromNavigation from '../../../state/navigation/index';
 import { AppIconModule } from '../../modules/app-icon/app-icon.module';
 import { NavigationActionType } from 'src/app/core/common/enums/navigation.enums';
+import { DefaultCommunityIconComponent } from '../default-community-icon/default-community-icon.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule,AppIconModule,RouterModule,FormsModule,ReactiveFormsModule,SharedModule],
+  imports: [
+    CommonModule,
+    AppIconModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    DefaultCommunityIconComponent
+  ],
   selector: 'navigation-menu',
   templateUrl: './navigation-menu.component.html',
   styleUrls: ['./navigation-menu.component.css']

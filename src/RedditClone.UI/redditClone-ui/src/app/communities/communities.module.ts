@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCommunityModalComponent } from './components/create-community-modal/create-community-modal.component';
 import { AppIconModule } from '../shared/modules/app-icon/app-icon.module';
 import { SkeletonDescriptionComponent } from './ui/skeleton-description/skeleton-description.component';
+import { DefaultCommunityIconComponent } from '../shared/components/default-community-icon/default-community-icon.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { SkeletonDescriptionComponent } from './ui/skeleton-description/skeleton
   imports: [
     CommonModule,
     CommunitiesRoutingModule,
+    DefaultCommunityIconComponent,
     PostsModule,
     SharedModule,
     FormsModule,

@@ -17,6 +17,7 @@ import { SubmitEffects } from './state/submit.effects';
 import { CommunitySelectMenuComponent } from './components/community-select-menu/community-select-menu.component';
 import { HideOnClickAwayDirective } from '../shared/directives/hide-on-click-away.directive';
 import { SharedModule } from '../shared/shared.module';
+import { DefaultCommunityIconComponent } from '../shared/components/default-community-icon/default-community-icon.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SharedModule } from '../shared/shared.module';
     AppIconModule,
     SharedModule,
     HideOnClickAwayDirective,
+    DefaultCommunityIconComponent,
     StoreModule.forFeature(submitStateFeatureKey,submitReducer),
     EffectsModule.forFeature(SubmitEffects)
   ],
