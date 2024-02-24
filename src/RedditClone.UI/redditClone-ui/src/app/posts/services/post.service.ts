@@ -17,7 +17,7 @@ export class PostService {
     if(community) params = params.append("community",community);
 
     return this.http.get<Post[]>('/api/post',{ params }).pipe(
-      delay(2000)
+      delay(200000)
     );
   }
   

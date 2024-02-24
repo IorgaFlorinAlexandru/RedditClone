@@ -1,12 +1,14 @@
-<div class="bg-[#151516] h-full">
+<div class="h-full bg-[#f7f9fa] dark:bg-[#151516]">
     <div [classList]="containerClasses">
-        <button (click)="upvote()" class="text-[#818384] hover:bg-[#272729] hover:text-[#ff4500]"
-            [ngClass]="{'text-[#ff4500]' : vote === 'upvoted'}">
+        <button (click)="upvote()" class="rounded text-secondary-text-dark hover:text-[#ff4500] 
+            hover:bg-primary-highlight-light dark:hover:bg-tertiary-bg-dark"
+            [ngClass]="{'!text-[#ff4500]' : vote === 'upvoted'}">
             <vote-arrow [fill]="vote === 'upvoted' ? 'currentColor' : 'none'"></vote-arrow>
         </button>
-        <p class="text-xs font-bold text-white  pt-1 pb-1 mr-1 ml-1">10</p>
-        <button (click)="downvote()" class="text-[#818384] hover:bg-[#272729] hover:text-[#7193ff]"
-            [ngClass]="{'text-[#7193ff]' : vote === 'downvoted'}">
+        <p class="pt-1 pb-1 mr-1 ml-1 text-xs font-bold text-primary-text-light dark:text-primary-text-dark">10</p>
+        <button (click)="downvote()" class="rounded text-secondary-text-dark hover:text-[#7193ff]
+            hover:bg-primary-highlight-light dark:hover:bg-tertiary-bg-dark"
+            [ngClass]="{'!text-[#7193ff]' : vote === 'downvoted'}">
             <vote-arrow [fill]="vote === 'downvoted' ? 'currentColor' : 'none'" [isDownvote]="true"></vote-arrow>                 
         </button>
     </div>

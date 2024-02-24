@@ -1,22 +1,22 @@
-<div class="flex 
-     border border-[#343536] w-full
-     cursor-pointer overflow-hidden bg-[#1a1a1b] pr-2">
+<div class="flex w-full pr-2 overflow-hidden cursor-pointer border
+    border-secondary-light bg-primary-bg-light
+    dark:border-secondary-dark dark:bg-primary-bg-dark">
     <div class="flex items-center">
-        <button class="text-[#818384] ml-2 mr-6 cursor-default">
+        <button class="ßml-2 mr-6 cursor-default text-secondary-text-dark">
             <vote-arrow></vote-arrow>
         </button>
-        <button class="text-[#818384] cursor-default">
+        <button class="cursor-default text-secondary-text-dark">
             <vote-arrow [isDownvote]="true"></vote-arrow>                            
         </button>
     </div>
-    <div class="w-full text-[#d7dadc] flex flex-col justify-between p-2">
+    <div class="flex flex-col justify-between w-full p-2">
         <div class="ml-4 h-full flex items-center">
-            <div class="animated-background w-4 mr-4 h-4 rounded-full"></div>
-            <div class="animated-background w-52 h-3 rounded"></div>
-            <div class="animated-background w-72 ml-4 h-3 rounded"></div>
+            <div class="w-4 h-4 mr-4 rounded-full animated-background dark:animated-background-dark"></div>
+            <div class="w-52 h-3 rounded animated-background dark:animated-background-dark"></div>
+            <div class="w-72 h-3 ml-4 rounded animated-background dark:animated-background-dark"></div>
             <span class="flex-1"></span>
-            <div class="animated-background w-24 ml-4 h-3 rounded"></div>
-            <div class="animated-background w-10 ml-4 h-3 rounded"></div>
+            <div class="w-24 h-3 ml-4 rounded animated-background dark:animated-background-dark"></div>
+            <div class="w-10 h-3 ml-4 rounded animated-background dark:animated-background-dark"></div>
         </div>
     </div>
 </div>

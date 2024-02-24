@@ -1,27 +1,27 @@
-<div class="flex 
-     border border-[#343536] w-full 
-     cursor-pointer overflow-hidden bg-[#1a1a1b]">
-    <div class="bg-[#151516] rounded flex flex-col justify-items-center items-center w-8 pt-5">
-        <button class="text-[#818384] mb-6 cursor-default">
+<div class="flex w-full overflow-hidden cursor-pointer border
+        border-secondary-light dark:border-secondary-dark
+        bg-primary-bg-light dark:bg-primary-bg-dark">
+    <div class="flex flex-col justify-items-center items-center w-8 pt-4 rounded
+        bg-[#f7f9fa] dark:bg-[#151516]">
+        <button class="mb-6 cursor-default text-secondary-text-dark">
             <vote-arrow></vote-arrow>
         </button>
-        <button class="text-[#818384] cursor-default">
+        <button class="cursor-default text-secondary-text-dark">
             <vote-arrow [isDownvote]="true"></vote-arrow>                             
         </button>
     </div>
-    <div class="animated-background h-20 w-20 mt-2.5 mb-2.5 ml-1 relative flex items-center justify-center">
-
-    </div>
+    <div class="flex items-center justify-center relative h-20 w-24 mt-2.5 mb-2.5 ml-1 
+        animated-background dark:animated-background-dark"></div>
     <div class="w-full text-[#d7dadc] flex flex-col justify-between">
         <div class="mt-4 ml-2">
-            <div class="animated-background w-96 h-5 rounded mb-2"></div>
-            <div class="animated-background w-20 h-3 rounded mb-2"></div>
+            <div class="w-96 h-5 mb-2 rounded animated-background dark:animated-background-dark"></div>
+            <div class="w-20 h-3 mb-2 rounded animated-background dark:animated-background-dark"></div>
         </div>
         <div class="ml-2 mb-3 flex items-center">
-            <div class="animated-background w-4 h-3 rounded"></div>
-            <div class="animated-background h-3 w-1 ml-1 mr-1"></div>
-            <div class="animated-background w-24 h-3 rounded"></div>
-            <div class="animated-background ml-1 w-5 h-3 rounded"></div>
+            <div class="w-4 h-3 rounded animated-background dark:animated-background-dark"></div>
+            <div class="h-3 w-1 ml-1 mr-1 animated-background dark:animated-background-dark"></div>
+            <div class="w-24 h-3 rounded animated-background dark:animated-background-dark"></div>
+            <div class="w-5 h-3 ml-1 rounded animated-background dark:animated-background-dark"></div>
         </div>
     </div>
 </div>

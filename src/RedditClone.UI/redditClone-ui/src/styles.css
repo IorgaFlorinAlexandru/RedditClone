@@ -2,9 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .animated-background-dark {
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeHolderShimmer;
+        animation-timing-function: linear;
+        background: linear-gradient(to right, #272729 8%, #343536 50%, #272729 33%);
+        background-size: 800px 104px;
+        position: relative;
+    }
+}
+
 body{
     background-color: black;
-    color-scheme: light;
 }
 
 .scrollbar-dark::-webkit-scrollbar {
@@ -26,25 +38,13 @@ body{
     background: #727272;
 }
 
-.min-h-40{
-    min-height: 10rem;
-}
-
-.min-h-96{
-    min-height: 24rem;
-}
-
-.min-w-96{
-    min-width: 24rem;
-}
-
 .animated-background {
     animation-duration: 2s;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     animation-name: placeHolderShimmer;
     animation-timing-function: linear;
-    background: linear-gradient(to right, #272729 8%, #343536 50%, #272729 33%);
+    background: linear-gradient(to right, #e7e7e7 8%, #edeff1 50%, #e7e7e7 33%);
     background-size: 800px 104px;
     position: relative;
 }
@@ -56,4 +56,16 @@ body{
     100% {
         background-position: 800px 0
     }
+}
+
+.min-h-40{
+    min-height: 10rem;
+}
+
+.min-h-96{
+    min-height: 24rem;
+}
+
+.min-w-96{
+    min-width: 24rem;
 }

@@ -1,17 +1,18 @@
-<div class="flex border border-[#343536] w-full hover:border-[#818384] 
-     cursor-pointer overflow-visible bg-[#1a1a1b]">
+<div class="flex w-full border cursor-pointer overflow-visible hover:border-secondary-text-dark
+    bg-primary-bg-light border-secondary-light dark:bg-primary-bg-dark dark:border-secondary-dark">
     <div class="bg-[#151516] rounded">
         <post-upvote-buttons></post-upvote-buttons>
     </div>
-    <div class="text-[#7b7d7e] bg-[#202021] h-20 w-20 mt-2.5 ml-1 relative flex items-center justify-center">
+    <div class="flex items-center justify-center relative h-20 w-24 mt-2.5 ml-1
+        text-[#7b7d7e] bg-[#f7f7f7] dark:bg-[#202021]">
         <app-icon>newspaper</app-icon>
     </div>
-    <div class="w-full text-[#d7dadc] flex flex-col justify-between">
+    <div class="flex flex-col justify-between w-full text-primary-text-light dark:text-primary-text-dark">
         <div class="mt-4 ml-2">
             <h2 class="font-bold">{{post.title}}</h2>
             <div>
-                <a (click)="navigateToCommunityPage()" class="text-xs hover:underline">r/{{post.community}}</a>
-                <span class="text-xs text-[#7b7d7e] ml-1">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</span>
+                <a (click)="navigateToCommunityPage()" class="text-xs font-semibold hover:underline">r/{{post.community}}</a>
+                <span class="ml-1 text-xs text-[#7b7d7e]">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</span>
             </div>
         </div>
         <post-buttons [post]="post"></post-buttons>

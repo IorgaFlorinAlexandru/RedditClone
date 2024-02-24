@@ -22,6 +22,7 @@ import { SkeletonPostCardComponent } from './ui/skeleton-post-card/skeleton-post
 import { SkeletonPostClassicComponent } from './ui/skeleton-post-classic/skeleton-post-classic.component';
 import { SkeletonPostCompactComponent } from './ui/skeleton-post-compact/skeleton-post-compact.component';
 import { SharedModule } from '../shared/shared.module';
+import { DefaultCommunityIconComponent } from '../shared/components/default-community-icon/default-community-icon.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { SharedModule } from '../shared/shared.module';
     StoreModule.forFeature(postsStateFeatureKey,postsReducer),
     EffectsModule.forFeature(PostsEffects),
     SharedModule,
+    DefaultCommunityIconComponent
   ],
   exports: [
     PostListComponent

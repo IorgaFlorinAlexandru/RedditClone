@@ -2,9 +2,9 @@
     border-secondary-light bg-primary-bg-light
     dark:border-secondary-dark dark:bg-primary-bg-dark text-secondary-text-dark">
     <button *ngFor="let trend of trends" class="flex items-center p-1 pr-2 mr-2 rounded-md 
-        hover:bg-primary-highlight-light active:bg-secondary-light
+        hover:bg-secondary-light active:bg-primary-highlight-light
         dark:hover:bg-tertiary-bg-dark dark:active:bg-secondary-dark"
-        [ngClass]="{'bg-primary-highlight-light text-primary-text-light dark:bg-tertiary-bg-dark dark:text-primary-text-dark': trend.isSelected}" (click)="changeTrend(trend)">
+        [ngClass]="{'bg-secondary-light text-accent-blue dark:bg-tertiary-bg-dark dark:text-primary-text-dark': trend.isSelected}" (click)="changeTrend(trend)">
         <app-icon [icon]="trend.icon"></app-icon>
         <span class="ml-1">{{trend.name}}</span>
     </button>

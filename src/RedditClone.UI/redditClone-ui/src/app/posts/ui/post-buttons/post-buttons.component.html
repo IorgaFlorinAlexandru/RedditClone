@@ -1,73 +1,93 @@
 <div class="flex items-center">
-    <button class="text-[#818384] text-xs font-bold p-2
-    hover:bg-[#272729] rounded flex items-center">
+    <button class="flex items-center p-2 rounded text-xs font-bold text-secondary-text-dark
+        hover:bg-primary-highlight-light dark:hover:bg-tertiary-bg-dark">
         <app-icon class="h-5 w-5">comments</app-icon> 
         <span class="ml-1">10 <span *ngIf="layout !== COMPACT_LAYOUT">Comments</span></span>
     </button>
     <ng-container *ngIf="layout !== COMPACT_LAYOUT">
         <span>
-            <button [dropdownMenuTriggerFor]="shareMenu" class="text-[#818384] text-xs font-bold p-2
-            hover:bg-[#272729] rounded flex items-center">
+            <button [dropdownMenuTriggerFor]="shareMenu" class="flex items-center p-2 rounded text-xs font-bold text-secondary-text-dark
+            hover:bg-primary-highlight-light dark:hover:bg-tertiary-bg-dark">
                 <app-icon class="h-5 w-5">share</app-icon>
                 <span class="ml-1">Share</span>
             </button>
             <dropdown-menu-component #shareMenu>
-                <ul class="text-[#818384]">
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                <ul class="text-secondary-text-dark">
+                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                         <app-icon icon="link" class="w-5 h-5"></app-icon>
                         <span class="ml-1">Copy Link</span>
                     </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer 
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                         <app-icon icon="hashtag" class="h-5 w-5"></app-icon>
                         <span class="ml-1">Crosspost</span>
                     </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer 
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                         <app-icon icon="code-bracket-square" class="w-5 h-5"></app-icon>
                         <span class="ml-1">Embed</span>
                     </li>
                 </ul>
             </dropdown-menu-component>
         </span>
-        <button class="text-[#818384] text-xs font-bold p-2
-        hover:bg-[#272729] rounded flex items-center">
+        <button class="flex items-center p-2 rounded text-xs font-bold text-secondary-text-dark
+            hover:bg-primary-highlight-light dark:hover:bg-tertiary-bg-dark">
             <app-icon class="h-5 w-5">bookmark</app-icon>
             <span class="ml-1">Save</span>
         </button>
     </ng-container>
     <span class="h-6 w-6">
-        <button [dropdownMenuTriggerFor]="moreMenu" class="text-[#818384] rounded hover:bg-[#272729] ml-1
-            h-full w-full">
+        <button [dropdownMenuTriggerFor]="moreMenu" class="h-full w-full ml-1 rounded text-secondary-text-dark 
+            hover:bg-primary-highlight-light dark:hover:bg-tertiary-bg-dark">
             <app-icon >ellipsis-horizontal</app-icon>                 
         </button>
         <dropdown-menu-component #moreMenu>
-            <ul class="text-[#818384]">
+            <ul class="text-secondary-text-dark">
                 <ng-container *ngIf="layout === COMPACT_LAYOUT">
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                         <app-icon icon="bookmark" class="w-5 h-5"></app-icon>
                         <span class="ml-1">Save</span>
                     </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                         <app-icon icon="link" class="w-5 h-5"></app-icon>
                         <span class="ml-1">Copy Link</span>
                     </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                         <app-icon icon="hashtag" class="h-5 w-5"></app-icon>
                         <span class="ml-1">Crosspost</span>
                     </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                         <app-icon icon="code-bracket-square" class="w-5 h-5"></app-icon>
                         <span class="ml-1">Embed</span>
                     </li>
                 </ng-container>
-                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                     <app-icon icon="speaker-no-volume" class="w-5 h-5"></app-icon>
                     <span class="ml-1">Mute r/{{post.community}}</span>
                 </li>
-                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                     <app-icon icon="eye-slash" class="w-5 h-5"></app-icon>
                     <span class="ml-1">Hide</span>
                 </li>
-                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm hover:bg-[#D7DADC] hover:text-[#1A1A1B] cursor-pointer" dropdown-menu-item>
+                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                        hover:bg-accent-blue hover:text-primary-bg-light
+                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
                     <app-icon icon="flag" class="w-5 h-5"></app-icon>
                     <span class="ml-1">Report</span>
                 </li>

@@ -1,20 +1,25 @@
-<div class="flex border border-[#343536] w-[40rem] rounded-md hover:border-[#818384] cursor-pointer mb-4 overflow-visible">
-    <div class="bg-[#151516] rounded overflow-hidden">
+<div class="flex w-[40rem] mb-4 overflow-visible cursor-pointer border rounded-md 
+    border-secondary-light dark:border-secondary-dark hover:border-secondary-text-dark">
+    <div class="overflow-hidden rounded-l rounded-r-none">
         <post-upvote-buttons></post-upvote-buttons>
     </div>
     <!-- max-h-64 overflow-hidden -->
-    <div class="flex flex-col w-full bg-[#1a1a1b] rounded p-1.5 pr-3 pt-2 text-[#d7dadc] relative
+    <div class="flex flex-col w-full relative p-1.5 pr-3 pt-2 rounded-r rounded-l-none
+        bg-primary-bg-light text-primary-text-light dark:bg-primary-bg-dark dark:text-primary-text-dark 
 ">
         <div class="flex items-center">
-            <a (click)="navigateToCommunityPage()" class="text-xs hover:underline">r/{{post.community}}</a>
+            <a (click)="navigateToCommunityPage()" class="text-xs font-semibold hover:underline">
+                <default-community-icon class="h-5 w-5 mr-1 border-[1px]"></default-community-icon>
+                <span>r/{{post.community}}</span>    
+            </a>
             <span></span>
-            <p class="text-xs text-[#7b7d7e] ml-1">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</p>
+            <p class="ml-1 text-xs text-[#7b7d7e]">• Posted by <span class="hover:underline">u/{{post.originalPoster}}</span> • {{post.createdAt | date}}</p>
         </div>
         <!-- TODO  REPLACE THIS WITH CUSTOM COMPONENT OR DIFF COMP FOR EVERY SITUATION FOR CONTENT
             SO IT WILL KNOW WHAT TO DISPLAY EVEN IF CONTENT IS VIDEO, LINK, TEXT etc.. -->
-        <div class="content w-full  overflow-hidden  max-h-64 relative
+        <div class="w-full max-h-64 relative  overflow-hidden
             after:content-[''] after:w-full after:bottom-0
-            after:block after:absolute after:h-10 after:from-[#1a1a1b] after:bg-gradient-to-t" > 
+            after:block after:absolute after:h-10 after:from-primary-bg-light dark:after:from-primary-bg-dark after:bg-gradient-to-t" > 
             <h2 class="font-bold mt-2 mb-2">{{post.title}}</h2>
             <p class="text-sm pb-2">{{post.content}}</p>
         </div>
