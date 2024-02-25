@@ -39,7 +39,11 @@ module.exports = {
         },
         accent: {
           orange: '#d93a00',
-          blue: '#0079d3'
+          blue: '#0079d3',
+          blueBtn: {
+            hover: '#1483d6',
+            active: '#3d99dd'
+          }
         }
       }
     },
