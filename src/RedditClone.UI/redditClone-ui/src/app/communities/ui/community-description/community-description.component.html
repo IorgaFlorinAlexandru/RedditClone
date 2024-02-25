@@ -1,9 +1,8 @@
 <ng-container *ngIf="!isEditing,else edit">
-    <button class="w-full bg-transparent border border-transparent min-h-8 rounded
-    hover:!border-[#d7dadc] focus:border-[#d7dadc] focus:outline-none
-    text-xs text-white transition text-left
-    placeholder:text-white placeholder:text-xs p-2"
-    [ngClass]="{'!bg-[#272729] !border-black': description === ''}"
+    <button class="w-full min-h-8 p-2 border rounded text-sm text-left bg-transparent border-transparent
+    hover:!border-accent-blue focus:border-primary-text-light text-primary-text-light
+    dark:hover:!border-primary-text-dark dark:focus:border-primary-text-dark dark:text-primary-text-dark"
+    [ngClass]="{'!bg-tertiary-bg-light !border-white dark:!bg-tertiary-bg-dark dark:!border-black': description === ''}"
     (click)="editDescription()" >
     {{description == "" ? "Add description" : description}}
    
@@ -11,17 +10,22 @@
 </ng-container>
 
 <ng-template #edit>
-    <div class="w-full bg-[#272729] border border-[#d7dadc] min-h-16 rounded relative pb-5">
+    <div class="relative w-full min-h-16 pb-5 border rounded 
+        bg-tertiary-bg-light border-accent-blue
+        dark:bg-tertiary-bg-dark dark:border-primary-text-dark">
         <form [formGroup]="descriptionForm">
-            <textarea focus-input textareaAutosize rows="1" formControlName="valueControl" class="w-full hover:border-[#d7dadc] focus:border-[#d7dadc] focus:outline-none
-            text-xs text-white transition resize-none bg-transparent placeholder:text-[#818384] placeholder:text-sm pl-2 pr-2 pt-2 leading-5 overflow-y-hidden"
+            <textarea focus-input textareaAutosize rows="1" formControlName="valueControl" 
+                class="w-full pl-2 pr-2 pt-2 leading-5 overflow-y-hidden resize-none transition text-sm 
+                bg-transparent placeholder:text-secondary-text-dark placeholder:text-sm focus:outline-none
+                text-primary-text-light hover:border-accent-blue focus:border-accent-blue
+                dark:text-primary-text-dark dark:hover:border-primary-text-dark dark:focus:border-primary-text-dark"
             name="description"
             placeholder="Tell us about your community." maxlength="500"></textarea>
         </form>
         <div class="text-xs absolute right-2 bottom-2">
             <button class="text-red-500" (click)="cancel()">Cancel</button>
-            <button class="text-white ml-2" (click)="save()">Save</button>
+            <button class="ml-2 text-primary-text-light dark:text-primary-text-dark" (click)="save()">Save</button>
         </div>
-        <p class="text-[#818384] text-xs absolute left-2 bottom-2">{{500 - descriptionForm.get('valueControl')?.value.length}} characters remaining</p>
+        <p class="absolute left-2 bottom-2 text-xs text-secondary-text-dark">{{500 - descriptionForm.get('valueControl')?.value.length}} characters remaining</p>
     </div>
 </ng-template>

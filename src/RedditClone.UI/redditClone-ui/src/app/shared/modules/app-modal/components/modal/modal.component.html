@@ -1,6 +1,7 @@
-<div class="modal-background fixed w-screen h-screen z-40 top-0 overflow-y-hidden flex items-center">
+<div class="modal-background flex items-center fixed w-screen h-screen z-40 top-0 overflow-y-hidden">
 
-    <div (click)="modalClicked($event)" #modalElement class="shadow-md m-auto bg-[#1A1A1B] border border-[#343536] rounded box-border shadow-black">
+    <div (click)="modalClicked($event)" #modalElement class="shadow-md m-auto box-border border rounded shadow-black
+        bg-primary-bg-light border-secondary-light dark:bg-primary-bg-dark dark:border-secondary-dark">
         <ng-container #modalContainer></ng-container>
     </div>
 </div>

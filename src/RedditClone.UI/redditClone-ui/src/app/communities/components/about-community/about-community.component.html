@@ -1,12 +1,16 @@
 <ng-container *ngIf="status !== LOADING_STATUS else loading">
-    <div class="border-[#343536] bg-[#1a1a1b] font-bold 
-        text-[#818384] w-80 min-h-96 min-h-fit rounded-md border p-2 pt-4 mb-4">
-        <h1 class="text-sm pl-2 mb-4">About Community</h1>
-        <div class="pl-2 pr-2">
+    <div class="w-80 min-h-96 min-h-fit border rounded-md overflow-hidden
+        border-secondary-light bg-primary-bg-light text-primary-text-light
+        dark:border-secondary-dark dark:bg-primary-bg-dark dark:text-secondary-text-dark">
+        <div class="w-[310]px h-[50px] pt-4 px-2 font-bold bg-accent-blue text-primary-bg-light
+            dark:bg-primary-bg-dark dark:text-secondary-text-dark">
+            <h1 class="text-sm pl-2 mb-4">About Community</h1>
+        </div>
+        <div class="px-4 mt-2 mb-4">
             <community-description [description]="description"></community-description>
             <div class="mt-2">  
-                <app-icon icon="calendar-days" class="inline text-[#d7dadc]"></app-icon>
-                <span class="text-xs ml-1">Created {{createdDate | date}}</span>
+                <app-icon icon="calendar-days" class="inline text-primary-text-light dark:text-primary-text-dark"></app-icon>
+                <span class="ml-1 text-sm text-secondary-text-dark">Created {{createdDate | date}}</span>
             </div>
         </div>
     </div>

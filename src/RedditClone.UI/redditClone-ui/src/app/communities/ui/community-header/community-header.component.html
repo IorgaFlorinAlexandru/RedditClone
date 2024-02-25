@@ -1,17 +1,17 @@
 <div class="w-full h-20 bg-[#2d97e5]"></div>
-<div class="bg-[#1a1a1b] w-full h-20 text-white">
+<div class="w-full h-20 bg-primary-bg-light dark:bg-primary-bg-dark">
     <div class="flex max-w-4xl ml-auto mr-auto">
         <default-community-icon class="w-[72px] h-[72px] relative bottom-4 rounded-full border-4"></default-community-icon>
         <div class="mr-6 mt-2 ml-4 font-bold">
             <ng-container *ngIf="status !== LOADING_STATUS else loading">
-                <h1 class="text-3xl text-[#d7dadc]">{{title}}</h1>
-                <p class="text-[#818384] text-sm mt-1">r/{{name}}</p>
+                <h1 class="text-3xl text-primary-text-light dark:text-primary-text-dark">{{title}}</h1>
+                <p class="text-sm mt-1 text-secondary-text-dark">r/{{name}}</p>
             </ng-container>
         </div>
     </div>
 </div>
 
 <ng-template #loading>
-    <div class="animated-background w-96 h-6 mt-1 mb-4 rounded"></div>
-    <div class="animated-background w-24 h-4 rounded"></div>
+    <div class="w-96 h-6 mt-1 mb-4 rounded animated-background dark:animated-background-dark"></div>
+    <div class="w-24 h-4 rounded animated-background dark:animated-background-dark"></div>
 </ng-template>

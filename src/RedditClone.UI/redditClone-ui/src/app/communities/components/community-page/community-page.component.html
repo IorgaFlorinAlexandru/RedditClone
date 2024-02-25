@@ -4,7 +4,7 @@
         [title]="communityData.community?.title"
         [status]="communityData.status">
     </community-header>
-    <div class="flex justify-center p-4 pl-6 pr-6">
+    <div class="flex justify-center p-4 px-6">
         <post-list [communityIdentifier]="communityData.community?.name"
                    [getCommunityStatus]="communityData.status" 
         ></post-list>

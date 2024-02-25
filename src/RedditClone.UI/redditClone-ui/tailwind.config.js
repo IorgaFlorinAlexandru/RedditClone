@@ -42,7 +42,12 @@ module.exports = {
           blue: '#0079d3',
           blueBtn: {
             hover: '#1483d6',
-            active: '#3d99dd'
+            active: '#3d99dd',
+          },
+          secondaryBlueBnt: {
+            hover: '#e2e9ef',
+            active: '#c6dbec',
+            disabled: '#a8a9aa'
           }
         }
       }
