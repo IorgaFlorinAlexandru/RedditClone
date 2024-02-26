@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { communitiesReducer } from './state/communities/communities.reducer';
 import { CommunitiesEffects } from './state/communities/communities.effects';
 import { SnackbarModule } from './shared/modules/snackbar/snackbar.module';
+import { SettingsEffects } from './state/settings/settings.effects';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { SnackbarModule } from './shared/modules/snackbar/snackbar.module';
       User: userReducer,
       Communities: communitiesReducer
     }),
-    EffectsModule.forRoot([CommunitiesEffects,NavigationEffects]),
+    EffectsModule.forRoot([CommunitiesEffects,NavigationEffects,SettingsEffects]),
     StoreDevtoolsModule.instrument(),
     HttpClientModule,
     AppModalModule,

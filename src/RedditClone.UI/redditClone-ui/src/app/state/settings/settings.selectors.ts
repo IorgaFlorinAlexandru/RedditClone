@@ -3,4 +3,6 @@ import { SettingsState, settingsFeatureKey } from "./settings.reducer";
 
 export const selectSettingsState = createFeatureSelector<SettingsState>(settingsFeatureKey);
 
-export const selectPostLayout = createSelector(selectSettingsState, (s1: SettingsState) => s1.postLayout);
+export const selectPostLayout = createSelector(selectSettingsState, (state: SettingsState) => state.postLayout);
+
+export const selectAppTheme = createSelector(selectSettingsState, (state: SettingsState) => state.theme);
