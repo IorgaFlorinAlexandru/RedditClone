@@ -1,12 +1,12 @@
-<div class="flex items-start cursor-pointer p-2" 
-    [ngClass]="{'bg-[#152d40]': !notification.hasBeenRead}">
+<div class="flex items-start p-2 cursor-pointer" 
+    [ngClass]="{'bg-secondary-light dark:bg-[#152d40]': !notification.hasBeenRead}">
     <div class="pt-2">
         <default-community-icon class="h-8 w-8"></default-community-icon>
     </div>
-    <div class="ml-2 mr-2 flex-1 text-[#818384]">
+    <div class="ml-2 mr-2 flex-1 text-secondary-text-dark">
         <div class="w-full ">
-            <h4 class="inline-block align-middle text-[#d7dadc]">{{notification.postTitle}}</h4>
-            <span class="text-sm align-middle"> • {{notification.date}}</span>
+            <h4 class="inline-block align-middle text-primary-text-light dark:text-primary-text-dark">{{notification.postTitle}}</h4>
+            <span class="align-middle text-sm"> • {{notification.date}}</span>
             <button class="align-middle float-right">
                 <app-icon icon="ellipsis-horizontal"></app-icon>
             </button>
