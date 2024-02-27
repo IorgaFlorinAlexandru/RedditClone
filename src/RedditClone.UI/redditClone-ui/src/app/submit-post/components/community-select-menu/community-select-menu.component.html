@@ -1,15 +1,17 @@
 <div class="relative h-10">
     <ng-container *ngIf="!showSelectMenu else selectMenu">
-        <div (click)="openSelectMenu()" class="text-[#818384] bg-[#1a1a1b] 
-            rounded absolute z-10 border border-[#343536] 
-            w-80 text-sm font-semibold">
-        <div class="border-[#343536] w-full cursor-pointer flex items-center h-10  pr-2 pl-2">
+        <div (click)="openSelectMenu()" 
+            class="absolute w-80 z-10 border rounded text-secondary-text-dark text-sm font-semibold
+            bg-primary-bg-light border-secondary-light
+            dark:bg-primary-bg-dark dark:border-secondary-dark">
+        <div class="flex items-center w-full h-10 px-2 cursor-pointer
+            border-secondary-light dark:border-secondary-dark">
             <ng-container *ngIf="selectedCommunity, else chooseCommunity">
                 <div class="h-6 w-6">
                     <ng-container *ngTemplateOutlet="communityIcon"></ng-container>
                 </div>
                 <div class="inline-block align-middle ml-2">
-                    <h2 class="text-sm text-[#d7dadc]">r/{{selectedCommunity.name}}</h2>
+                    <h2 class="text-sm text-primary-text-light dark:text-primary-text-dark">r/{{selectedCommunity.name}}</h2>
                 </div>
             </ng-container>
         </div>
@@ -18,31 +20,35 @@
 </div>
 
 <ng-template #selectMenu>
-    <div hideOnClickAway (clickedOutsideEvent)="close()" class="text-[#818384] bg-[#1a1a1b] rounded absolute z-10
-        border border-[#343536] w-80 text-sm font-semibold">
-        <div class="border-[#343536] w-full cursor-pointer flex items-center h-10  pr-2 pl-2 border-b">
+    <div hideOnClickAway (clickedOutsideEvent)="close()" 
+        class="absolute w-80 z-10 border rounded text-sm font-semibold text-secondary-text-dark
+        bg-primary-bg-light border-secondary-light dark:bg-primary-bg-dark dark:border-secondary-dark">
+        <div class="flex items-center w-full h-10 px-2 border-b cursor-pointer
+            border-secondary-light dark:border-secondary-dark">
             <app-icon>search</app-icon>
             <form class="w-full" [formGroup]="searchForm">
-                <input focus-input formControlName="searchField" class="ml-2 w-full bg-transparent focus:outline-none text-white 
-                placeholder:text-[#818384]" placeholder="Search Communities"/>
+                <input focus-input formControlName="searchField" 
+                    class="w-full ml-2 bg-transparent focus:outline-none placeholder:text-secondary-text-dark
+                    text-primary-text-light dark:text-primary-text-dark" placeholder="Search Communities"/>
             </form>
         </div>
-        <div class="scrollbar dark:scrollbar-dark select-menu overflow-y-scroll p-2">
+        <div class="scrollbar dark:scrollbar-dark overflow-y-scroll p-2">
             <div class="w-full font-bold">
                 <h2 class="uppercase text-[10px] inline-block">Your Communities</h2>
-                <button (click)="openCreateCommunityModal()" class="inline float-right 
-                    text-[#d7dadc] hover:bg-[#272729] pl-2 pr-2">
+                <button (click)="openCreateCommunityModal()" 
+                    class="inline float-right px-2 text-accent-blue hover:bg-secondary-light
+                    dark:text-primary-text-dark dark:hover:bg-tertiary-bg-dark">
                     Create new
                 </button>
             </div>
             <ng-container *ngIf="userCommunitiesEntity.status !== LOADING_STATUS, else loading">
                 <ul class="mt-4">
                     <li *ngFor="let community of communities" (click)="selectCommunity(community)" class="cursor-pointer mt-2">
-                        <div class="w-8 h-8 inline-block">
+                        <div class="inline-block w-8 h-8">
                             <ng-container *ngTemplateOutlet="communityIcon"></ng-container>
                         </div>
                         <div class="inline-block align-middle ml-2">
-                            <h2 class="text-sm text-[#d7dadc]">r/{{community.name}}</h2>
+                            <h2 class="text-sm text-primary-text-light dark:text-primary-text-dark">r/{{community.name}}</h2>
                             <span class="text-[12px]">1 member</span>
                         </div>
                     </li>

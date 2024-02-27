@@ -1,19 +1,22 @@
-<form [formGroup]="submitFormGroup" class="text-[#d7dadc]">
+<form [formGroup]="submitFormGroup" class="text-primary-text-light dark:text-primary-text-dark">
     <div class="relative">
-        <input class="bg-transparent border border-[#343536] rounded w-full pl-4 pr-20 text-sm h-9
-             placeholder:text-[#474748]" 
+        <input class="w-full h-9 pl-4 pr-20 border rounded text-sm bg-transparent outline-accent-blue
+            border-secondary-light placeholder:text-[#cacbcc]
+            dark:border-secondary-dark dark:placeholder:text-[#474748]" 
             formControlName="title" placeholder="Title" />
-        <span class="text-[#818384] absolute right-0 mt-2.5 mr-4 font-bold text-xs">{{submitFormGroup.get('title')?.value.length+'/300'}}</span>
+        <span class="absolute mt-2.5 mr-4 right-0 text-xs font-bold text-secondary-text-dark">{{submitFormGroup.get('title')?.value.length+'/300'}}</span>
     </div>
     <div class="mt-2">
         <ng-container *ngIf="submitFormGroup.get('optionalText')">
-            <textarea class="bg-transparent border border-[#343536] rounded w-full 
-                pl-4 pt-2 text-sm min-h-40 placeholder:text-[#474748]" placeholder="Text (optional)"
+            <textarea class="w-full min-h-40 pl-4 pt-2 border rounded text-sm bg-transparent outline-accent-blue
+                border-secondary-light placeholder:text-[#cacbcc]
+                dark:border-secondary-dark dark:placeholder:text-[#474748]" placeholder="Text (optional)"
                 formControlName="optionalText"></textarea>
         </ng-container>
         <ng-container *ngIf="submitFormGroup.get('link')">
-            <input class="bg-transparent border border-[#343536] rounded w-full pl-4 text-sm h-12
-                placeholder:text-[#474748]" 
+            <input class="w-full h-12 pl-4 border rounded text-sm bg-transparent outline-accent-blue
+                border-secondary-light placeholder:text-[#cacbcc]
+                dark:border-secondary-dark dark:placeholder:text-[#474748]" 
             formControlName="link" placeholder="Url" />
         </ng-container>
     </div>

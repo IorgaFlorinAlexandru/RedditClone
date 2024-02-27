@@ -1,18 +1,18 @@
-<div class="bg-[#1a1a1b] p-4 pb-2 pt-2 font-semibold
-text-[#d7dadc] w-80  min-h-fit rounded overflow-hidden relative">
+<div class="w-80 min-h-fit relative px-4 py-2 rounded overflow-hidden font-semibold
+bg-primary-bg-light text-primary-text-light dark:bg-primary-bg-dark dark:text-primary-text-dark">
     <div>
         <rules-icon></rules-icon>
         <h3 class="inline align-middle ml-2">Posting to Reddit</h3>
     </div>
-    <div class="h-[1px] mt-2 mb-2 w-full bg-[#343536]"></div>
+    <div class="w-full h-[1px] mt-2 mb-2 bg-secondary-light dark:bg-secondary-dark"></div>
     <ul class="list-decimal list-inside">
         <div *ngFor="let rule of rules">
             <li class="text-sm">{{rule}}</li>
-            <div class="h-[1px] mt-2 mb-2 w-full bg-[#343536]"></div>
+            <div class="h-[1px] mt-2 mb-2 w-full bg-secondary-light dark:bg-secondary-dark]"></div>
         </div>
     </ul>
 </div>
-<p class="text-[#818384] w-80 text-xs p-2">
-    Please be mindful of reddit's <a class="text-[#4fbcff] cursor-pointer">content policy</a> and practice good <a class="text-[#4fbcff] cursor-pointer">reddiquette</a>.
+<p class="w-80 p-2 text-xs text-secondary-dark dark:text-secondary-text-dark">
+    Please be mindful of reddit's <a class="cursor-pointer text-accent-blue dark:text-[#4fbcff]">content policy</a> and practice good <a class="cursor-pointer text-accent-blue dark:text-[#4fbcff]">reddiquette</a>.
 </p>
 

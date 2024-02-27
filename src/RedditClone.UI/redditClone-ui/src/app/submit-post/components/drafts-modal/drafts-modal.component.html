@@ -1,22 +1,31 @@
-<div class="text-[#d7dadc] h-[400px] w-[680px] flex flex-col">
-    <section class="p-3 border-b border-[#343536]">
+<div class="flex flex-col h-[400px] w-[680px]
+    text-primary-text-light dark:text-primary-text-dark">
+    <section class="p-3 border-b border-secondary-light dark:border-secondary-dark">
         <h2 class="inline-block font-semibold">Drafts</h2>
-        <button (click)="close()" class="float-right align-middle hover:bg-[#303030] active:bg-[#343536]"><app-icon>x-mark</app-icon></button>
+        <button (click)="close()" class="float-right align-middle 
+            hover:bg-primary-highlight-light active:bg-secondary-light
+            dark:hover:bg-primary-highlight-dark dark:active:bg-secondary-dark">
+            <app-icon>x-mark</app-icon>
+        </button>
     </section>
     <section class="flex-1">
-        <div class="flex items-center pl-2 pr-2 cursor-pointer border-b border-[#343536] text-[#818384]
-            hover:bg-[#272729]">
+        <div class="flex items-center px-2 cursor-pointer border-b text-secondary-text-dark
+            border-secondary-light hover:bg-secondary-light
+            dark:border-secondary-dark dark:hover:bg-tertiary-bg-dark">
             <app-icon>newspaper</app-icon>
-            <div class="ml-2 flex-1">
-                <h2 class="font-bold text-[#d7dadc]">aa</h2>
+            <div class="flex-1 ml-2">
+                <h2 class="font-bold text-primary-text-light dark:text-primary-text-dark">aa</h2>
                 <span class="text-xs">Draft saved 19 minutes ago</span>
             </div>
-            <button class="hover:text-[#d7dadc]">
+            <button class="hover:text-red-500">
                 <app-icon>trash</app-icon>
             </button>
         </div>
     </section>
-    <section class="border-t border-[#343536] p-2 pr-4">
-        <button class="float-right rounded-md border p-1 pl-2 pr-2 font-bold hover:bg-[#272729]" (click)="close()">Close</button>
+    <section class="p-2 pr-4 border-t border-secondary-light dark:border-secondary-dark">
+        <button class="float-right border rounded-md p-1 px-2 font-bold
+            text-accent-blue border-accent-blue hover:bg-accent-secondaryBlueBnt-hover
+            dark:text-primary-text-dark dark:hover:bg-tertiary-bg-dark dark:border-primary-text-dark" 
+            (click)="close()">Close</button>
     </section>
 </div>
