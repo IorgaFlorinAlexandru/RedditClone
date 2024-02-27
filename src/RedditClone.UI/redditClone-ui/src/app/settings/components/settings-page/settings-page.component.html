@@ -1,8 +1,9 @@
-<div class="p-2 bg-[#1a1a1b] w-full min-h-full">
-    <div class="w-[65%] p-4 ml-auto mr-auto">
-        <h1 class="text-[#d7dadc] font-semibold text-lg">User settings</h1>
-        <div class="w-full text-[#818384] p-2 font-semibold pl-4 pr-4 border-b-[0.5px] border-[#343536] mt-4 mb-4">
-            <a class="p-2" routerLinkActive="text-[#d7dadc] border-b-2 border-[#d7dadc]" [routerLink]="route.route" *ngFor="let route of settingsRoutes">
+<div class="w-full h-full p-2 bg-primary-bg-light dark:bg-primary-bg-dark">
+    <div class="w-[65%] p-4 mx-auto">
+        <h1 class="text-lg font-semibold text-primary-text-light dark:text-primary-text-dark">User settings</h1>
+        <div class="w-full my-4 p-2 px-4 border-b font-semibold text-secondary-text-dark
+                border-secondary-light dark:border-secondary-dark">
+            <a class="p-2" routerLinkActive="border-b-2 text-accent-blue border-accent-blue dark:text-primary-text-dark dark:border-primary-text-dark" [routerLink]="route.route" *ngFor="let route of settingsRoutes">
                 {{route.name}}
             </a>
         </div>
