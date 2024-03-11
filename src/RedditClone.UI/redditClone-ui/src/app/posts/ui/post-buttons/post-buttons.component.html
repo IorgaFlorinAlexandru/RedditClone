@@ -13,23 +13,11 @@
             </button>
             <dropdown-menu-component #shareMenu>
                 <ul class="text-secondary-text-dark">
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                    <li *ngFor="let btn of shareMenuBtns" (click)="btn.fn()" class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
                         hover:bg-accent-blue hover:text-primary-bg-light
                         dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                        <app-icon icon="link" class="w-5 h-5"></app-icon>
-                        <span class="ml-1">Copy Link</span>
-                    </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer 
-                        hover:bg-accent-blue hover:text-primary-bg-light
-                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                        <app-icon icon="hashtag" class="h-5 w-5"></app-icon>
-                        <span class="ml-1">Crosspost</span>
-                    </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer 
-                        hover:bg-accent-blue hover:text-primary-bg-light
-                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                        <app-icon icon="code-bracket-square" class="w-5 h-5"></app-icon>
-                        <span class="ml-1">Embed</span>
+                        <app-icon [icon]="btn.icon" class="w-5 h-5"></app-icon>
+                        <span class="ml-1">{{btn.name}}</span>
                     </li>
                 </ul>
             </dropdown-menu-component>
@@ -47,49 +35,11 @@
         </button>
         <dropdown-menu-component #moreMenu>
             <ul class="text-secondary-text-dark">
-                <ng-container *ngIf="layout === COMPACT_LAYOUT">
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
+                <li *ngFor="let btn of moreMenuBtns" (click)="btn.fn()" class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
                         hover:bg-accent-blue hover:text-primary-bg-light
                         dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                        <app-icon icon="bookmark" class="w-5 h-5"></app-icon>
-                        <span class="ml-1">Save</span>
-                    </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
-                        hover:bg-accent-blue hover:text-primary-bg-light
-                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                        <app-icon icon="link" class="w-5 h-5"></app-icon>
-                        <span class="ml-1">Copy Link</span>
-                    </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
-                        hover:bg-accent-blue hover:text-primary-bg-light
-                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                        <app-icon icon="hashtag" class="h-5 w-5"></app-icon>
-                        <span class="ml-1">Crosspost</span>
-                    </li>
-                    <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
-                        hover:bg-accent-blue hover:text-primary-bg-light
-                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                        <app-icon icon="code-bracket-square" class="w-5 h-5"></app-icon>
-                        <span class="ml-1">Embed</span>
-                    </li>
-                </ng-container>
-                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
-                        hover:bg-accent-blue hover:text-primary-bg-light
-                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                    <app-icon icon="speaker-no-volume" class="w-5 h-5"></app-icon>
-                    <span class="ml-1">Mute r/{{post.community}}</span>
-                </li>
-                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
-                        hover:bg-accent-blue hover:text-primary-bg-light
-                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                    <app-icon icon="eye-slash" class="w-5 h-5"></app-icon>
-                    <span class="ml-1">Hide</span>
-                </li>
-                <li class="flex p-2 pl-4 pr-4 font-semibold text-sm cursor-pointer
-                        hover:bg-accent-blue hover:text-primary-bg-light
-                        dark:hover:bg-primary-text-dark dark:hover:text-primary-bg-dark" dropdown-menu-item>
-                    <app-icon icon="flag" class="w-5 h-5"></app-icon>
-                    <span class="ml-1">Report</span>
+                    <app-icon [icon]="btn.icon" class="w-5 h-5"></app-icon>
+                    <span class="ml-1">{{btn.name}}</span>
                 </li>
             </ul>
         </dropdown-menu-component>
