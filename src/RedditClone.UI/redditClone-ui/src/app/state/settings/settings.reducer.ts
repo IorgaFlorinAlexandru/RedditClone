@@ -2,6 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { PostLayout } from "src/app/posts/common/enums/post-layout";
 import * as SettingsActions from './settings.actions';
 import { getThemeFromLocalStorage } from "src/app/shared/utils/app-theme";
+import { getLayoutFromLocalStorage } from "src/app/shared/utils/post-layout";
 
 
 export interface SettingsState {
@@ -12,18 +13,18 @@ export interface SettingsState {
 
 const initialState: SettingsState = {
     theme: getThemeFromLocalStorage(),
-    postLayout: PostLayout.Card,
+    postLayout: getLayoutFromLocalStorage(),
     userSettings: undefined
 }
 
 export const settingsFeatureKey = 'Settings';
 
 export const settingsReducer = createReducer(initialState,
-    on(SettingsActions.changePostLayout,(state,{ postLayout })=>({
+    on(SettingsActions.changePostLayout, (state, { postLayout }) => ({
         ...state,
         postLayout: postLayout
     })),
-    on(SettingsActions.changeAppTheme,(state,{ theme })=>({
+    on(SettingsActions.changeAppTheme, (state, { theme }) => ({
         ...state,
         theme
     })),);
