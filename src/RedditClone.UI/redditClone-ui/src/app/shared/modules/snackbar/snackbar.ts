@@ -1,6 +1,6 @@
 import { Component, Inject, InjectionToken, OnDestroy, OnInit } from "@angular/core";
 import { SnackbarService } from "./snackbar.service";
-import { animate, style, transition, trigger } from "@angular/animations";
+import { AnimationEvent, animate, state, style, transition, trigger } from "@angular/animations";
 
 export enum MessageType {
     SUCCESS = 'SUCCESS',
@@ -29,13 +29,13 @@ export const COLORS_MAP = new Map<MessageType,string>([
 
 @Component({
     template: `
-        <div @flyInOut class="w-[496px] h-[52px] overflow-hidden relative mb-5 ml-auto mr-auto group
+        <div [@flyInOut]="'in'" (@flyInOut.done)="onLeaveAnimationEnd($event)" *ngIf="isShown" class="w-[496px] h-[52px] overflow-hidden relative mb-5 ml-auto mr-auto group
          rounded-md text-primary-text-light dark:text-primary-text-dark">
             <div class="flex items-center absolute h-full w-[526px] 
                 left-[-30px] ease-in duration-200 group-hover:left-0">
                 <button class="h-full pr-2 pl-2 text-white dark:text-black" 
                     [style.background-color]="borderColor" 
-                    (click)="close()">
+                    (click)="closeSnackbar()">
                     <app-icon icon="x-mark"></app-icon>
                 </button>
                 <div class="flex items-center h-full w-full border border-l-0 border-r-0 z-10
@@ -57,6 +57,7 @@ export const COLORS_MAP = new Map<MessageType,string>([
     selector: 'snackbar',
     animations: [
         trigger('flyInOut', [
+            state('in', style({ transform: 'translateX(0)', opacity: 1 })),
             transition(':enter', [
                 style({ 
                     transform: 'translateX(-30%)',
@@ -66,10 +67,13 @@ export const COLORS_MAP = new Map<MessageType,string>([
             ]),
             transition(':leave', [
                 style({ 
-                    transform: 'translateX(30%)',
-                    opacity: 0 
+                    transform: 'translateX(0)',
+                    opacity: 1 
                 }),
-                animate(200)
+                animate(200, style({ 
+                    opacity: 0,
+                    transform: 'translateX(30%)' 
+                }))
             ]),
         ])
     ]
@@ -86,6 +90,7 @@ export class Snackbar implements OnInit, OnDestroy {
     snackbarIcon: string = ICON_URL + 'info';
     private timeout: ReturnType<typeof setTimeout> | undefined = undefined;
     private TIMEOUT_MS = 5000;
+    public isShown = true;
 
     ngOnInit(): void {
         this.startTimeout();
@@ -97,13 +102,19 @@ export class Snackbar implements OnInit, OnDestroy {
         clearTimeout(this.timeout);
     }
 
-    public close(): void {
-        this.snackbarService.closeSnackbar(this.id);
+    public closeSnackbar(): void {
+        this.isShown = false;
+    }
+
+    public onLeaveAnimationEnd(event: AnimationEvent): void {
+        if(event.toState !== 'void') return;
+
+        this.snackbarService.removeReference(this.id);
     }
 
     private startTimeout(): void {
         this.timeout = setTimeout(() => {
-            this.close();
+            this.closeSnackbar();
         }, this.TIMEOUT_MS);
     }
 

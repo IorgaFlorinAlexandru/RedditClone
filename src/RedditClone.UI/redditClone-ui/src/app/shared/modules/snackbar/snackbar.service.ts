@@ -46,7 +46,7 @@ export class SnackbarService {
     return this.snackbarContainer;
   }
 
-  public closeSnackbar(id: string): void {
+  public removeReference(id: string): void {
     const snackbarRef = this.snackbarMap.get(id);
     snackbarRef?.destroy();
     this.snackbarMap.delete(id);
