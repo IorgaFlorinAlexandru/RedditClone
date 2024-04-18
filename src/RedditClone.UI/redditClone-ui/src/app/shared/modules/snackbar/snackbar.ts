@@ -29,15 +29,19 @@ export const COLORS_MAP = new Map<MessageType,string>([
 
 @Component({
     template: `
-        <div @flyInOut class="mb-5 overflow-hidden relative text-[#cbcdcf]
-         rounded-md w-[496px] h-[52px] ml-auto mr-auto group">
+        <div @flyInOut class="w-[496px] h-[52px] overflow-hidden relative mb-5 ml-auto mr-auto group
+         rounded-md text-primary-text-light dark:text-primary-text-dark">
             <div class="flex items-center absolute h-full w-[526px] 
                 left-[-30px] ease-in duration-200 group-hover:left-0">
-                <button class="text-black h-full pr-2 pl-2" [style.background-color]="borderColor" (click)="close()">
+                <button class="h-full pr-2 pl-2 text-white dark:text-black" 
+                    [style.background-color]="borderColor" 
+                    (click)="close()">
                     <app-icon icon="x-mark"></app-icon>
                 </button>
-                <div class="bg-[#1a1a1b] border border-[#818384] border-l-0 border-r-0 flex items-center h-full w-full">
-                    <svg class="h-6 w-6 ml-2" viewBox="0 0 24 25"
+                <div class="flex items-center h-full w-full border border-l-0 border-r-0 z-10
+                    border-secondary-text-dark bg-primary-bg-light dark:bg-primary-bg-dark">
+                    <svg class="h-6 w-6 ml-2" 
+                        viewBox="0 0 24 25"
                         xmlns="http://www.w3.org/2000/svg">
                         <use [attr.xlink:href]='snackbarIcon'/>
                     </svg>  
@@ -45,7 +49,8 @@ export const COLORS_MAP = new Map<MessageType,string>([
                 </div>
             </div>
             <!--This fixes the border right issue-->
-            <div class="absolute w-24 h-full right-0 bg-[#1a1a1b] rounded-r-md border-l-0 border border-[#818384]">
+            <div class="absolute w-24 h-full right-0 rounded-r-md border border-l-0 
+                border-secondary-text-dark bg-primary-bg-light dark:bg-primary-bg-dark">
             </div>
         </div>
     `,
